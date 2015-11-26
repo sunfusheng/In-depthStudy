@@ -1,0 +1,119 @@
+apply plugin: 'com.android.application'
+apply plugin: 'android-apt'
+
+Properties prop = new Properties()
+prop.load(new FileInputStream(file("../signing.properties")))
+
+android {
+
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.sun.study"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    lintOptions {
+        abortOnError false
+        disable 'InvalidPackage'
+    }
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+    }
+
+    task nativeLibsToJar(type: Zip, description: "create a jar archive of the native libs") {
+        destinationDir file("$projectDir/libs")
+        baseName "Native_Libs2"
+        extension "jar"
+        from fileTree(dir: "libs", include: "**/*.so")
+        into "lib"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file(prop['KEYSTORE_FILEPATH'])
+            storePassword prop['STORE_PASSWORD']
+            keyAlias prop['KEY_ALIAS']
+            keyPassword prop['KEY_PASSWORD']
+        }
+    }
+
+    buildTypes {
+
+        release {
+            //压缩资源
+            shrinkResources true
+            //zip优化
+            zipAlignEnabled true
+            //apk签名
+            signingConfig signingConfigs.release
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all {
+                variant -> generateAppName(variant)
+            }
+        }
+
+        debug{
+            //压缩资源
+            shrinkResources false
+            //zip优化
+            zipAlignEnabled false
+            //apk签名
+            signingConfig signingConfigs.release
+
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all {
+                variant -> generateAppName(variant)
+            }
+        }
+    }
+}
+
+//生成自定义App名称
+def generateAppName(variant) {
+    variant.outputs.each {
+        output -> output.outputFile = new File (output.outputFile.parent,
+                "In-depthStudy_${variant.buildType.name}_${variant.versionName}.apk".toLowerCase())
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+
+    //ButterKnife
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    //Logger
+    compile 'com.orhanobut:logger:1.4'
+
+    //OkHttp
+    compile 'com.squareup.okhttp:okhttp:2.6.0'
+
+    //multidex
+    compile 'com.android.support:multidex:1.0.0'
+
+    //SharedPreferences
+    apt 'de.devland.esperandro:esperandro:2.2.0'
+    compile 'de.devland.esperandro:esperandro-api:2.2.0'
+
+    //SystemBarTint
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+
+    //Material Dialog
+    compile 'com.afollestad:material-dialogs:0.7.6.0'
+
+}

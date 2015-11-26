@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_activity_delegate"
+        style="@style/TvOrangeStyle"
+        android:layout_marginTop="16dp"
+        android:text="activity delegate"/>
+
+    <TextView
+        android:id="@+id/tv_fragment_delegate"
+        style="@style/TvOrangeStyle"
+        android:text="fragment delegate"/>
+
+    <TextView
+        android:id="@+id/tv_activity_data_binder"
+        style="@style/TvOrangeStyle"
+        android:text="activity data binder"/>
+
+    <TextView
+        android:id="@+id/tv_fragment_data_binder"
+        style="@style/TvOrangeStyle"
+        android:text="fragment data binder"/>
+
+    <TextView
+        android:id="@+id/tv_activity_toolbar_delegate"
+        style="@style/TvOrangeStyle"
+        android:text="activity toolbar delegate"/>
+
+</LinearLayout>

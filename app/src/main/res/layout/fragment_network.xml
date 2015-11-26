@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tv_okhttp"
+        style="@style/TvOrangeStyle"
+        android:layout_marginTop="16dp"
+        android:text="OkHttp"/>
+
+    <TextView
+        android:id="@+id/tv_xutils3"
+        style="@style/TvOrangeStyle"
+        android:text="xUtils3"/>
+
+    <TextView
+        android:id="@+id/tv_volley"
+        style="@style/TvOrangeStyle"
+        android:text="Volley"/>
+
+    <TextView
+        android:id="@+id/tv_retrofit"
+        style="@style/TvOrangeStyle"
+        android:text="Retrofit"/>
+
+    <TextView
+        android:id="@+id/tv_socket"
+        style="@style/TvOrangeStyle"
+        android:text="socket"/>
+
+</LinearLayout>

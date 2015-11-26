@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include layout="@layout/app_toolbar"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_orange_bg"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:text="获取北京天气 getCityWeather()"
+        android:onClick="getCityWeather"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_orange_bg"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:text="获取北京天气 getCityWeatherSimple()"
+        android:onClick="getCityWeatherSimple"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_orange_bg"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:text="获取北京天气 getCityWeatherDataSimple()"
+        android:onClick="getCityWeatherDataSimple"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/selector_orange_bg"
+        android:gravity="center"
+        android:padding="8dp"
+        android:layout_margin="8dp"
+        android:textColor="@color/white"
+        android:text="北京可查询天气区域列表"
+        android:onClick="getWeatherCityDistrictList"/>
+
+</LinearLayout>

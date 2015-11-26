@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="75dp"
+    android:layout_height="28dp"
+    android:layout_marginRight="25dp" >
+
+    <RelativeLayout
+        android:id="@+id/i_rl_kitchen_detail_item_minus_back"
+        android:layout_width="75dp"
+        android:layout_height="fill_parent"
+        android:background="@drawable/hj_kitchen_detail_minus_back" >
+
+        <ImageView
+            android:id="@+id/i_iv_kitchen_detail_little_table_item_minus"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerVertical="true"
+            android:padding="6dp"
+            android:src="@drawable/hj_kitchen_detail_minus" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/i_rl_kitchen_detail_item_plus_back"
+        android:layout_width="28dp"
+        android:layout_height="fill_parent"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/hj_kitchen_detail_add_back" >
+
+        <ImageView
+            android:id="@+id/i_iv_kitchen_detail_little_table_item_plus"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_centerInParent="true"
+            android:padding="6dp"
+            android:src="@drawable/hj_kitchen_detail_add" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/i_tv_kitchen_detail_item_count"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="2"
+        android:textColor="@color/c_kitchen_detail_tag_back_sel"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/i_tv_kitchen_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/s_kitchen_detail_sell_out"
+        android:textColor="@color/c_kitchen_detail_send_font"
+        android:textSize="15sp"
+        android:visibility="gone" />
+
+</RelativeLayout>

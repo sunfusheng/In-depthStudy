@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/left_menu_animator"
+            android:checked="false"
+            android:title="@string/left_menu_animator"/>
+
+        <item
+            android:id="@+id/left_menu_custom_view"
+            android:checked="false"
+            android:title="@string/left_menu_custom_view"/>
+
+        <item
+            android:id="@+id/left_menu_refresh"
+            android:checked="false"
+            android:title="@string/left_menu_refresh"/>
+
+        <item
+            android:id="@+id/left_menu_network"
+            android:checked="false"
+            android:title="@string/left_menu_network"/>
+
+        <item
+            android:id="@+id/left_menu_image"
+            android:checked="false"
+            android:title="@string/left_menu_image"/>
+
+        <item
+            android:id="@+id/left_menu_map"
+            android:checked="false"
+            android:title="@string/left_menu_map"/>
+
+        <item
+            android:id="@+id/left_menu_thread"
+            android:checked="false"
+            android:title="@string/left_menu_thread"/>
+    </group>
+
+</menu>

@@ -1,0 +1,123 @@
+apply plugin: 'com.android.application'
+
+def releaseTime() {
+    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+    defaultConfig {
+        applicationId "com.gudong.gankio"
+        minSdkVersion 14
+        targetSdkVersion 23
+        versionCode 2
+        versionName "1.1.0"
+    }
+
+    signingConfigs {
+        //指定名叫release的一个签名对象 会在下面的脚本(73行开始)中，动态根据配置文件实例化
+        release
+    }
+
+    buildTypes {
+        release {
+            //设置是否混淆
+            minifyEnabled true
+            //设置压缩对齐
+            zipAlignEnabled true
+            //移除无用的资源文件
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //如果签名配置不为空 则设置签名信息
+            if (signingConfigs.release != null) {
+                signingConfig signingConfigs.release
+            }
+            //指定签名包得输入文件名称
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    def outputFile = output.outputFile
+                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+                        // 输出apk名称为GankDaily_v1.0_2015-01-15_wandoujia.apk
+                        def fileName = "GankDaily_v${defaultConfig.versionName}_${releaseTime()}_${variant.productFlavors[0].name}.apk"
+                        output.outputFile = new File(outputFile.parent, fileName)
+                    }
+                }
+            }
+        }
+
+        debug{
+            //如果签名配置不为空 则设置签名信息
+            if (signingConfigs.release != null) {
+                println 'use release build signing'
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    productFlavors {
+        beta{
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE:"beta"]
+        }
+        xiaomi {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE:"xiaomi"]
+        }
+        m360 {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE:"m360"]
+        }
+        wandoujia {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "wandoujia"]
+        }
+        fir {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "fir"]
+        }
+        umeng {
+            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "umeng"]
+        }
+    }
+}
+
+//set release sign info synchronously
+def Properties props = new Properties()
+def propFile = file('../signing.properties')
+if (propFile.canRead()) {
+    props.load(new FileInputStream(propFile))
+    if (props != null && props.containsKey('KEYSTORE_FILEPATH') && props.containsKey('STORE_PASSWORD') &&
+            props.containsKey('KEY_ALIAS') && props.containsKey('KEY_PASSWORD')) {
+        println 'release build signing'
+        android.signingConfigs.release.storeFile = file(props['KEYSTORE_FILEPATH'])
+        android.signingConfigs.release.storePassword = props['STORE_PASSWORD']
+        android.signingConfigs.release.keyAlias = props['KEY_ALIAS']
+        android.signingConfigs.release.keyPassword = props['KEY_PASSWORD']
+    } else {
+        println 'release build not found signing properties'
+        android.buildTypes.release.signingConfig = null
+    }
+} else {
+    println 'release build not found signing file'
+    android.buildTypes.release.signingConfig = null
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:recyclerview-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+
+    compile 'com.jakewharton:butterknife:7.0.1'
+
+    compile 'io.reactivex:rxandroid:1.0.0'
+
+    compile 'com.orhanobut:logger:1.4'
+
+    compile 'com.squareup.okhttp:okhttp:2.5.0'
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    compile 'com.squareup.retrofit:retrofit:1.9.0'
+
+    compile 'com.commit451:PhotoView:1.2.4'
+
+    compile 'com.github.bumptech.glide:glide:3.6.1'
+
+    compile 'com.umeng.analytics:analytics:latest.integration'
+}

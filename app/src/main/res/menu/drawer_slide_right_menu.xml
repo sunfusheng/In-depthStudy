@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/right_menu_share"
+            android:checked="false"
+            android:title="@string/right_menu_share"/>
+        <item
+            android:id="@+id/right_menu_pay"
+            android:checked="false"
+            android:title="@string/right_menu_pay"/>
+        <item
+            android:id="@+id/right_menu_push"
+            android:checked="false"
+            android:title="@string/right_menu_push"/>
+        <item
+            android:id="@+id/right_menu_RxJava"
+            android:checked="false"
+            android:title="@string/right_menu_RxJava"/>
+        <item
+            android:id="@+id/right_menu_binder"
+            android:checked="false"
+            android:title="@string/right_menu_binder"/>
+    </group>
+
+</menu>

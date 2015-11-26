@@ -1,0 +1,47 @@
+<resources>
+
+    <string name="app_name">In-depthStudy</string>
+    <string name="app_copyright">Copyright ©2015 版权所有</string>
+
+    <string name="ok">确认</string>
+    <string name="cancel">取消</string>
+    <string name="about">关于</string>
+    <string name="exit">退出</string>
+    <string name="about_author">关于作者</string>
+    <string name="about_app">关于软件</string>
+
+    <!-- 左侧菜单 -->
+    <string name="left_menu_animator">动画篇</string>
+    <string name="left_menu_custom_view">自定义View</string>
+    <string name="left_menu_refresh">下拉刷新</string>
+    <string name="left_menu_network">网络操作</string>
+    <string name="left_menu_image">图片处理</string>
+    <string name="left_menu_map">百度高德地图</string>
+    <string name="left_menu_thread">多线程</string>
+
+    <!-- 右侧菜单 -->
+    <string name="right_menu_share">分享</string>
+    <string name="right_menu_pay">支付</string>
+    <string name="right_menu_push">推送</string>
+    <string name="right_menu_RxJava">RxJava</string>
+    <string name="right_menu_binder">Binder</string>
+
+    <string name="toast_exit_app">再按一次退出应用</string>
+
+    <string name="msg_now">刚刚</string>
+    <string name="msg_today">今天</string>
+    <string name="msg_yesterday">昨天</string>
+    <string name="msg_few_minutes_ago">分钟前</string>
+    <string name="msg_male">男</string>
+    <string name="msg_female">女</string>
+    <string name="msg_gender_unknown">未知</string>
+
+    <string name="update_app">In-depthStudy更新</string>
+    <string name="update_rightnow">立即更新</string>
+    <string name="update_no">暂不</string>
+    <string name="new_version_yet">已是最新版本</string>
+
+    <string name="s_kitchen_detail_sell_out">今日售罄</string>
+    <string name="s_kitchen_detail_tomorrow_only">可订明日</string>
+
+</resources>
