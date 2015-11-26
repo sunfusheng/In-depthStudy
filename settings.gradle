@@ -1,1 +1,1 @@
-include ':app', ':GitHub-GankDaily', ':Framework-MVP1'
+include ':app', ':GitHub-GankDaily', ':Framework-MVP1', ':Framework-MVP2'
