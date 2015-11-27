@@ -116,4 +116,8 @@ dependencies {
     //Material Dialog
     compile 'com.afollestad:material-dialogs:0.7.6.0'
 
+    //RxJava RxAndroid
+    compile 'io.reactivex:rxjava:1.0.16'
+    compile 'io.reactivex:rxandroid:1.0.1'
+
 }
