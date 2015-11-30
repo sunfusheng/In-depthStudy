@@ -24,6 +24,7 @@ public class RxJavaFragment extends BaseFragment implements View.OnClickListener
     TextView tvTips;
 
     private static final String TAG = RxJavaFragment.class.getSimpleName();
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

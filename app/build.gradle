@@ -120,4 +120,7 @@ dependencies {
     compile 'io.reactivex:rxjava:1.0.16'
     compile 'io.reactivex:rxandroid:1.0.1'
 
+    //Retrofit
+    compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
+
 }
