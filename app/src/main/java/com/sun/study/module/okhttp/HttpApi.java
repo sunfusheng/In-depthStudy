@@ -23,7 +23,7 @@ public class HttpApi implements UrlManager {
     // 天气查询－根据城市名称
     public CityWeatherEntity getCityWeather(String cityname) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         mHttp = mHttp.url(URL_CITY_WEATHER)
-                .addHeader("apikey", ConstantParams.APIKEY_WEATHERSERVICE)
+                .addHeader("apikey", ConstantParams.APIKEY_APISTORE)
                 .addParams("cityname", cityname);
         return mHttp.get(CityWeatherEntity.class);
     }
@@ -31,7 +31,7 @@ public class HttpApi implements UrlManager {
     // 天气查询－根据城市名称
     public CityWeatherDataEntity getCityWeatherData(String cityname) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         mHttp = mHttp.url(URL_CITY_WEATHER)
-                .addHeader("apikey", ConstantParams.APIKEY_WEATHERSERVICE)
+                .addHeader("apikey", ConstantParams.APIKEY_APISTORE)
                 .addParams("cityname", cityname);
         return mHttp.get("retData", CityWeatherDataEntity.class);
     }
@@ -39,7 +39,7 @@ public class HttpApi implements UrlManager {
     // 天气查询－查询该城市下可用区域列表
     public ArrayList<CityDistrictEntity> getWeatherCityDistrictList(String cityname) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         mHttp = mHttp.url(URL_WEATHER_CITY_LIST)
-                .addHeader("apikey", ConstantParams.APIKEY_WEATHERSERVICE)
+                .addHeader("apikey", ConstantParams.APIKEY_APISTORE)
                 .addParams("cityname", cityname);
         return mHttp.getList("retData", CityDistrictEntity.class);
     }

@@ -11,10 +11,14 @@ import com.sun.study.framework.proxy.MessageProxy;
 import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
+import com.sun.study.model.PhoneEntity;
 import com.sun.study.module.okhttp.HttpApi;
 import com.sun.study.module.okhttp.UrlManager;
+import com.sun.study.module.retrofit.RetrofitFactory;
 
 import java.util.ArrayList;
+
+import retrofit.Call;
 
 /**
  * Created by sunfusheng on 15/11/5.
@@ -32,7 +36,7 @@ public class SingleControl extends BaseControl {
         try {
             OkHttpClient client = new OkHttpClient();
             final Request request = new Request.Builder().url(UrlManager.URL_CITY_WEATHER + "?cityname=" +cityname)
-                    .addHeader("apikey", ConstantParams.APIKEY_WEATHERSERVICE)
+                    .addHeader("apikey", ConstantParams.APIKEY_APISTORE)
                     .build();
             Response response = client.newCall(request).execute();
             CityWeatherEntity entity = null;
@@ -74,6 +78,18 @@ public class SingleControl extends BaseControl {
             ArrayList<CityDistrictEntity> list = api.getWeatherCityDistrictList(cityname);
             mModel.put(1, list);
             sendMessage("getWeatherCityDistrictListCallBack");
+        } catch (Exception e) {
+            dealWithException(e);
+        }
+    }
+
+    @AsyncAtomMethod(withCancelableDialog = true)
+    public void getPhoneNumPlace(String phone) {
+        try {
+            Call<PhoneEntity> entity = RetrofitFactory.get().getPhoneNumPlace(phone, ConstantParams.APIKEY_APISTORE);
+            PhoneEntity phoneEntity = entity.execute().body();
+            mModel.put(1, phoneEntity);
+            sendMessage("getPhoneNumPlaceCallBack");
         } catch (Exception e) {
             dealWithException(e);
         }

@@ -13,12 +13,18 @@
         style="@style/EtEditTextStyle"
         android:layout_marginTop="16dp"
         android:maxEms="11"
+        android:text="15698219533"
         android:hint="手机号码"/>
 
     <TextView
         style="@style/TvButtonStyle"
-        android:text="获取手机号码归属地"
-        android:onClick="getPhoneNumPlace"/>
+        android:text="获取手机号码归属地1"
+        android:onClick="getPhoneNumPlace1"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
+        android:text="获取手机号码归属地2"
+        android:onClick="getPhoneNumPlace2"/>
 
     <TextView
         android:id="@+id/tv_result"
