@@ -6,28 +6,28 @@
 
     <TextView
         android:id="@+id/tv_okhttp"
-        style="@style/TvOrangeStyle"
+        style="@style/TvButtonStyle"
         android:layout_marginTop="16dp"
         android:text="OkHttp"/>
 
     <TextView
         android:id="@+id/tv_xutils3"
-        style="@style/TvOrangeStyle"
+        style="@style/TvButtonStyle"
         android:text="xUtils3"/>
 
     <TextView
         android:id="@+id/tv_volley"
-        style="@style/TvOrangeStyle"
+        style="@style/TvButtonStyle"
         android:text="Volley"/>
 
     <TextView
         android:id="@+id/tv_retrofit"
-        style="@style/TvOrangeStyle"
+        style="@style/TvButtonStyle"
         android:text="Retrofit"/>
 
     <TextView
         android:id="@+id/tv_socket"
-        style="@style/TvOrangeStyle"
+        style="@style/TvButtonStyle"
         android:text="socket"/>
 
 </LinearLayout>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include layout="@layout/app_toolbar"/>
+
+    <EditText
+        android:id="@+id/et_num"
+        style="@style/EtEditTextStyle"
+        android:layout_marginTop="16dp"
+        android:maxEms="11"
+        android:hint="手机号码"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
+        android:text="获取手机号码归属地"
+        android:onClick="getPhoneNumPlace"/>
+
+    <TextView
+        android:id="@+id/tv_result"
+        style="@style/TvTextViewStyle"/>
+
+</LinearLayout>

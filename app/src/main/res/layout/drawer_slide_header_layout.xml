@@ -9,5 +9,4 @@
     android:paddingRight="10dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
-
 </LinearLayout>

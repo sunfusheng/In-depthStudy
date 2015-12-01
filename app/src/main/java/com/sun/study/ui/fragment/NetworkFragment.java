@@ -53,6 +53,9 @@ public class NetworkFragment extends BaseFragment implements View.OnClickListene
             case R.id.tv_okhttp:
                 NavigateManager.gotoOkHttpActivity(getActivity());
                 break;
+            case R.id.tv_retrofit:
+                NavigateManager.gotoRetrofitActivity(getActivity());
+                break;
         }
     }
 

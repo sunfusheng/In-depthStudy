@@ -9,46 +9,23 @@
     <include layout="@layout/app_toolbar"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector_orange_bg"
-        android:gravity="center"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        android:textColor="@color/white"
+        style="@style/TvButtonStyle"
+        android:layout_marginTop="16dp"
         android:text="获取北京天气 getCityWeather()"
         android:onClick="getCityWeather"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector_orange_bg"
-        android:gravity="center"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        android:textColor="@color/white"
+        style="@style/TvButtonStyle"
         android:text="获取北京天气 getCityWeatherSimple()"
         android:onClick="getCityWeatherSimple"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector_orange_bg"
-        android:gravity="center"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        android:textColor="@color/white"
+        style="@style/TvButtonStyle"
         android:text="获取北京天气 getCityWeatherDataSimple()"
         android:onClick="getCityWeatherDataSimple"/>
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/selector_orange_bg"
-        android:gravity="center"
-        android:padding="8dp"
-        android:layout_margin="8dp"
-        android:textColor="@color/white"
+        style="@style/TvButtonStyle"
         android:text="北京可查询天气区域列表"
         android:onClick="getWeatherCityDistrictList"/>
 

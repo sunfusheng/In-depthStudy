@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 
 import com.sun.study.ui.activity.OkHttpActivity;
+import com.sun.study.ui.activity.RetrofitActivity;
 
 import java.io.File;
 
@@ -42,6 +43,11 @@ public class NavigateManager {
 
     public static void gotoOkHttpActivity(Context context) {
         Intent intent = new Intent(context, OkHttpActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRetrofitActivity(Context context) {
+        Intent intent = new Intent(context, RetrofitActivity.class);
         context.startActivity(intent);
     }
 }
