@@ -25,7 +25,7 @@ import retrofit.Call;
  */
 public class SingleControl extends BaseControl {
 
-    private HttpApi api = new HttpApi();
+    private HttpApi mApi = new HttpApi();
 
     public SingleControl(MessageProxy mMessageCallBack) {
         super(mMessageCallBack);
@@ -36,7 +36,7 @@ public class SingleControl extends BaseControl {
         try {
             OkHttpClient client = new OkHttpClient();
             final Request request = new Request.Builder().url(UrlManager.URL_CITY_WEATHER + "?cityname=" +cityname)
-                    .addHeader("apikey", ConstantParams.APIKEY_APISTORE)
+                    .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
                     .build();
             Response response = client.newCall(request).execute();
             CityWeatherEntity entity = null;
@@ -53,7 +53,7 @@ public class SingleControl extends BaseControl {
     @AsyncAtomMethod(withCancelableDialog = true)
     public void getCityWeatherSimple(String cityname) {
         try {
-            CityWeatherEntity entity = api.getCityWeather(cityname);
+            CityWeatherEntity entity = mApi.getCityWeather(cityname);
             mModel.put(1, entity);
             sendMessage("getCityWeatherCallBack");
         } catch (Exception e) {
@@ -64,7 +64,7 @@ public class SingleControl extends BaseControl {
     @AsyncAtomMethod(withCancelableDialog = true)
     public void getCityWeatherDataSimple(String cityname) {
         try {
-            CityWeatherDataEntity entity = api.getCityWeatherData(cityname);
+            CityWeatherDataEntity entity = mApi.getCityWeatherData(cityname);
             mModel.put(1, entity);
             sendMessage("getCityWeatherDataSimpleCallBack");
         } catch (Exception e) {
@@ -75,7 +75,7 @@ public class SingleControl extends BaseControl {
     @AsyncAtomMethod(withCancelableDialog = true)
     public void getWeatherCityDistrictList(String cityname) {
         try {
-            ArrayList<CityDistrictEntity> list = api.getWeatherCityDistrictList(cityname);
+            ArrayList<CityDistrictEntity> list = mApi.getWeatherCityDistrictList(cityname);
             mModel.put(1, list);
             sendMessage("getWeatherCityDistrictListCallBack");
         } catch (Exception e) {
@@ -83,11 +83,22 @@ public class SingleControl extends BaseControl {
         }
     }
 
-    @AsyncAtomMethod(withCancelableDialog = true)
+    @AsyncAtomMethod
     public void getPhoneNumPlace(String phone) {
         try {
-            Call<PhoneEntity> entity = RetrofitFactory.get().getPhoneNumPlace(phone, ConstantParams.APIKEY_APISTORE);
-            PhoneEntity phoneEntity = entity.execute().body();
+            Call<PhoneEntity> call = RetrofitFactory.get().getPhoneNumPlace(phone);
+            PhoneEntity phoneEntity = call.execute().body();
+            mModel.put(1, phoneEntity);
+            sendMessage("getPhoneNumPlaceCallBack");
+        } catch (Exception e) {
+            dealWithException(e);
+        }
+    }
+
+    @AsyncAtomMethod
+    public void getPhoneNumPlace3(String phone) {
+        try {
+            PhoneEntity phoneEntity = mApi.getPhoneNumPlace3(phone);
             mModel.put(1, phoneEntity);
             sendMessage("getPhoneNumPlaceCallBack");
         } catch (Exception e) {

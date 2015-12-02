@@ -8,10 +8,10 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.sun.study.R;
-import com.sun.study.constant.ConstantParams;
 import com.sun.study.control.SingleControl;
 import com.sun.study.framework.dialog.ToastTip;
 import com.sun.study.model.PhoneEntity;
+import com.sun.study.module.retrofit.RetrofitApi;
 import com.sun.study.module.retrofit.RetrofitFactory;
 
 import butterknife.Bind;
@@ -32,6 +32,8 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
     @Bind(R.id.tv_result)
     TextView tvResult;
 
+    private RetrofitApi mApi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,45 +41,69 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
         ButterKnife.bind(this);
 
         initToolBar(toolbar, true, "Retrofit");
+        mApi = RetrofitFactory.get();
+    }
+
+    private void showResultInfo(PhoneEntity entity, long timeMillis) {
+        if (entity != null && entity.getRetData() != null) {
+            PhoneEntity.RetDataEntity retDataEntity = entity.getRetData();
+            tvResult.setText("请求成功: "+timeMillis+"ms\n\n"+
+                    "电话号码："+retDataEntity.getPhone()+"\n"+
+                    "供应商："+retDataEntity.getSupplier()+"\n"+
+                    "归属地："+retDataEntity.getProvince()+retDataEntity.getCity()+"\n"+
+                    "号段："+retDataEntity.getSuit());
+        }
     }
 
     public void getPhoneNumPlace1(View v) {
-        String num = etNum.getText().toString().trim();
-        if (TextUtils.isEmpty(num) || num.length() != 11) {
+        String phone = etNum.getText().toString().trim();
+        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
             ToastTip.show(this, "请输入有效的手机号码");
             return;
         }
-        Call<PhoneEntity> entity = RetrofitFactory.get().getPhoneNumPlace(num, ConstantParams.APIKEY_APISTORE);
-        entity.enqueue(new Callback<PhoneEntity>() {
+
+        lastTime = System.currentTimeMillis();
+        Call<PhoneEntity> call = mApi.getPhoneNumPlace(phone);
+        call.enqueue(new Callback<PhoneEntity>() {
             @Override
             public void onResponse(retrofit.Response<PhoneEntity> response, Retrofit retrofit) {
-                if (response != null) {
-                    tvResult.setText(""+response.body().getRetData().toString());
-                }
+                showResultInfo(response.body(), (System.currentTimeMillis() - lastTime));
             }
 
             @Override
             public void onFailure(Throwable t) {
                 if (t != null) {
-                    tvResult.setText(""+t.getMessage());
+                    tvResult.setText("请求失败: \n\n"+t.getMessage());
                 }
             }
         });
     }
 
     public void getPhoneNumPlace2(View v) {
-        String num = etNum.getText().toString().trim();
-        if (TextUtils.isEmpty(num) || num.length() != 11) {
+        String phone = etNum.getText().toString().trim();
+        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
             ToastTip.show(this, "请输入有效的手机号码");
             return;
         }
-        mControl.getPhoneNumPlace(num);
+
+        lastTime = System.currentTimeMillis();
+        mControl.getPhoneNumPlace(phone);
+    }
+
+    public void getPhoneNumPlace3(View v) {
+        String phone = etNum.getText().toString().trim();
+        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
+            ToastTip.show(this, "请输入有效的手机号码");
+            return;
+        }
+
+        lastTime = System.currentTimeMillis();
+        mControl.getPhoneNumPlace3(phone);
     }
 
     public void getPhoneNumPlaceCallBack() {
         PhoneEntity entity = mModel.get(1);
-        tvResult.setText(entity.getRetData().toString());
+        showResultInfo(entity, (System.currentTimeMillis() - lastTime));
     }
-
 
 }

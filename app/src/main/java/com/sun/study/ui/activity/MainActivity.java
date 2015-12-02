@@ -38,7 +38,6 @@ public class MainActivity extends BaseActivity {
     private MenuItem rightCheckedItem;
 
     public int lastFragmentIndex = 0;
-    private long lastTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

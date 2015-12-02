@@ -25,6 +25,7 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
 
     private Toast mToast;
     protected TipDialog mTipDialog;
+    protected long lastTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

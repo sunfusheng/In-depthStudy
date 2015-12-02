@@ -27,6 +27,11 @@
         android:onClick="getPhoneNumPlace2"/>
 
     <TextView
+        style="@style/TvButtonStyle"
+        android:text="获取手机号码归属地3"
+        android:onClick="getPhoneNumPlace3"/>
+
+    <TextView
         android:id="@+id/tv_result"
         style="@style/TvTextViewStyle"/>
 
