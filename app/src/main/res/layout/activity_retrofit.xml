@@ -18,18 +18,23 @@
 
     <TextView
         style="@style/TvButtonStyle"
-        android:text="获取手机号码归属地1"
+        android:text="获取手机号码归属地 - Retrofit异步"
         android:onClick="getPhoneNumPlace1"/>
 
     <TextView
         style="@style/TvButtonStyle"
-        android:text="获取手机号码归属地2"
+        android:text="获取手机号码归属地 - Retrofit同步"
         android:onClick="getPhoneNumPlace2"/>
 
     <TextView
         style="@style/TvButtonStyle"
-        android:text="获取手机号码归属地3"
+        android:text="获取手机号码归属地 - 动态代理框架"
         android:onClick="getPhoneNumPlace3"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
+        android:text="获取手机号码归属地 - RxJava"
+        android:onClick="getPhoneNumPlace4"/>
 
     <TextView
         android:id="@+id/tv_result"

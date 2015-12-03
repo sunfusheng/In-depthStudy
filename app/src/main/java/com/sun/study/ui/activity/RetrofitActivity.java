@@ -19,6 +19,10 @@ import butterknife.ButterKnife;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Retrofit;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action1;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Created by sunfusheng on 15/11/30.
@@ -45,14 +49,17 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
     }
 
     private void showResultInfo(PhoneEntity entity, long timeMillis) {
-        if (entity != null && entity.getRetData() != null) {
-            PhoneEntity.RetDataEntity retDataEntity = entity.getRetData();
-            tvResult.setText("请求成功: "+timeMillis+"ms\n\n"+
-                    "电话号码："+retDataEntity.getPhone()+"\n"+
-                    "供应商："+retDataEntity.getSupplier()+"\n"+
-                    "归属地："+retDataEntity.getProvince()+retDataEntity.getCity()+"\n"+
-                    "号段："+retDataEntity.getSuit());
-        }
+        if (entity == null && entity.getRetData() != null) return ;
+        showResultInfo(entity.getRetData(), timeMillis);
+    }
+
+    private void showResultInfo(PhoneEntity.RetDataEntity retDataEntity, long timeMillis) {
+        if (retDataEntity == null) return ;
+        tvResult.setText("请求成功: "+timeMillis+"ms\n\n"+
+                "电话号码："+retDataEntity.getPhone()+"\n"+
+                "供应商："+retDataEntity.getSupplier()+"\n"+
+                "归属地："+retDataEntity.getProvince()+retDataEntity.getCity()+"\n"+
+                "号段："+retDataEntity.getSuit());
     }
 
     public void getPhoneNumPlace1(View v) {
@@ -99,6 +106,35 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
 
         lastTime = System.currentTimeMillis();
         mControl.getPhoneNumPlace3(phone);
+    }
+
+    public void getPhoneNumPlace4(View v) {
+        String phone = etNum.getText().toString().trim();
+        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
+            ToastTip.show(this, "请输入有效的手机号码");
+            return;
+        }
+
+        lastTime = System.currentTimeMillis();
+        mApi.getPhoneNumPlaceByRxJava(phone)
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .unsubscribeOn(Schedulers.io())
+                .map(new Func1<PhoneEntity, PhoneEntity.RetDataEntity>() {
+                    @Override
+                    public PhoneEntity.RetDataEntity call(PhoneEntity phoneEntity) {
+                        if (phoneEntity != null) {
+                            return phoneEntity.getRetData();
+                        }
+                        return null;
+                    }
+                })
+                .subscribe(new Action1<PhoneEntity.RetDataEntity>() {
+                    @Override
+                    public void call(PhoneEntity.RetDataEntity retDataEntity) {
+                        showResultInfo(retDataEntity, (System.currentTimeMillis() - lastTime));
+                    }
+                });
     }
 
     public void getPhoneNumPlaceCallBack() {
