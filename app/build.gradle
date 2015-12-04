@@ -86,35 +86,38 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
 
-    //ButterKnife
+    // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1'
 
-    //Logger
+    // Logger
     compile 'com.orhanobut:logger:1.4'
 
-    //OkHttp
+    // OkHttp
     compile 'com.squareup.okhttp:okhttp:2.6.0'
 
-    //multidex
+    // Multidex
     compile 'com.android.support:multidex:1.0.0'
 
-    //SharedPreferences
+    // SharedPreferences
     apt 'de.devland.esperandro:esperandro:2.2.0'
     compile 'de.devland.esperandro:esperandro-api:2.2.0'
 
-    //SystemBarTint
+    // SystemBarTint
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
-    //Material Dialog
+    // Material Dialog
     compile('com.github.afollestad.material-dialogs:core:0.8.5.2@aar') {
         transitive = true
     }
 
-    //RxJava RxAndroid
+    // Fresco
+    compile 'com.facebook.fresco:fresco:0.8.1'
+
+    // RxJava RxAndroid
     compile 'io.reactivex:rxjava:1.0.16'
     compile 'io.reactivex:rxandroid:1.0.1'
 
-    //Retrofit Gson RxJava
+    // Retrofit Gson RxJava
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
