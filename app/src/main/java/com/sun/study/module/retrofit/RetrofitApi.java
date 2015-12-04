@@ -12,10 +12,10 @@ import rx.Observable;
  */
 public interface RetrofitApi {
 
-    @GET("mobilenumber/mobilenumber")
-    Call<PhoneEntity> getPhoneNumPlace(@Query("phone") String phone);
+    @GET("mobilephoneservice/mobilephone")
+    Call<PhoneEntity> getPhoneNumPlace(@Query("tel") String tel);
 
-    @GET("mobilenumber/mobilenumber")
-    Observable<PhoneEntity> getPhoneNumPlaceByRxJava(@Query("phone") String phone);
+    @GET("mobilephoneservice/mobilephone")
+    Observable<PhoneEntity> getPhoneNumPlaceByRxJava(@Query("tel") String tel);
 
 }

@@ -9,6 +9,14 @@ import android.provider.MediaStore;
 
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
+import com.sun.study.ui.activity.RxJava1Activity;
+import com.sun.study.ui.activity.RxJava2Activity;
+import com.sun.study.ui.activity.RxJava3Activity;
+import com.sun.study.ui.activity.RxJava4Activity;
+import com.sun.study.ui.activity.RxJava5Activity;
+import com.sun.study.ui.activity.RxJava6Activity;
+import com.sun.study.ui.activity.RxJava7Activity;
+import com.sun.study.ui.activity.RxJava8Activity;
 
 import java.io.File;
 
@@ -50,4 +58,45 @@ public class NavigateManager {
         Intent intent = new Intent(context, RetrofitActivity.class);
         context.startActivity(intent);
     }
+
+    public static void gotoRxJava1Activity(Context context) {
+        Intent intent = new Intent(context, RxJava1Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava2Activity(Context context) {
+        Intent intent = new Intent(context, RxJava2Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava3Activity(Context context) {
+        Intent intent = new Intent(context, RxJava3Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava4Activity(Context context) {
+        Intent intent = new Intent(context, RxJava4Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava5Activity(Context context) {
+        Intent intent = new Intent(context, RxJava5Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava6Activity(Context context) {
+        Intent intent = new Intent(context, RxJava6Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava7Activity(Context context) {
+        Intent intent = new Intent(context, RxJava7Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoRxJava8Activity(Context context) {
+        Intent intent = new Intent(context, RxJava8Activity.class);
+        context.startActivity(intent);
+    }
+
 }

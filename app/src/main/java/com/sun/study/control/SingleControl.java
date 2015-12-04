@@ -84,9 +84,9 @@ public class SingleControl extends BaseControl {
     }
 
     @AsyncAtomMethod
-    public void getPhoneNumPlace(String phone) {
+    public void getPhoneNumPlace(String tel) {
         try {
-            Call<PhoneEntity> call = RetrofitFactory.get().getPhoneNumPlace(phone);
+            Call<PhoneEntity> call = RetrofitFactory.get().getPhoneNumPlace(tel);
             PhoneEntity phoneEntity = call.execute().body();
             mModel.put(1, phoneEntity);
             sendMessage("getPhoneNumPlaceCallBack");
@@ -96,9 +96,9 @@ public class SingleControl extends BaseControl {
     }
 
     @AsyncAtomMethod
-    public void getPhoneNumPlace3(String phone) {
+    public void getPhoneNumPlace3(String tel) {
         try {
-            PhoneEntity phoneEntity = mApi.getPhoneNumPlace3(phone);
+            PhoneEntity phoneEntity = mApi.getPhoneNumPlace3(tel);
             mModel.put(1, phoneEntity);
             sendMessage("getPhoneNumPlaceCallBack");
         } catch (Exception e) {

@@ -19,8 +19,8 @@ import butterknife.ButterKnife;
 import retrofit.Call;
 import retrofit.Callback;
 import retrofit.Retrofit;
+import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
@@ -49,28 +49,33 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
     }
 
     private void showResultInfo(PhoneEntity entity, long timeMillis) {
-        if (entity == null && entity.getRetData() != null) return ;
+        if (entity == null || entity.getRetData() == null) return ;
         showResultInfo(entity.getRetData(), timeMillis);
     }
 
     private void showResultInfo(PhoneEntity.RetDataEntity retDataEntity, long timeMillis) {
         if (retDataEntity == null) return ;
         tvResult.setText("请求成功: "+timeMillis+"ms\n\n"+
-                "电话号码："+retDataEntity.getPhone()+"\n"+
-                "供应商："+retDataEntity.getSupplier()+"\n"+
-                "归属地："+retDataEntity.getProvince()+retDataEntity.getCity()+"\n"+
-                "号段："+retDataEntity.getSuit());
+                "电话号码："+retDataEntity.getTelString()+"\n"+
+                "供应商："+retDataEntity.getCarrier()+"\n"+
+                "归属地："+retDataEntity.getProvince()+"\n");
     }
 
-    public void getPhoneNumPlace1(View v) {
+    private boolean checkPhoneAvailable() {
         String phone = etNum.getText().toString().trim();
         if (TextUtils.isEmpty(phone) || phone.length() != 11) {
             ToastTip.show(this, "请输入有效的手机号码");
-            return;
+            return false;
         }
+        return true;
+    }
 
+    public void getPhoneNumPlace1(View v) {
+        String tel = etNum.getText().toString().trim();
+        if (!checkPhoneAvailable()) return ;
         lastTime = System.currentTimeMillis();
-        Call<PhoneEntity> call = mApi.getPhoneNumPlace(phone);
+
+        Call<PhoneEntity> call = mApi.getPhoneNumPlace(tel);
         call.enqueue(new Callback<PhoneEntity>() {
             @Override
             public void onResponse(retrofit.Response<PhoneEntity> response, Retrofit retrofit) {
@@ -87,35 +92,26 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
     }
 
     public void getPhoneNumPlace2(View v) {
-        String phone = etNum.getText().toString().trim();
-        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
-            ToastTip.show(this, "请输入有效的手机号码");
-            return;
-        }
-
+        String tel = etNum.getText().toString().trim();
+        if (!checkPhoneAvailable()) return ;
         lastTime = System.currentTimeMillis();
-        mControl.getPhoneNumPlace(phone);
+
+        mControl.getPhoneNumPlace(tel);
     }
 
     public void getPhoneNumPlace3(View v) {
         String phone = etNum.getText().toString().trim();
-        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
-            ToastTip.show(this, "请输入有效的手机号码");
-            return;
-        }
-
+        if (!checkPhoneAvailable()) return ;
         lastTime = System.currentTimeMillis();
+
         mControl.getPhoneNumPlace3(phone);
     }
 
     public void getPhoneNumPlace4(View v) {
         String phone = etNum.getText().toString().trim();
-        if (TextUtils.isEmpty(phone) || phone.length() != 11) {
-            ToastTip.show(this, "请输入有效的手机号码");
-            return;
-        }
-
+        if (!checkPhoneAvailable()) return ;
         lastTime = System.currentTimeMillis();
+
         mApi.getPhoneNumPlaceByRxJava(phone)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -129,9 +125,19 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
                         return null;
                     }
                 })
-                .subscribe(new Action1<PhoneEntity.RetDataEntity>() {
+                .subscribe(new Subscriber<PhoneEntity.RetDataEntity>() {
                     @Override
-                    public void call(PhoneEntity.RetDataEntity retDataEntity) {
+                    public void onCompleted() {
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+
+                    }
+
+                    @Override
+                    public void onNext(PhoneEntity.RetDataEntity retDataEntity) {
                         showResultInfo(retDataEntity, (System.currentTimeMillis() - lastTime));
                     }
                 });

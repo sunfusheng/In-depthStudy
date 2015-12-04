@@ -39,11 +39,31 @@
             </intent-filter>
         </activity>
 
+        <!-- OkHttp -->
         <activity android:name=".ui.activity.OkHttpActivity"
-            android:screenOrientation="portrait"/>
+                  android:screenOrientation="portrait"/>
 
+        <!-- Retrofit -->
         <activity android:name=".ui.activity.RetrofitActivity"
-            android:screenOrientation="portrait"/>
+                  android:screenOrientation="portrait"/>
+
+        <!-- RxJava -->
+        <activity android:name=".ui.activity.RxJava1Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava2Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava3Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava4Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava5Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava6Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava7Activity"
+                  android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.RxJava8Activity"
+                  android:screenOrientation="portrait"/>
 
     </application>
 

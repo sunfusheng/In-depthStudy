@@ -14,6 +14,6 @@ public interface UrlManager {
     String URL_WEATHER_CITY_LIST = ConstantParams.APISTORE_BASE_URL + "weatherservice/citylist";
 
     // 手机号码归属地
-    String URL_PHONE_NUM_PLACE = ConstantParams.APISTORE_BASE_URL + "mobilenumber/mobilenumber";
+    String URL_PHONE_NUM_PLACE = ConstantParams.APISTORE_BASE_URL + "mobilephoneservice/mobilephone";
 
 }

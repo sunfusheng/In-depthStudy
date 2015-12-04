@@ -46,10 +46,10 @@ public class HttpApi implements UrlManager {
     }
 
     // 手机号码归属地
-    public PhoneEntity getPhoneNumPlace3(String phone) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
+    public PhoneEntity getPhoneNumPlace3(String tel) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         mHttp = mHttp.url(URL_PHONE_NUM_PLACE)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
-                .addParams("phone", phone);
+                .addParams("tel", tel);
         return mHttp.get(PhoneEntity.class);
     }
 

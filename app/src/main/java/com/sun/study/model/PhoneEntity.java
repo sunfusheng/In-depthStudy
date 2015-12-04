@@ -36,71 +36,33 @@ public class PhoneEntity implements Serializable {
     }
 
     public static class RetDataEntity {
-        private String phone;
-        private String prefix;
-        private String supplier;
+
+        private String telString;
         private String province;
-        private String city;
-        private String suit;
+        private String carrier;
 
-        public void setPhone(String phone) {
-            this.phone = phone;
-        }
-
-        public void setPrefix(String prefix) {
-            this.prefix = prefix;
-        }
-
-        public void setSupplier(String supplier) {
-            this.supplier = supplier;
+        public void setTelString(String telString) {
+            this.telString = telString;
         }
 
         public void setProvince(String province) {
             this.province = province;
         }
 
-        public void setCity(String city) {
-            this.city = city;
+        public void setCarrier(String carrier) {
+            this.carrier = carrier;
         }
 
-        public void setSuit(String suit) {
-            this.suit = suit;
-        }
-
-        public String getPhone() {
-            return phone;
-        }
-
-        public String getPrefix() {
-            return prefix;
-        }
-
-        public String getSupplier() {
-            return supplier;
+        public String getTelString() {
+            return telString;
         }
 
         public String getProvince() {
             return province;
         }
 
-        public String getCity() {
-            return city;
-        }
-
-        public String getSuit() {
-            return suit;
-        }
-
-        @Override
-        public String toString() {
-            return "RetDataEntity{" +
-                    "phone='" + phone + '\'' +
-                    ", prefix='" + prefix + '\'' +
-                    ", supplier='" + supplier + '\'' +
-                    ", province='" + province + '\'' +
-                    ", city='" + city + '\'' +
-                    ", suit='" + suit + '\'' +
-                    '}';
+        public String getCarrier() {
+            return carrier;
         }
     }
 }

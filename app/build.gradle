@@ -32,14 +32,6 @@ android {
         exclude 'META-INF/NOTICE.txt'
     }
 
-    task nativeLibsToJar(type: Zip, description: "create a jar archive of the native libs") {
-        destinationDir file("$projectDir/libs")
-        baseName "Native_Libs2"
-        extension "jar"
-        from fileTree(dir: "libs", include: "**/*.so")
-        into "lib"
-    }
-
     signingConfigs {
         release {
             storeFile file(prop['KEYSTORE_FILEPATH'])
@@ -114,7 +106,9 @@ dependencies {
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
     //Material Dialog
-    compile 'com.afollestad:material-dialogs:0.7.6.0'
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.2@aar') {
+        transitive = true
+    }
 
     //RxJava RxAndroid
     compile 'io.reactivex:rxjava:1.0.16'

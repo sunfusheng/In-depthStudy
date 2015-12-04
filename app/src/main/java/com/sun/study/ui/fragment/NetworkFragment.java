@@ -59,9 +59,4 @@ public class NetworkFragment extends BaseFragment implements View.OnClickListene
         }
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
-    }
 }
