@@ -2,6 +2,7 @@ package com.sun.study;
 
 import android.app.Application;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sun.study.framework.proxy.ControlFactory;
 import com.sun.study.framework.sharedpreferences.FastJsonSerial;
 
@@ -19,8 +20,12 @@ public class MainApplication extends Application {
         super.onCreate();
 
         instance = this;
+
         Esperandro.setSerializer(new FastJsonSerial());
+
         ControlFactory.init(this);
+
+        Fresco.initialize(this);
     }
 
     public static MainApplication getInstance() {
