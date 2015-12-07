@@ -3,6 +3,7 @@ package com.sun.study;
 import android.app.Application;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
+import com.sun.study.framework.exception.CrashHandler;
 import com.sun.study.framework.proxy.ControlFactory;
 import com.sun.study.framework.sharedpreferences.FastJsonSerial;
 
@@ -26,9 +27,12 @@ public class MainApplication extends Application {
         ControlFactory.init(this);
 
         Fresco.initialize(this);
+
+        CrashHandler.getInstance().init(this);
     }
 
     public static MainApplication getInstance() {
         return instance;
     }
+
 }

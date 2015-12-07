@@ -39,6 +39,10 @@
             </intent-filter>
         </activity>
 
+        <!-- 崩溃信息 -->
+        <activity android:name=".ui.activity.CrashActivity"
+                  android:screenOrientation="portrait"/>
+
         <!-- OkHttp -->
         <activity android:name=".ui.activity.OkHttpActivity"
                   android:screenOrientation="portrait"/>
