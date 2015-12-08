@@ -6,6 +6,7 @@ import com.squareup.okhttp.FormEncodingBuilder;
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
+import com.sun.study.module.okhttp.callback.OkHttpCallBack;
 
 import java.io.File;
 import java.util.Map;
@@ -95,6 +96,24 @@ public class OkHttpPost extends OkHttp {
                 break;
         }
         return requestBody;
+    }
+
+    @Override
+    protected RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
+        CountingRequestBody countingRequestBody = new CountingRequestBody(requestBody, new CountingRequestBody.Listener() {
+            @Override
+            public void onRequestProgress(final long bytesWritten, final long contentLength) {
+
+                mOkHttpClientManager.getHandler().post(new Runnable() {
+                    @Override
+                    public void run() {
+                        callback.inProgress(bytesWritten * 1.0f / contentLength);
+                    }
+                });
+
+            }
+        });
+        return countingRequestBody;
     }
 
     private void addParams(FormEncodingBuilder builder, Map<String, String> params) {

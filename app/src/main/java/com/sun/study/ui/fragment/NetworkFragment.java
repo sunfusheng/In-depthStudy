@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
+import com.sun.study.control.SingleControl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -16,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 15/11/18.
  */
-public class NetworkFragment extends BaseFragment implements View.OnClickListener {
+public class NetworkFragment extends BaseFragment<SingleControl> implements View.OnClickListener {
 
     @Bind(R.id.tv_okhttp)
     TextView tvOkhttp;
@@ -56,7 +57,14 @@ public class NetworkFragment extends BaseFragment implements View.OnClickListene
             case R.id.tv_retrofit:
                 NavigateManager.gotoRetrofitActivity(getActivity());
                 break;
+            case R.id.tv_socket:
+                mControl.getMyApps();
+                break;
         }
+    }
+
+    public void getMyAppsCallBack() {
+
     }
 
 }

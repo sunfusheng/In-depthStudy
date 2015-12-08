@@ -13,6 +13,7 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.sun.study.constant.GlobalParams;
+import com.sun.study.module.okhttp.callback.OkHttpCallBack;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -29,6 +30,7 @@ import java.util.concurrent.TimeUnit;
  */
 public abstract class OkHttp {
 
+    protected OkHttpClientManager mOkHttpClientManager = OkHttpClientManager.getInstance();
     protected OkHttpClient mOkHttpClient;
 
     protected RequestBody requestBody;
@@ -42,7 +44,7 @@ public abstract class OkHttp {
     protected OkHttp(String url) {
         this.url = url;
         mOkHttpClient = new OkHttpClient();
-        mOkHttpClient.setConnectTimeout(100, TimeUnit.SECONDS);
+        mOkHttpClient.setConnectTimeout(OkHttpClientManager.OKHTTP_REQUEST_TIMEOUT, TimeUnit.SECONDS);
     }
 
     protected OkHttp(String url, Map<String, String> params) {
@@ -58,6 +60,22 @@ public abstract class OkHttp {
 
     protected abstract Request buildRequest();
     protected abstract RequestBody buildRequestBody();
+
+    protected void prepareInvoked(OkHttpCallBack callback) {
+        requestBody = buildRequestBody();
+        requestBody = wrapRequestBody(requestBody, callback);
+        request = buildRequest();
+    }
+
+
+    public void invokeAsync(OkHttpCallBack callback) {
+        prepareInvoked(callback);
+        mOkHttpClientManager.execute(request, callback);
+    }
+
+    protected RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
+        return requestBody;
+    }
 
     public <T> T invoke(String parseWhat, Class<T> clazz) throws IOException, JSONException {
         requestBody = buildRequestBody();
@@ -202,6 +220,12 @@ public abstract class OkHttp {
             return request.invoke(parseWhat, clazz);
         }
 
+        public OkHttp get(OkHttpCallBack callback) {
+            OkHttp request = new OkHttpGet(url, tag, params, headers);
+            request.invokeAsync(callback);
+            return request;
+        }
+
         public <T> ArrayList<T> getList(String parseWhat, Class<T> clazz) throws IOException, JSONException {
             OkHttp request = new OkHttpGet(url, tag, params, headers);
             return request.invokeForList(parseWhat, clazz);
@@ -211,7 +235,12 @@ public abstract class OkHttp {
             OkHttp request = new OkHttpPost(url, tag, params, headers, mediaType, content, bytes, file);
             return request.invoke(null, clazz);
         }
-    }
 
+        public OkHttp post(OkHttpCallBack callback) {
+            OkHttp request = new OkHttpPost(url, tag, params, headers, mediaType, content, bytes, file);
+            request.invokeAsync(callback);
+            return request;
+        }
+    }
 
 }

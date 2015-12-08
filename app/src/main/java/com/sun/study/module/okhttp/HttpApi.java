@@ -53,4 +53,11 @@ public class HttpApi implements UrlManager {
         return mHttp.get(PhoneEntity.class);
     }
 
+    public PhoneEntity getMyApps() throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
+        mHttp = mHttp.url("http://www.pgyer.com/apiv1/app/builds")
+                .addParams("aKey", "1a2c7ad534c07fa34c088fc4e8f00b83")
+                .addParams("_api_key", "216dc1b595a05072ba3642a7843bad92");
+        return mHttp.post(PhoneEntity.class);
+    }
+
 }

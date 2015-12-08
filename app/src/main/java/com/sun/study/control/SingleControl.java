@@ -105,4 +105,15 @@ public class SingleControl extends BaseControl {
             dealWithException(e);
         }
     }
+
+    @AsyncAtomMethod
+    public void getMyApps() {
+        try {
+            PhoneEntity phoneEntity = mApi.getMyApps();
+            mModel.put(1, phoneEntity);
+            sendMessage("getMyAppsCallBack");
+        } catch (Exception e) {
+            dealWithException(e);
+        }
+    }
 }
