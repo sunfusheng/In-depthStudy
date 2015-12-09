@@ -59,15 +59,13 @@ public class BaseControl {
 
     protected void dealWithException(Exception e) {
         if (e instanceof InterruptedIOException) {
-            sendToastMessage("下载内容超时");
+            sendToastMessage("加载超时");
         } else if (e instanceof UnknownHostException) {
             sendToastMessage("无法连接到服务器");
         } else if (e instanceof SQLException) {
             sendToastMessage("数据库操作异常");
-        } else if (e instanceof com.alibaba.fastjson.JSONException) {
-            sendToastMessage("fastjson解析数据异常");
-        } else if (e instanceof org.json.JSONException) {
-            sendToastMessage("系统json解析数据异常");
+        } else if (e instanceof com.alibaba.fastjson.JSONException || e instanceof org.json.JSONException) {
+            sendToastMessage("数据解析异常");
         } else {
             Logger.e("dealWithException: ", e);
         }

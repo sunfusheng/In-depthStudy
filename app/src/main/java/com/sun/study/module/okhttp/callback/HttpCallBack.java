@@ -1,7 +1,7 @@
 package com.sun.study.module.okhttp.callback;
 
 /**
- * Created by sunfusheng on 15/12/08.
+ * Created by sunfusheng on 15/12/8.
  */
 public interface HttpCallBack {
 

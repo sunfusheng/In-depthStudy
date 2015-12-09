@@ -38,7 +38,8 @@ public class HomeFragment extends BaseFragment {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
-        Uri uri = Uri.parse("http://ww2.sinaimg.cn/large/dd412be4gw1esr6ijoebog208e0e1qv6.gif");
+        Uri uri = Uri.parse("res://"+getActivity().getPackageName()+"/"+R.drawable.gif_robot_walk);
+//        Uri uri = Uri.parse("http://ww2.sinaimg.cn/large/dd412be4gw1esr6ijoebog208e0e1qv6.gif");
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri(uri)
                 .setAutoPlayAnimations(true)

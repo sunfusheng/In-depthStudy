@@ -1,4 +1,4 @@
-package com.sun.study.module.okhttp.request;
+package com.sun.study.module.okhttp.core;
 
 import android.os.Handler;
 import android.os.Looper;
@@ -11,33 +11,30 @@ import com.squareup.okhttp.Response;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
 
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sunfusheng on 15/12/8.
  */
 public class OkHttpClientManager {
 
-    public static int OKHTTP_REQUEST_TIMEOUT = 60; //60s超时
-    private static OkHttpClientManager mInstance;
+    private static OkHttpClientManager mOkHttpClientManager;
     private OkHttpClient mOkHttpClient;
     private Handler mHandler;
 
     private OkHttpClientManager() {
-        mOkHttpClient = new OkHttpClient();
-        mOkHttpClient.setConnectTimeout(OkHttpClientManager.OKHTTP_REQUEST_TIMEOUT, TimeUnit.SECONDS);
+        mOkHttpClient = OkHttpProxy.getInstance();
         mHandler = new Handler(Looper.getMainLooper());
     }
 
     public static OkHttpClientManager getInstance() {
-        if (mInstance == null) {
+        if (mOkHttpClientManager == null) {
             synchronized (OkHttpClientManager.class) {
-                if (mInstance == null) {
-                    mInstance = new OkHttpClientManager();
+                if (mOkHttpClientManager == null) {
+                    mOkHttpClientManager = new OkHttpClientManager();
                 }
             }
         }
-        return mInstance;
+        return mOkHttpClientManager;
     }
 
     public Handler getHandler() {

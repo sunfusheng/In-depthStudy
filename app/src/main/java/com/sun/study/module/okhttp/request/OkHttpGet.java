@@ -6,6 +6,7 @@ import com.orhanobut.logger.Logger;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.sun.study.constant.GlobalParams;
+import com.sun.study.module.okhttp.core.OkHttp;
 
 import java.util.Map;
 
@@ -14,16 +15,20 @@ import java.util.Map;
  */
 public class OkHttpGet extends OkHttp {
 
-    protected OkHttpGet(String url, Map<String, String> params) {
+    public OkHttpGet(String url, Map<String, String> params) {
         super(url, params);
     }
 
-    protected OkHttpGet(String url, String tag, Map<String, String> params, Map<String, String> headers) {
-        super(url, params, tag, headers);
+    public OkHttpGet(String url, Map<String, String> params, Map<String, String> headers) {
+        super(url, params, headers);
+    }
+
+    public OkHttpGet(String url, Map<String, String> params, Map<String, String> headers, String tag) {
+        super(url, params, headers, tag);
     }
 
     @Override
-    protected Request buildRequest() {
+    public Request buildRequest() {
         if (TextUtils.isEmpty(url)) {
             throw new IllegalArgumentException("url can not be empty!");
         }
@@ -35,7 +40,7 @@ public class OkHttpGet extends OkHttp {
     }
 
     @Override
-    protected RequestBody buildRequestBody() {
+    public RequestBody buildRequestBody() {
         return null;
     }
 

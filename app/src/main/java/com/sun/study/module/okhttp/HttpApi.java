@@ -5,7 +5,7 @@ import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
 import com.sun.study.model.PhoneEntity;
-import com.sun.study.module.okhttp.request.OkHttp;
+import com.sun.study.module.okhttp.core.OkHttp;
 
 import java.io.IOException;
 import java.util.ArrayList;

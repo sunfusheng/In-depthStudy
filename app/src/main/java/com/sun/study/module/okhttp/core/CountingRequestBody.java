@@ -1,4 +1,4 @@
-package com.sun.study.module.okhttp.request;
+package com.sun.study.module.okhttp.core;
 
 import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.RequestBody;
@@ -11,12 +11,15 @@ import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 
+/**
+ * Created by sunfusheng on 15/12/8.
+ */
 public class CountingRequestBody extends RequestBody {
 
-    protected RequestBody delegate;
-    protected Listener listener;
+    public RequestBody delegate;
+    public Listener listener;
 
-    protected CountingSink countingSink;
+    public CountingSink countingSink;
 
     public CountingRequestBody(RequestBody delegate, Listener listener) {
         this.delegate = delegate;
@@ -50,7 +53,7 @@ public class CountingRequestBody extends RequestBody {
         bufferedSink.flush();
     }
 
-    protected final class CountingSink extends ForwardingSink {
+    public final class CountingSink extends ForwardingSink {
 
         private long bytesWritten = 0;
 
@@ -68,10 +71,8 @@ public class CountingRequestBody extends RequestBody {
 
     }
 
-    public static interface Listener {
-
-        public void onRequestProgress(long bytesWritten, long contentLength);
-
+    public interface Listener {
+        void onRequestProgress(long bytesWritten, long contentLength);
     }
 
 }

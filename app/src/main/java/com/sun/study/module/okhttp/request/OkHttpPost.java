@@ -7,6 +7,8 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
+import com.sun.study.module.okhttp.core.CountingRequestBody;
+import com.sun.study.module.okhttp.core.OkHttp;
 
 import java.io.File;
 import java.util.Map;
@@ -29,16 +31,27 @@ public class OkHttpPost extends OkHttp {
     private final MediaType MEDIA_TYPE_STREAM = MediaType.parse("application/octet-stream;charset=utf-8");
     private final MediaType MEDIA_TYPE_STRING = MediaType.parse("text/plain;charset=utf-8");
 
+    public OkHttpPost(String url, Map<String, String> params) {
+        super(url, params);
+    }
 
-    protected OkHttpPost(String url, String tag, Map<String, String> params, Map<String, String> headers, MediaType mediaType, String content, byte[] bytes, File file) {
-        super(url, params, tag, headers);
+    public OkHttpPost(String url, Map<String, String> params, Map<String, String> headers) {
+        super(url, params, headers);
+    }
+
+    public OkHttpPost(String url, Map<String, String> params, Map<String, String> headers, String tag) {
+        super(url, params, headers, tag);
+    }
+
+    public OkHttpPost(String url, Map<String, String> params, Map<String, String> headers, String tag, MediaType mediaType, String content, byte[] bytes, File file) {
+        this(url, params, headers, tag);
         this.mediaType = mediaType;
         this.content = content;
         this.bytes = bytes;
         this.file = file;
     }
 
-    protected void validParams() {
+    public void validParams() {
         int count = 0;
         if (params != null && !params.isEmpty()) {
             type = TYPE_PARAMS;
@@ -63,7 +76,7 @@ public class OkHttpPost extends OkHttp {
     }
 
     @Override
-    protected Request buildRequest() {
+    public Request buildRequest() {
         if (TextUtils.isEmpty(url)) {
             throw new IllegalArgumentException("url can not be empty!");
         }
@@ -74,7 +87,7 @@ public class OkHttpPost extends OkHttp {
     }
 
     @Override
-    protected RequestBody buildRequestBody() {
+    public RequestBody buildRequestBody() {
         validParams();
         RequestBody requestBody = null;
 
@@ -99,7 +112,7 @@ public class OkHttpPost extends OkHttp {
     }
 
     @Override
-    protected RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
+    public RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
         CountingRequestBody countingRequestBody = new CountingRequestBody(requestBody, new CountingRequestBody.Listener() {
             @Override
             public void onRequestProgress(final long bytesWritten, final long contentLength) {

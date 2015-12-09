@@ -1,4 +1,4 @@
-package com.sun.study.module.okhttp.request;
+package com.sun.study.module.okhttp.core;
 
 import android.text.TextUtils;
 import android.util.Pair;
@@ -14,6 +14,10 @@ import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.sun.study.constant.GlobalParams;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
+import com.sun.study.module.okhttp.request.OkHttpDownload;
+import com.sun.study.module.okhttp.request.OkHttpGet;
+import com.sun.study.module.okhttp.request.OkHttpPost;
+import com.sun.study.module.okhttp.request.OkHttpUpload;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -23,7 +27,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.IdentityHashMap;
 import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by sunfusheng on 15/11/19.
@@ -41,27 +44,30 @@ public abstract class OkHttp {
     protected Map<String, String> params;
     protected Map<String, String> headers;
 
-    protected OkHttp(String url) {
+    public OkHttp(String url) {
         this.url = url;
-        mOkHttpClient = new OkHttpClient();
-        mOkHttpClient.setConnectTimeout(OkHttpClientManager.OKHTTP_REQUEST_TIMEOUT, TimeUnit.SECONDS);
+        mOkHttpClient = OkHttpProxy.getInstance();
     }
 
-    protected OkHttp(String url, Map<String, String> params) {
+    public OkHttp(String url, Map<String, String> params) {
         this(url);
         this.params = params;
     }
 
-    protected OkHttp(String url, Map<String, String> params, String tag, Map<String, String> headers) {
+    public OkHttp(String url, Map<String, String> params, Map<String, String> headers) {
         this(url, params);
-        this.tag = tag;
         this.headers = headers;
     }
 
-    protected abstract Request buildRequest();
-    protected abstract RequestBody buildRequestBody();
+    public OkHttp(String url, Map<String, String> params, Map<String, String> headers, String tag) {
+        this(url, params, headers);
+        this.tag = tag;
+    }
 
-    protected void prepareInvoked(OkHttpCallBack callback) {
+    public abstract Request buildRequest();
+    public abstract RequestBody buildRequestBody();
+
+    public void prepareInvoked(OkHttpCallBack callback) {
         requestBody = buildRequestBody();
         requestBody = wrapRequestBody(requestBody, callback);
         request = buildRequest();
@@ -73,8 +79,12 @@ public abstract class OkHttp {
         mOkHttpClientManager.execute(request, callback);
     }
 
-    protected RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
+    public RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
         return requestBody;
+    }
+
+    public <T> T invoke(Class<T> clazz) throws IOException, JSONException {
+        return invoke(null, clazz);
     }
 
     public <T> T invoke(String parseWhat, Class<T> clazz) throws IOException, JSONException {
@@ -117,7 +127,7 @@ public abstract class OkHttp {
         return null;
     }
 
-    protected void appendHeaders(Request.Builder builder, Map<String, String> headers) {
+    public void appendHeaders(Request.Builder builder, Map<String, String> headers) {
         if (builder == null) {
             throw new IllegalArgumentException("builder can not be empty!");
         }
@@ -211,35 +221,57 @@ public abstract class OkHttp {
         }
 
         public <T> T get(Class<T> clazz) throws IOException, JSONException {
-            OkHttp request = new OkHttpGet(url, tag, params, headers);
+            OkHttp request = new OkHttpGet(url, params, headers, tag);
             return request.invoke(null, clazz);
         }
 
         public <T> T get(String parseWhat, Class<T> clazz) throws IOException, JSONException {
-            OkHttp request = new OkHttpGet(url, tag, params, headers);
+            OkHttp request = new OkHttpGet(url, params, headers, tag);
             return request.invoke(parseWhat, clazz);
         }
 
         public OkHttp get(OkHttpCallBack callback) {
-            OkHttp request = new OkHttpGet(url, tag, params, headers);
+            OkHttp request = new OkHttpGet(url, params, headers, tag);
             request.invokeAsync(callback);
             return request;
         }
 
         public <T> ArrayList<T> getList(String parseWhat, Class<T> clazz) throws IOException, JSONException {
-            OkHttp request = new OkHttpGet(url, tag, params, headers);
+            OkHttp request = new OkHttpGet(url, params, headers, tag);
             return request.invokeForList(parseWhat, clazz);
         }
 
         public <T> T post(Class<T> clazz) throws IOException, JSONException {
-            OkHttp request = new OkHttpPost(url, tag, params, headers, mediaType, content, bytes, file);
+            OkHttp request = new OkHttpPost(url, params, headers, tag, mediaType, content, bytes, file);
             return request.invoke(null, clazz);
         }
 
         public OkHttp post(OkHttpCallBack callback) {
-            OkHttp request = new OkHttpPost(url, tag, params, headers, mediaType, content, bytes, file);
+            OkHttp request = new OkHttpPost(url, params, headers, tag, mediaType, content, bytes, file);
             request.invokeAsync(callback);
             return request;
+        }
+
+        public OkHttp upload(OkHttpCallBack callback) {
+            OkHttp request = new OkHttpUpload(url, params, headers, tag, files);
+            request.invokeAsync(callback);
+            return request;
+        }
+
+        public <T> T upload(Class<T> clazz) throws IOException, JSONException {
+            OkHttp request = new OkHttpUpload(url, params, headers, tag, files);
+            return request.invoke(clazz);
+        }
+
+        public OkHttp download(OkHttpCallBack callback) {
+            OkHttp request = new OkHttpDownload(url, params, headers, tag, destFileName, destFileDir);
+            request.invokeAsync(callback);
+            return request;
+        }
+
+        public String download() throws IOException, JSONException {
+            OkHttp request = new OkHttpDownload(url, params, headers, tag, destFileName, destFileDir);
+            return request.invoke(String.class);
         }
     }
 
