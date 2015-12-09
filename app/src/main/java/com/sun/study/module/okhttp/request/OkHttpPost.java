@@ -7,7 +7,7 @@ import com.squareup.okhttp.MediaType;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
-import com.sun.study.module.okhttp.core.CountingRequestBody;
+import com.sun.study.module.okhttp.core.ComputeRequestBody;
 import com.sun.study.module.okhttp.core.OkHttp;
 
 import java.io.File;
@@ -113,7 +113,7 @@ public class OkHttpPost extends OkHttp {
 
     @Override
     public RequestBody wrapRequestBody(RequestBody requestBody, final OkHttpCallBack callback) {
-        CountingRequestBody countingRequestBody = new CountingRequestBody(requestBody, new CountingRequestBody.Listener() {
+        ComputeRequestBody countingRequestBody = new ComputeRequestBody(requestBody, new ComputeRequestBody.Listener() {
             @Override
             public void onRequestProgress(final long bytesWritten, final long contentLength) {
 

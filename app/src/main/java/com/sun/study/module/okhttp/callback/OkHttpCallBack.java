@@ -7,25 +7,21 @@ import com.squareup.okhttp.Request;
  */
 public abstract class OkHttpCallBack<T> {
 
-    public OkHttpCallBack() {}
-
     public void onBefore(Request request) {}
 
     public void onAfter() {}
 
     public void inProgress(float progress) {}
 
-    public abstract void onError(Request request, Exception e);
+    public abstract void onSuccess(String response);
 
-    public abstract void onResponse(T response);
+    public abstract void onFailure(Request request, Exception e);
 
-
-    public static final OkHttpCallBack<String> DEFAULT_RESULT_CALLBACK = new OkHttpCallBack<String>() {
+    public static final OkHttpCallBack<String> DEFAULT_CALLBACK = new OkHttpCallBack<String>() {
+        @Override
+        public void onSuccess(String response) {}
 
         @Override
-        public void onError(Request request, Exception e) {}
-
-        @Override
-        public void onResponse(String response) {}
+        public void onFailure(Request request, Exception e) {}
     };
 }

@@ -25,10 +25,11 @@ import retrofit.Call;
  */
 public class SingleControl extends BaseControl {
 
-    private HttpApi mApi = new HttpApi();
+    private HttpApi mApi;
 
     public SingleControl(MessageProxy mMessageCallBack) {
         super(mMessageCallBack);
+        mApi = HttpApi.getInstance();
     }
 
     @AsyncAtomMethod(withCancelableDialog = true)

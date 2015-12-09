@@ -64,7 +64,7 @@ public class RetrofitActivity extends BaseActivity<SingleControl> {
     private boolean checkPhoneAvailable() {
         String phone = etNum.getText().toString().trim();
         if (TextUtils.isEmpty(phone) || phone.length() != 11) {
-            ToastTip.show(this, "请输入有效的手机号码");
+            ToastTip.show("请输入有效的手机号码");
             return false;
         }
         return true;

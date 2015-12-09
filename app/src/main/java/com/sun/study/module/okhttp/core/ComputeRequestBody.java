@@ -14,14 +14,14 @@ import okio.Sink;
 /**
  * Created by sunfusheng on 15/12/8.
  */
-public class CountingRequestBody extends RequestBody {
+public class ComputeRequestBody extends RequestBody {
 
     public RequestBody delegate;
     public Listener listener;
 
     public CountingSink countingSink;
 
-    public CountingRequestBody(RequestBody delegate, Listener listener) {
+    public ComputeRequestBody(RequestBody delegate, Listener listener) {
         this.delegate = delegate;
         this.listener = listener;
     }

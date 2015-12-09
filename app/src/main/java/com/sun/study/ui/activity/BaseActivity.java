@@ -4,7 +4,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
@@ -100,27 +99,6 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
         super.onDestroy();
         mToast = null;
         mTipDialog = null;
-    }
-
-    protected void toastTip(String message, boolean isCenter) {
-        if (mToast != null) {
-            mToast.cancel();
-        }
-        int duration;
-        if (message.length() > 10) {
-            duration = Toast.LENGTH_LONG; //如果字符串比较长，那么显示的时间也长一些。
-        } else {
-            duration = Toast.LENGTH_SHORT;
-        }
-        mToast = Toast.makeText(this, message, duration);
-        if (isCenter) {
-            mToast.setGravity(Gravity.CENTER, 0, 0);
-        }
-        mToast.show();
-    }
-
-    protected void toastTip(String message) {
-        toastTip(message, true);
     }
 
     public SettingsSharedPreferences getSettingsSharedPreferences() {

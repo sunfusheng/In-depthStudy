@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.widget.FrameLayout;
 
 import com.sun.study.R;
+import com.sun.study.framework.dialog.ToastTip;
 import com.sun.study.ui.fragment.CustomViewFragment;
 import com.sun.study.ui.fragment.HomeFragment;
 import com.sun.study.ui.fragment.NetworkFragment;
@@ -227,7 +228,7 @@ public class MainActivity extends BaseActivity {
             super.onBackPressed();
         } else {
             lastTime = System.currentTimeMillis();
-            toastTip(getString(R.string.toast_exit_app), false);
+            ToastTip.show(getString(R.string.toast_exit_app));
         }
     }
 

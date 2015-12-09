@@ -22,7 +22,7 @@ public class OkHttpClientManager {
     private Handler mHandler;
 
     private OkHttpClientManager() {
-        mOkHttpClient = OkHttpProxy.getInstance();
+        mOkHttpClient = OkHttp.getClient();
         mHandler = new Handler(Looper.getMainLooper());
     }
 
@@ -41,13 +41,8 @@ public class OkHttpClientManager {
         return mHandler;
     }
 
-    public OkHttpClient getOkHttpClient() {
-        return mOkHttpClient;
-    }
-
-
     public void execute(final Request request, OkHttpCallBack callback) {
-        if (callback == null) callback = OkHttpCallBack.DEFAULT_RESULT_CALLBACK;
+        if (callback == null) callback = OkHttpCallBack.DEFAULT_CALLBACK;
         final OkHttpCallBack resCallBack = callback;
         resCallBack.onBefore(request);
         mOkHttpClient.newCall(request).enqueue(new Callback() {
@@ -58,17 +53,12 @@ public class OkHttpClientManager {
 
             @Override
             public void onResponse(final Response response) {
-                if (response.code() >= 400 && response.code() <= 599) {
-                    try {
-                        sendFailResultCallback(request, new RuntimeException(response.body().string()), resCallBack);
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                    return;
-                }
-
                 try {
-                    sendSuccessResultCallback(response.body().string(), resCallBack);
+                    if (response.isSuccessful()) {
+                        sendSuccessResultCallback(response.body().string(), resCallBack);
+                    } else {
+                        sendFailResultCallback(request, new RuntimeException(response.body().string()), resCallBack);
+                    }
                 } catch (IOException e) {
                     sendFailResultCallback(response.request(), e, resCallBack);
                 }
@@ -82,29 +72,27 @@ public class OkHttpClientManager {
         return execute.body().string();
     }
 
-
     public void sendFailResultCallback(final Request request, final Exception e, final OkHttpCallBack callback) {
-        if (callback == null) return;
+        if (callback == null) return ;
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                callback.onError(request, e);
+                callback.onFailure(request, e);
                 callback.onAfter();
             }
         });
     }
 
-    public void sendSuccessResultCallback(final Object obj, final OkHttpCallBack callback) {
-        if (callback == null) return;
+    public void sendSuccessResultCallback(final String response, final OkHttpCallBack callback) {
+        if (callback == null) return ;
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                callback.onResponse(obj);
+                callback.onSuccess(response);
                 callback.onAfter();
             }
         });
     }
-
 
     public void cancelTag(Object tag) {
         mOkHttpClient.cancel(tag);

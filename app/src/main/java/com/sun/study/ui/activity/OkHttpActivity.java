@@ -5,11 +5,21 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.alibaba.fastjson.JSON;
+import com.squareup.okhttp.Request;
 import com.sun.study.R;
+import com.sun.study.constant.ConstantParams;
 import com.sun.study.control.SingleControl;
+import com.sun.study.framework.dialog.ToastTip;
 import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
+import com.sun.study.module.okhttp.UrlManager;
+import com.sun.study.module.okhttp.callback.OkHttpCallBack;
+import com.sun.study.module.okhttp.core.OkHttpProxy;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.List;
 
@@ -100,6 +110,37 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
                     }
                 })
                 .show();
+    }
+
+    public void getCityWeatherDataEnqueue(View v) {
+        OkHttpProxy.getInstance()
+                .url(UrlManager.URL_CITY_WEATHER + "?cityname=" +cityname)
+                .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
+                .get(new OkHttpCallBack() {
+                    @Override
+                    public void onSuccess(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            int errNum = jsonObject.getInt("errNum");
+                            String errMsg = jsonObject.getString("errMsg");
+                            if (errNum == 0) {
+                                CityWeatherEntity entity = JSON.parseObject(response, CityWeatherEntity.class);
+                                if (entity != null) {
+                                    showInfoDialog(entity.getRetData());
+                                }
+                            } else {
+                                ToastTip.show(errMsg);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Request request, Exception e) {
+
+                    }
+                });
     }
 
 }

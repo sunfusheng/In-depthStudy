@@ -12,7 +12,7 @@ public interface HttpCallBack {
     void onLoading(float progress);
 
     //请求成功回调
-	void onSuccess(String responseInfo);
+	void onSuccess(String response);
 
     //请求失败回调
     void onFailure(Exception error, String msg);

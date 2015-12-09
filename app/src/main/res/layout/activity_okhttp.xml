@@ -26,6 +26,11 @@
 
     <TextView
         style="@style/TvButtonStyle"
+        android:text="获取北京天气 getCityWeatherDataEnqueue()"
+        android:onClick="getCityWeatherDataEnqueue"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
         android:text="北京可查询天气区域列表"
         android:onClick="getWeatherCityDistrictList"/>
 
