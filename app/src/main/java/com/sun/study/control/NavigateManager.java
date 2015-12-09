@@ -9,14 +9,14 @@ import android.provider.MediaStore;
 
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
-import com.sun.study.ui.activity.RxJava1Activity;
-import com.sun.study.ui.activity.RxJava2Activity;
-import com.sun.study.ui.activity.RxJava3Activity;
-import com.sun.study.ui.activity.RxJava4Activity;
-import com.sun.study.ui.activity.RxJava5Activity;
-import com.sun.study.ui.activity.RxJava6Activity;
-import com.sun.study.ui.activity.RxJava7Activity;
-import com.sun.study.ui.activity.RxJava8Activity;
+import com.sun.study.ui.activity.rxjava.RxJava1Activity;
+import com.sun.study.ui.activity.rxjava.RxJava2Activity;
+import com.sun.study.ui.activity.rxjava.RxJava3Activity;
+import com.sun.study.ui.activity.rxjava.RxJava4Activity;
+import com.sun.study.ui.activity.rxjava.RxJava5Activity;
+import com.sun.study.ui.activity.rxjava.RxJava6Activity;
+import com.sun.study.ui.activity.rxjava.RxJava7Activity;
+import com.sun.study.ui.activity.rxjava.RxJava8Activity;
 
 import java.io.File;
 

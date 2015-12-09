@@ -1,4 +1,4 @@
-package com.sun.study.ui.activity;
+package com.sun.study.ui.activity.rxjava;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -6,6 +6,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.sun.study.R;
+import com.sun.study.ui.activity.BaseActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

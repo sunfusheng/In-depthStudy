@@ -52,21 +52,21 @@
                   android:screenOrientation="portrait"/>
 
         <!-- RxJava -->
-        <activity android:name=".ui.activity.RxJava1Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava1Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava2Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava2Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava3Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava3Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava4Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava4Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava5Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava5Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava6Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava6Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava7Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava7Activity"
                   android:screenOrientation="portrait"/>
-        <activity android:name=".ui.activity.RxJava8Activity"
+        <activity android:name=".ui.activity.rxjava.RxJava8Activity"
                   android:screenOrientation="portrait"/>
 
     </application>
