@@ -35,8 +35,7 @@ public class OkHttpGet extends OkHttp {
         url = appendParams(url, params);
         Request.Builder builder = new Request.Builder();
         appendHeaders(builder, headers);
-        builder.url(url).tag(tag);
-        return builder.build();
+        return builder.url(url).tag(tag).build();
     }
 
     @Override

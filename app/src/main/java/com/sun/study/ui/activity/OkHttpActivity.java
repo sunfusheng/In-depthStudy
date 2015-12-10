@@ -34,7 +34,7 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
     @Bind(R.id.toolbar)
     Toolbar toolbar;
 
-    private String cityname = "北京";
+    private String city = "北京";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,19 +50,19 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
     }
 
     public void getCityWeather(View v) {
-        mControl.getCityWeather(cityname);
+        mControl.getCityWeather(city);
     }
 
     public void getCityWeatherSimple(View v) {
-        mControl.getCityWeatherSimple(cityname);
+        mControl.getCityWeatherSimple(city);
     }
 
     public void getCityWeatherDataSimple(View v) {
-        mControl.getCityWeatherDataSimple(cityname);
+        mControl.getCityWeatherDataSimple(city);
     }
 
     public void getWeatherCityDistrictList(View v) {
-        mControl.getWeatherCityDistrictList(cityname);
+        mControl.getWeatherCityDistrictList(city);
     }
 
     public void getCityWeatherCallBack() {
@@ -79,7 +79,7 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
     
     private void showInfoDialog(CityWeatherDataEntity entity) {
         if (entity == null) return ;
-        mTipDialog.show(cityname + "天气", "发布时间：" + entity.getDate() + " " + entity.getTime() + "\n" +
+        mTipDialog.show(entity.getCity() + "天气", "发布时间：" + entity.getDate() + " " + entity.getTime() + "\n" +
                 "当前温度：" + entity.getTemp() + "\n" +
                 "最高温度：" + entity.getH_tmp() + "\n" +
                 "最低温度：" + entity.getL_tmp() + "\n" +
@@ -101,7 +101,7 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
 
     private void showLongList(String[] listArr) {
         new MaterialDialog.Builder(this)
-                .title(cityname + "区域列表")
+                .title(city + "区域列表")
                 .items(listArr)
                 .itemsCallback(new MaterialDialog.ListCallback() {
                     @Override
@@ -113,8 +113,7 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
     }
 
     public void getCityWeatherDataEnqueue(View v) {
-        OkHttpProxy.getInstance()
-                .url(UrlManager.URL_CITY_WEATHER + "?cityname=" +cityname)
+        OkHttpProxy.get().url(UrlManager.URL_CITY_WEATHER + "?cityname=" +city)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
                 .get(new OkHttpCallBack() {
                     @Override

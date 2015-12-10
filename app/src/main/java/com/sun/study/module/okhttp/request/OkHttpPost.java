@@ -17,6 +17,7 @@ import java.util.Map;
  * Created by sunfusheng on 15/11/19.
  */
 public class OkHttpPost extends OkHttp {
+
     private String content;
     private byte[] bytes;
     private File file;
@@ -71,7 +72,7 @@ public class OkHttpPost extends OkHttp {
         }
 
         if (count <= 0 || count > 1) {
-            throw new IllegalArgumentException("the params , content , file , bytes must has one and only one .");
+            throw new IllegalArgumentException("The params , content , file , bytes must has one and only one .");
         }
     }
 
@@ -82,15 +83,13 @@ public class OkHttpPost extends OkHttp {
         }
         Request.Builder builder = new Request.Builder();
         appendHeaders(builder, headers);
-        builder.url(url).tag(tag).post(requestBody);
-        return builder.build();
+        return builder.url(url).tag(tag).post(requestBody).build();
     }
 
     @Override
     public RequestBody buildRequestBody() {
         validParams();
         RequestBody requestBody = null;
-
 
         switch (type) {
             case TYPE_PARAMS:
@@ -116,14 +115,12 @@ public class OkHttpPost extends OkHttp {
         ComputeRequestBody countingRequestBody = new ComputeRequestBody(requestBody, new ComputeRequestBody.Listener() {
             @Override
             public void onRequestProgress(final long bytesWritten, final long contentLength) {
-
                 mOkHttpClientManager.getHandler().post(new Runnable() {
                     @Override
                     public void run() {
                         callback.inProgress(bytesWritten * 1.0f / contentLength);
                     }
                 });
-
             }
         });
         return countingRequestBody;

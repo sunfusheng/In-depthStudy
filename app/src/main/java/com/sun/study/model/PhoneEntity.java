@@ -64,5 +64,6 @@ public class PhoneEntity implements Serializable {
         public String getCarrier() {
             return carrier;
         }
+
     }
 }

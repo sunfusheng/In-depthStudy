@@ -3,7 +3,6 @@ package com.sun.study.module.okhttp.core;
 import android.os.Handler;
 import android.os.Looper;
 
-import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -67,8 +66,7 @@ public class OkHttpClientManager {
     }
 
     public String execute(Request request) throws IOException {
-        Call call = mOkHttpClient.newCall(request);
-        Response execute = call.execute();
+        Response execute = mOkHttpClient.newCall(request).execute();
         return execute.body().string();
     }
 
@@ -94,7 +92,4 @@ public class OkHttpClientManager {
         });
     }
 
-    public void cancelTag(Object tag) {
-        mOkHttpClient.cancel(tag);
-    }
 }

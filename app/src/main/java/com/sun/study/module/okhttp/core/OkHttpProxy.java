@@ -1,5 +1,6 @@
 package com.sun.study.module.okhttp.core;
 
+import android.text.TextUtils;
 import android.util.Pair;
 
 import com.squareup.okhttp.MediaType;
@@ -24,10 +25,8 @@ public class OkHttpProxy {
 
     private String url;
     private String tag;
-    private Map<String, String> headers;
     private Map<String, String> params;
-    private Pair<String, File>[] files;
-    private MediaType mediaType;
+    private Map<String, String> headers;
 
     private String destFileDir;
     private String destFileName;
@@ -35,20 +34,13 @@ public class OkHttpProxy {
     private String content;
     private byte[] bytes;
     private File file;
-
-    private static OkHttpProxy mOkHttpProxy;
+    private Pair<String, File>[] files;
+    private MediaType mediaType;
 
     private OkHttpProxy() {}
 
-    public static OkHttpProxy getInstance() {
-        if (mOkHttpProxy == null) {
-            synchronized (OkHttpProxy.class) {
-                if (mOkHttpProxy == null) {
-                    mOkHttpProxy = new OkHttpProxy();
-                }
-            }
-        }
-        return mOkHttpProxy;
+    public static OkHttpProxy get() {
+        return new OkHttpProxy();
     }
 
     public OkHttpProxy url(String url) {
@@ -59,6 +51,12 @@ public class OkHttpProxy {
     public OkHttpProxy tag(String tag) {
         this.tag = tag;
         return this;
+    }
+
+    public void cancel() {
+        if (!TextUtils.isEmpty(tag)) {
+            OkHttp.getClient().cancel(tag);
+        }
     }
 
     public OkHttpProxy params(Map<String, String> params) {
@@ -87,6 +85,10 @@ public class OkHttpProxy {
         return this;
     }
 
+    public OkHttpProxy file(File file) {
+        this.file = file;
+        return this;
+    }
 
     public OkHttpProxy files(Pair<String, File>... files) {
         this.files = files;
@@ -105,6 +107,11 @@ public class OkHttpProxy {
 
     public OkHttpProxy content(String content) {
         this.content = content;
+        return this;
+    }
+
+    public OkHttpProxy bytes(byte[] bytes) {
+        this.bytes = bytes;
         return this;
     }
 

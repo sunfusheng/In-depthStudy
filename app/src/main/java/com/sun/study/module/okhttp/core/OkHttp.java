@@ -4,12 +4,10 @@ import android.text.TextUtils;
 
 import com.alibaba.fastjson.JSON;
 import com.orhanobut.logger.Logger;
-import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Headers;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
-import com.squareup.okhttp.Response;
 import com.sun.study.constant.GlobalParams;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
 
@@ -81,7 +79,6 @@ public abstract class OkHttp {
         request = buildRequest();
     }
 
-
     public void invokeAsync(OkHttpCallBack callback) {
         prepareInvoked(callback);
         mOkHttpClientManager.execute(request, callback);
@@ -102,15 +99,13 @@ public abstract class OkHttp {
     }
 
     private  <T> T execute(String parseWhat, Request request, Class<T> clazz) throws IOException, JSONException {
-        Call call = mOkHttpClient.newCall(request);
-        Response execute = call.execute();
-        String respStr = execute.body().string();
-        Logger.d(GlobalParams.LOG_TAG_CONTENT, ""+respStr);
+        String response = mOkHttpClientManager.execute(request);
+        Logger.d(GlobalParams.LOG_TAG_CONTENT, ""+response);
         if (!TextUtils.isEmpty(parseWhat)) {
-            JSONObject jsonObject = new JSONObject(respStr);
+            JSONObject jsonObject = new JSONObject(response);
             return JSON.parseObject(jsonObject.getString(parseWhat), clazz);
         }
-        return JSON.parseObject(respStr, clazz);
+        return JSON.parseObject(response, clazz);
     }
 
     public <T> ArrayList<T> invokeForList(String parseWhat, Class<T> clazz) throws IOException, JSONException {
@@ -120,12 +115,10 @@ public abstract class OkHttp {
     }
 
     private  <T> ArrayList<T> executeForList(String parseWhat, Request request, Class<T> clazz) throws IOException, JSONException {
-        Call call = mOkHttpClient.newCall(request);
-        Response execute = call.execute();
-        String respStr = execute.body().string();
-        Logger.d(GlobalParams.LOG_TAG_CONTENT, ""+respStr);
+        String response = mOkHttpClientManager.execute(request);
+        Logger.d(GlobalParams.LOG_TAG_CONTENT, ""+response);
         if (!TextUtils.isEmpty(parseWhat)) {
-            JSONObject jsonObject = new JSONObject(respStr);
+            JSONObject jsonObject = new JSONObject(response);
             return new ArrayList<T>(JSON.parseArray(jsonObject.getString(parseWhat), clazz));
         }
         return null;
@@ -137,7 +130,7 @@ public abstract class OkHttp {
         }
 
         Headers.Builder headerBuilder = new Headers.Builder();
-        if (headers == null || headers.isEmpty()) return;
+        if (headers == null || headers.isEmpty()) return ;
 
         for (String key : headers.keySet()) {
             headerBuilder.add(key, headers.get(key));

@@ -96,7 +96,6 @@ public class OkHttpDownload extends OkHttpGet {
                     mOkHttpClientManager.getHandler().post(new Runnable() {
                         @Override
                         public void run() {
-
                             callback.inProgress(finalSum * 1.0f / total);
                         }
                     });
