@@ -43,10 +43,11 @@ public class OkHttpClientManager {
     public void execute(final Request request, OkHttpCallBack callback) {
         if (callback == null) callback = OkHttpCallBack.DEFAULT_CALLBACK;
         final OkHttpCallBack resCallBack = callback;
-        resCallBack.onBefore(request);
+        resCallBack.onStart(request);
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(final Request request, final IOException e) {
+                e.printStackTrace();
                 sendFailResultCallback(request, e, resCallBack);
             }
 
@@ -59,6 +60,7 @@ public class OkHttpClientManager {
                         sendFailResultCallback(request, new RuntimeException(response.body().string()), resCallBack);
                     }
                 } catch (IOException e) {
+                    e.printStackTrace();
                     sendFailResultCallback(response.request(), e, resCallBack);
                 }
             }
@@ -76,7 +78,6 @@ public class OkHttpClientManager {
             @Override
             public void run() {
                 callback.onFailure(request, e);
-                callback.onAfter();
             }
         });
     }
@@ -87,7 +88,6 @@ public class OkHttpClientManager {
             @Override
             public void run() {
                 callback.onSuccess(response);
-                callback.onAfter();
             }
         });
     }

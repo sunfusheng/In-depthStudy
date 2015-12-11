@@ -25,7 +25,7 @@ import retrofit.Call;
  */
 public class SingleControl extends BaseControl {
 
-    private HttpApi mApi;
+    private static HttpApi mApi;
 
     public SingleControl(MessageProxy mMessageCallBack) {
         super(mMessageCallBack);

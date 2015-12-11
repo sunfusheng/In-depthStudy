@@ -16,6 +16,7 @@ import com.sun.study.R;
 import com.sun.study.framework.dialog.ToastTip;
 import com.sun.study.ui.fragment.CustomViewFragment;
 import com.sun.study.ui.fragment.HomeFragment;
+import com.sun.study.ui.fragment.MapFragment;
 import com.sun.study.ui.fragment.NetworkFragment;
 import com.sun.study.ui.fragment.RxJavaFragment;
 
@@ -190,6 +191,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 4:
                 fragment = new NetworkFragment();
+                break;
+            case 6:
+                fragment = new MapFragment();
                 break;
             case 0:
             default:

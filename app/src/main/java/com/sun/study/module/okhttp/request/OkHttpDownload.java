@@ -5,7 +5,6 @@ import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.Request;
 import com.squareup.okhttp.Response;
 import com.sun.study.module.okhttp.callback.OkHttpCallBack;
-import com.sun.study.module.okhttp.core.OkHttpClientManager;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -49,14 +48,13 @@ public class OkHttpDownload extends OkHttpGet {
             public void onResponse(Response response) {
                 try {
                     String filePath = saveFile(response, callback);
-                    OkHttpClientManager.getInstance().sendSuccessResultCallback(filePath, callback);
+                    mOkHttpClientManager.sendSuccessResultCallback(filePath, callback);
                 } catch (IOException e) {
                     e.printStackTrace();
-                    OkHttpClientManager.getInstance().sendFailResultCallback(response.request(), e, callback);
+                    mOkHttpClientManager.sendFailResultCallback(response.request(), e, callback);
                 }
             }
         });
-
     }
 
     private String getFileName(String path) {
@@ -76,6 +74,7 @@ public class OkHttpDownload extends OkHttpGet {
         byte[] buf = new byte[2048];
         int len = 0;
         FileOutputStream fos = null;
+
         try {
             is = response.body().byteStream();
             final long total = response.body().contentLength();
@@ -87,6 +86,7 @@ public class OkHttpDownload extends OkHttpGet {
             }
             File file = new File(dir, destFileName);
             fos = new FileOutputStream(file);
+
             while ((len = is.read(buf)) != -1) {
                 sum += len;
                 fos.write(buf, 0, len);
@@ -102,9 +102,7 @@ public class OkHttpDownload extends OkHttpGet {
                 }
             }
             fos.flush();
-
             return file.getAbsolutePath();
-
         } finally {
             try {
                 if (is != null) is.close();
@@ -114,7 +112,6 @@ public class OkHttpDownload extends OkHttpGet {
                 if (fos != null) fos.close();
             } catch (IOException e) {
             }
-
         }
     }
 

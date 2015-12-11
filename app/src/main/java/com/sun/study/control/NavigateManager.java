@@ -7,6 +7,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.provider.MediaStore;
 
+import com.sun.study.ui.activity.AmapActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.rxjava.RxJava1Activity;
@@ -96,6 +97,11 @@ public class NavigateManager {
 
     public static void gotoRxJava8Activity(Context context) {
         Intent intent = new Intent(context, RxJava8Activity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoAmapActivity(Context context) {
+        Intent intent = new Intent(context, AmapActivity.class);
         context.startActivity(intent);
     }
 

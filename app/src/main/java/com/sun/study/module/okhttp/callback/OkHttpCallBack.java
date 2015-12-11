@@ -7,9 +7,7 @@ import com.squareup.okhttp.Request;
  */
 public abstract class OkHttpCallBack<T> {
 
-    public void onBefore(Request request) {}
-
-    public void onAfter() {}
+    public void onStart(Request request) {}
 
     public void inProgress(float progress) {}
 
