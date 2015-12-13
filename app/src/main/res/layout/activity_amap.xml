@@ -29,7 +29,6 @@
                 android:layout_marginBottom="30dp"
                 android:src="@drawable/location_center" />
         </LinearLayout>
-
     </RelativeLayout>
 
 </LinearLayout>
