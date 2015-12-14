@@ -1,0 +1,16 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto" >
+
+    <item android:id="@+id/action_voice"
+          android:title="@string/action_voice"
+          android:orderInCategory="1"
+          app:showAsAction="always"
+          android:icon="@drawable/ic_keyboard_voice_black_24dp"/>
+
+    <item android:id="@+id/action_location"
+          android:title="@string/action_location"
+          android:orderInCategory="2"
+          app:showAsAction="ifRoom"
+          android:icon="@drawable/ic_my_location_black_24dp"/>
+</menu>
+

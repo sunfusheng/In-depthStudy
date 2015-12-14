@@ -122,4 +122,7 @@ dependencies {
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
 
+    //Floating Search View
+    compile 'com.github.arimorty:floatingsearchview:1.1.2'
+
 }

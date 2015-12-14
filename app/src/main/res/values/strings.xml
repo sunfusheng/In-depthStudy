@@ -44,4 +44,7 @@
     <string name="s_kitchen_detail_sell_out">今日售罄</string>
     <string name="s_kitchen_detail_tomorrow_only">可订明日</string>
 
+    <string name="action_voice">action voice</string>
+    <string name="action_location">action location</string>
+
 </resources>
