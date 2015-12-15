@@ -22,9 +22,15 @@ import com.amap.api.services.core.PoiItem;
 import com.amap.api.services.poisearch.PoiResult;
 import com.amap.api.services.poisearch.PoiSearch;
 import com.arlib.floatingsearchview.FloatingSearchView;
+import com.arlib.floatingsearchview.suggestions.SearchSuggestionsAdapter;
+import com.arlib.floatingsearchview.suggestions.model.SearchSuggestion;
+import com.arlib.floatingsearchview.util.view.BodyTextView;
+import com.arlib.floatingsearchview.util.view.IconImageView;
 import com.sun.study.R;
+import com.sun.study.model.AmapPoiEntity;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -45,11 +51,7 @@ public class AmapActivity extends BaseActivity implements LocationSource, AMapLo
     private AMapLocationClientOption mLocationOption;
     private AMapLocation aMapLocation;
     private int zoomLevel = 16;
-
-    private PoiResult poiResult; // poi返回的结果
-    private int currentPage = 0;// 当前页面，从0开始计数
-    private PoiSearch.Query query;// Poi查询条件类
-    private PoiSearch poiSearch;// POI搜索
+    private List<AmapPoiEntity> swapPois;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +81,7 @@ public class AmapActivity extends BaseActivity implements LocationSource, AMapLo
     }
 
     private void initView() {
-
+        swapPois = new ArrayList<AmapPoiEntity>();
     }
 
     private void initListener() {
@@ -103,23 +105,39 @@ public class AmapActivity extends BaseActivity implements LocationSource, AMapLo
                 }
             }
         });
+        floatingSearchView.setOnBindSuggestionCallback(new SearchSuggestionsAdapter.OnBindSuggestionCallback() {
+            @Override
+            public void onBindSuggestion(IconImageView leftIcon, BodyTextView bodyText, SearchSuggestion item, int itemPosition) {
+                if (swapPois != null && swapPois.size() > itemPosition) {
+                    AmapPoiEntity entity = swapPois.get(itemPosition);
+                    aMap.animateCamera(CameraUpdateFactory.changeLatLng(entity.getLatLng()));
+                }
+            }
+        });
     }
 
     protected void doPoiSearchQuery(String keyWord) {
         floatingSearchView.showProgress();
-        currentPage = 0;
-        query = new PoiSearch.Query(keyWord, "", aMapLocation == null? "北京":aMapLocation.getCity());// 第一个参数表示搜索字符串，第二个参数表示poi搜索类型，第三个参数表示poi搜索区域（空字符串代表全国）
-        query.setPageSize(10);// 设置每页最多返回多少条poi item
-        query.setPageNum(currentPage);// 设置查第一页
+        PoiSearch.Query query = new PoiSearch.Query(keyWord, "", aMapLocation == null? "北京":aMapLocation.getCity());
+        query.setPageSize(50);
+        query.setPageNum(0);
 
-        poiSearch = new PoiSearch(this, query);
+        PoiSearch poiSearch = new PoiSearch(this, query);
         poiSearch.setOnPoiSearchListener(new PoiSearch.OnPoiSearchListener() {
             @Override
             public void onPoiSearched(PoiResult poiResult, int i) {
                 floatingSearchView.hideProgress();
-                AmapActivity.this.poiResult = poiResult;
-                ArrayList<PoiItem> pois = poiResult.getPois();
-//                floatingSearchView.swapSuggestions();
+                if (poiResult != null && poiResult.getPois() != null) {
+                    List<PoiItem> pois = poiResult.getPois();
+                    for (PoiItem item:pois) {
+                        AmapPoiEntity entity = new AmapPoiEntity();
+                        LatLng latLng = new LatLng(item.getLatLonPoint().getLatitude(), item.getLatLonPoint().getLongitude());
+                        entity.setLatLng(latLng);
+                        entity.setTitle(item.getTitle());
+                        swapPois.add(entity);
+                    }
+                    floatingSearchView.swapSuggestions(swapPois);
+                }
             }
         });
         poiSearch.searchPOIAsyn();
