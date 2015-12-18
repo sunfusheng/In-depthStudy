@@ -12,7 +12,7 @@ package com.sun.study.module.HighQualityCode;
 /**
  * Created by sunfusheng on 15/12/11.
  */
-public class _1_Methods_and_Rules {
+public class _1_Method_Rule {
 
     /**
      * 第一章 Java开发中通用的方法贺准则
@@ -75,5 +75,30 @@ public class _1_Methods_and_Rules {
      *      因为在运行期变更代码非常容易，而且不用停止应用。
      * 简单：只能说部分脚本语言简单，比如Groovy，Java程序员若转到Groovy程序语言上，只需要两个小时，
      *      看完语法说明，看完Demo即可使用了，没有太多的技术门槛。
+     */
+
+    /**
+     * 避免 instanceof 非预期结果
+     *
+     * instanceof 是一个简单的二元操作符，用来判断一个对象是否是一个类实例的。
+     * 所以 instanceof 只能用于对象的判断，不能用于基本类型的判断。
+     *
+     * "String" instanceof Object //true String 默认继承 Object
+     * 'A' instanceof Character //编译不通过，原因上面已经说了
+     *
+     * null instanceof String //false
+     * (String)null instanceof String //false
+     * instanceof 特有的规则：若左操作数是 null 结果就直接返回false，不再运算右操作数是什么类型。省去我们判断左操作数是否为null啦
+     * null是一个万用类型，可以说它没有类型，即使做类型转换还是个null。
+     */
+
+    /**
+     * 断言(Assertion)绝对不是鸡肋
+     * 在防御式编程中经常会用断言对参数和环境做出判断，避免程序因不当的输入或错误的环境产生逻辑异常。
+     * 断言的基本用法：
+     * assert <布尔表达式>
+     * assert <布尔表达式> : <错误信息>
+     * 在布尔表达式为假时，抛出AssertionError错误，并附带错误信息。
+     * assert抛出的异常AssertionError是继承Error的，这是一个错误，是不可恢复的严重问题。
      */
 }
