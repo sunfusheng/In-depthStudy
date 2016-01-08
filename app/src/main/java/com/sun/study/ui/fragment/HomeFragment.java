@@ -4,6 +4,7 @@ import android.annotation.TargetApi;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,11 @@ import android.view.ViewGroup;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.orhanobut.logger.Logger;
+import com.sun.study.MainApplication;
 import com.sun.study.R;
+
+import java.io.File;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +29,8 @@ public class HomeFragment extends BaseFragment {
 
     @Bind(R.id.sdv_gif)
     SimpleDraweeView sdvGif;
+
+    private static final String APATCH_PATH = "/out.apatch";
 
     @Nullable
     @Override
@@ -38,14 +45,29 @@ public class HomeFragment extends BaseFragment {
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     private void initView() {
-        Uri uri = Uri.parse("res://"+getActivity().getPackageName()+"/"+R.drawable.gif_robot_walk);
-//        Uri uri = Uri.parse("http://ww2.sinaimg.cn/large/dd412be4gw1esr6ijoebog208e0e1qv6.gif");
+//        Uri uri = Uri.parse("res://"+getActivity().getPackageName()+"/"+R.drawable.gif_robot_walk);
+        Uri uri = Uri.parse("http://ww2.sinaimg.cn/large/dd412be4gw1esr6ijoebog208e0e1qv6.gif");
         DraweeController controller = Fresco.newDraweeControllerBuilder()
                 .setUri(uri)
                 .setAutoPlayAnimations(true)
                 .build();
 
         sdvGif.setController(controller);
+
+        try {
+            String patchFileString = Environment.getExternalStorageDirectory().getAbsolutePath() + APATCH_PATH;
+            File file = new File(patchFileString);
+            if (file.exists()) {
+                MainApplication.getPatchManager().addPatch(patchFileString);
+                Logger.e("log-andfix", "addPatch()");
+                file.delete();
+            } else {
+                Logger.e("log-andfix", "Not addPatch()");
+            }
+        } catch (Exception e) {
+            Logger.e("log-andfix", "Exception: "+e.getMessage());
+            e.printStackTrace();
+        }
     }
 
     private void initListener() {
