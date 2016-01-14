@@ -2,7 +2,6 @@ package com.sun.study;
 
 import android.app.Application;
 
-import com.alipay.euler.andfix.patch.PatchManager;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sun.study.framework.exception.CrashHandler;
 import com.sun.study.framework.proxy.ControlFactory;
@@ -16,7 +15,6 @@ import de.devland.esperandro.Esperandro;
 public class MainApplication extends Application {
 
     private static MainApplication instance;
-    private static PatchManager patchManager;
 
     @Override
     public void onCreate() {
@@ -31,17 +29,10 @@ public class MainApplication extends Application {
         Fresco.initialize(this);
 
         CrashHandler.getInstance().init(this);
-
-        patchManager = new PatchManager(this);
-        patchManager.init("1.1");
-        patchManager.loadPatch();
     }
 
     public static MainApplication getInstance() {
         return instance;
     }
 
-    public static PatchManager getPatchManager() {
-        return patchManager;
-    }
 }

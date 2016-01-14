@@ -10,6 +10,7 @@ import android.provider.MediaStore;
 import com.sun.study.ui.activity.AmapActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
+import com.sun.study.ui.activity.ShoppingViewActivity;
 import com.sun.study.ui.activity.rxjava.RxJava1Activity;
 import com.sun.study.ui.activity.rxjava.RxJava2Activity;
 import com.sun.study.ui.activity.rxjava.RxJava3Activity;
@@ -102,6 +103,11 @@ public class NavigateManager {
 
     public static void gotoAmapActivity(Context context) {
         Intent intent = new Intent(context, AmapActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoShoppingViewActivity(Context context) {
+        Intent intent = new Intent(context, ShoppingViewActivity.class);
         context.startActivity(intent);
     }
 

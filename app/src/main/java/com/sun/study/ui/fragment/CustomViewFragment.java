@@ -5,9 +5,10 @@ import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.sun.study.R;
-import com.sun.study.view.ChoiceView;
+import com.sun.study.control.NavigateManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -17,12 +18,9 @@ import butterknife.ButterKnife;
  */
 public class CustomViewFragment extends BaseFragment implements View.OnClickListener {
 
-    @Bind(R.id.cv_choice1)
-    ChoiceView cvChoice1;
-    @Bind(R.id.cv_choice2)
-    ChoiceView cvChoice2;
-    @Bind(R.id.cv_choice3)
-    ChoiceView cvChoice3;
+
+    @Bind(R.id.tv_ShoppingView)
+    TextView tvShoppingView;
 
     @Nullable
     @Override
@@ -36,14 +34,7 @@ public class CustomViewFragment extends BaseFragment implements View.OnClickList
     }
 
     private void initView() {
-        cvChoice1.setSellOutViewVisibility(true);
-        cvChoice2.setOnChoiceViewClickListener(new ChoiceView.OnChoiceViewClickListener() {
-            @Override
-            public void onChoiceViewCount(int count) {
-
-            }
-        });
-        cvChoice3.setTomorrowOnlyViewVisibility(true);
+        tvShoppingView.setOnClickListener(this);
     }
 
     private void initListener() {
@@ -53,7 +44,9 @@ public class CustomViewFragment extends BaseFragment implements View.OnClickList
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-
+            case R.id.tv_ShoppingView:
+                NavigateManager.gotoShoppingViewActivity(getActivity());
+                break;
         }
     }
 

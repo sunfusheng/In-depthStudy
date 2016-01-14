@@ -73,6 +73,10 @@
         <activity android:name=".ui.activity.rxjava.RxJava8Activity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 购物车 -->
+        <activity android:name=".ui.activity.ShoppingViewActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>

@@ -25,8 +25,6 @@ public class HomeFragment extends BaseFragment {
     @Bind(R.id.sdv_gif)
     SimpleDraweeView sdvGif;
 
-    private static final String APATCH_PATH = "/out.apatch";
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,32 +44,11 @@ public class HomeFragment extends BaseFragment {
                 .setUri(uri)
                 .setAutoPlayAnimations(true)
                 .build();
-
         sdvGif.setController(controller);
-
-//        try {
-//            String patchFileString = Environment.getExternalStorageDirectory().getAbsolutePath() + APATCH_PATH;
-//            File file = new File(patchFileString);
-//            if (file.exists()) {
-//                MainApplication.getPatchManager().addPatch(patchFileString);
-//                Logger.e("log-andfix", "addPatch()");
-//                file.delete();
-//            } else {
-//                Logger.e("log-andfix", "Not addPatch()");
-//            }
-//        } catch (Exception e) {
-//            Logger.e("log-andfix", "Exception: "+e.getMessage());
-//            e.printStackTrace();
-//        }
     }
 
     private void initListener() {
 
     }
 
-    @Override
-    public void onDestroyView() {
-        super.onDestroyView();
-        ButterKnife.unbind(this);
-    }
 }
