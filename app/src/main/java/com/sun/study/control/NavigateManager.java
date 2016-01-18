@@ -8,6 +8,7 @@ import android.os.Environment;
 import android.provider.MediaStore;
 
 import com.sun.study.ui.activity.AmapActivity;
+import com.sun.study.ui.activity.FrescoActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShoppingViewActivity;
@@ -108,6 +109,11 @@ public class NavigateManager {
 
     public static void gotoShoppingViewActivity(Context context) {
         Intent intent = new Intent(context, ShoppingViewActivity.class);
+        context.startActivity(intent);
+    }
+
+    public static void gotoFrescoActivity(Context context) {
+        Intent intent = new Intent(context, FrescoActivity.class);
         context.startActivity(intent);
     }
 

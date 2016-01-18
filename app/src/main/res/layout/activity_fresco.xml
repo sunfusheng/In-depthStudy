@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/app_toolbar"/>
+
+        <TextView
+            style="@style/TvButtonStyle"
+            android:layout_marginTop="16dp"
+            android:text="获取北京天气 getCityWeather()"
+            android:onClick="getCityWeather"/>
+
+        <TextView
+            style="@style/TvButtonStyle"
+            android:text="北京可查询天气区域列表"
+            android:onClick="getWeatherCityDistrictList"/>
+    </LinearLayout>
+</ScrollView>

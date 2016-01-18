@@ -77,6 +77,10 @@
         <activity android:name=".ui.activity.ShoppingViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- Fresco -->
+        <activity android:name=".ui.activity.FrescoActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>

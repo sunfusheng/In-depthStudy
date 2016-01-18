@@ -111,7 +111,7 @@ dependencies {
     }
 
     // Fresco
-    compile 'com.facebook.fresco:fresco:0.8.1'
+    compile 'com.facebook.fresco:fresco:0.9.0'
 
     // RxJava RxAndroid
     compile 'io.reactivex:rxjava:1.0.16'
