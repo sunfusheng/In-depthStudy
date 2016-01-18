@@ -21,6 +21,8 @@ public class CustomViewFragment extends BaseFragment implements View.OnClickList
 
     @Bind(R.id.tv_ShoppingView)
     TextView tvShoppingView;
+    @Bind(R.id.tv_dialog)
+    TextView tvDialog;
 
     @Nullable
     @Override
@@ -35,6 +37,7 @@ public class CustomViewFragment extends BaseFragment implements View.OnClickList
 
     private void initView() {
         tvShoppingView.setOnClickListener(this);
+        tvDialog.setOnClickListener(this);
     }
 
     private void initListener() {
@@ -46,6 +49,9 @@ public class CustomViewFragment extends BaseFragment implements View.OnClickList
         switch (v.getId()) {
             case R.id.tv_ShoppingView:
                 NavigateManager.gotoShoppingViewActivity(getActivity());
+                break;
+            case R.id.tv_dialog:
+
                 break;
         }
     }

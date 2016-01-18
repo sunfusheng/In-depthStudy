@@ -11,9 +11,9 @@
         android:text="购物车"/>
 
     <TextView
-        android:id="@+id/tv_xutils3"
+        android:id="@+id/tv_dialog"
         style="@style/TvButtonStyle"
-        android:text="自定义"/>
+        android:text="对话框"/>
 
     <TextView
         android:id="@+id/tv_volley"

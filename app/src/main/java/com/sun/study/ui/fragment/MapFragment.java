@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 15/12/11.
  */
-public class MapFragment extends BaseFragment<SingleControl> implements View.OnClickListener {
+public class MapFragment extends BaseFragment<SingleControl> {
 
     @Bind(R.id.tv_amap)
     TextView tvAmap;

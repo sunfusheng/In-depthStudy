@@ -17,7 +17,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 15/11/18.
  */
-public class NetworkFragment extends BaseFragment<SingleControl> implements View.OnClickListener {
+public class NetworkFragment extends BaseFragment<SingleControl> {
 
     @Bind(R.id.tv_okhttp)
     TextView tvOkhttp;
