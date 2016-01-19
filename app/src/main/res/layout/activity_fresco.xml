@@ -106,5 +106,44 @@
                 fresco:roundingBorderWidth="2dp"
                 fresco:roundingBorderColor="@color/orange"/>
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="3dp">
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv31"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                fresco:actualImageScaleType="fitCenter" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv32"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                fresco:actualImageScaleType="fitCenter" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv33"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                fresco:actualImageScaleType="fitCenter" />
+
+            <com.facebook.drawee.view.SimpleDraweeView
+                android:id="@+id/sdv34"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_weight="1"
+                android:layout_margin="3dp"
+                fresco:actualImageScaleType="focusCrop"/>
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

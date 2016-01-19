@@ -6,13 +6,10 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.request.ImageRequest;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.sun.study.R;
 import com.sun.study.framework.dialog.ToastTip;
+import com.sun.study.util.FrescoUtil;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -62,14 +59,14 @@ public class FrescoActivity extends BaseActivity {
 
     private void initView() {
         sdv11.setImageURI(Uri.parse(url1));
-        sdv12.setController(createDraweeController(url2));
-        sdv13.setController(createDraweeController(url3));
-        sdv14.setController(createDraweeController(url3));
+        sdv12.setController(FrescoUtil.createController(url2));
+        sdv13.setController(FrescoUtil.createController(url3));
+        sdv14.setController(FrescoUtil.createController(url3));
 
-        sdv21.setController(createDraweeController(url4));
-        sdv22.setController(createDraweeController(url4));
-        sdv23.setController(createDraweeController(url4));
-        sdv24.setController(createDraweeController(url4));
+        sdv21.setController(FrescoUtil.createController(url4));
+        sdv22.setController(FrescoUtil.createController(url4));
+        sdv23.setController(FrescoUtil.createController(url4));
+        sdv24.setController(FrescoUtil.createController(url4));
     }
 
     private void initListener() {
@@ -89,19 +86,6 @@ public class FrescoActivity extends BaseActivity {
                 }
             }
         });
-    }
-
-    // 创建Fresco的DraweeController
-    private DraweeController createDraweeController(String url) {
-        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url3))
-                .setProgressiveRenderingEnabled(true)
-                .build();
-        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
-                .setImageRequest(request)
-                .setUri(Uri.parse(url))
-                .setAutoPlayAnimations(true)
-                .build();
-        return draweeController;
     }
 
 }
