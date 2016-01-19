@@ -2,10 +2,10 @@ package com.sun.study;
 
 import android.app.Application;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
 import com.sun.study.framework.exception.CrashHandler;
 import com.sun.study.framework.proxy.ControlFactory;
 import com.sun.study.framework.sharedpreferences.FastJsonSerial;
+import com.sun.study.util.FrescoUtil;
 
 import de.devland.esperandro.Esperandro;
 
@@ -21,18 +21,26 @@ public class MainApplication extends Application {
         super.onCreate();
 
         instance = this;
-
         Esperandro.setSerializer(new FastJsonSerial());
-
         ControlFactory.init(this);
-
-        Fresco.initialize(this);
-
+        FrescoUtil.init(this);
         CrashHandler.getInstance().init(this);
     }
 
     public static MainApplication getInstance() {
         return instance;
+    }
+
+    @Override
+    public void onLowMemory() {
+        super.onLowMemory();
+        FrescoUtil.clearMemory();
+    }
+
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        FrescoUtil.clearCaches();
     }
 
 }
