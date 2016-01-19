@@ -37,6 +37,14 @@ public class FrescoActivity extends BaseActivity {
     SimpleDraweeView sdv23;
     @Bind(R.id.sdv24)
     SimpleDraweeView sdv24;
+    @Bind(R.id.sdv31)
+    SimpleDraweeView sdv31;
+    @Bind(R.id.sdv32)
+    SimpleDraweeView sdv32;
+    @Bind(R.id.sdv33)
+    SimpleDraweeView sdv33;
+    @Bind(R.id.sdv34)
+    SimpleDraweeView sdv34;
 
     private Animatable animatable;
     private boolean isRunGif = true;
@@ -45,6 +53,7 @@ public class FrescoActivity extends BaseActivity {
     private String url2 = "http://www.qq1234.org/uploads/allimg/140811/21100051a-53.gif";
     private String url3 = "http://img2.imgtn.bdimg.com/it/u=1992251649,697132307&fm=21&gp=0.jpg";
     private String url4 = "http://img1.imgtn.bdimg.com/it/u=4027212837,1228313366&fm=23&gp=0.jpg";
+    private String url5 = "/storage/emulated/0/MIUI/wallpaper/懒懒的猫咪_&_597e6551-ef62-4a77-9bc4-44a9e741a418.jpg";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +76,11 @@ public class FrescoActivity extends BaseActivity {
         sdv22.setController(FrescoUtil.createController(url4));
         sdv23.setController(FrescoUtil.createController(url4));
         sdv24.setController(FrescoUtil.createController(url4));
+
+        sdv31.setImageURI(FrescoUtil.createResUri(R.drawable.ic_launcher));
+        sdv32.setImageURI(FrescoUtil.createAssetsUri("ic_launcher.png"));
+        sdv33.setImageURI(FrescoUtil.createSDCardUri(url5));
+        sdv34.setController(FrescoUtil.createController("res:///" + R.drawable.gif_robot_walk));
     }
 
     private void initListener() {
