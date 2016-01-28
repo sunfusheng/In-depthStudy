@@ -8,6 +8,7 @@ import android.text.TextUtils;
 
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.core.ImagePipeline;
 import com.facebook.imagepipeline.core.ImagePipelineConfig;
 import com.facebook.imagepipeline.listener.RequestListener;
@@ -54,6 +55,24 @@ public class FrescoUtil {
         }
         ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
                 .setProgressiveRenderingEnabled(true)
+                .build();
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(request)
+                .setUri(Uri.parse(url))
+                .setAutoPlayAnimations(true)
+                .build();
+        return draweeController;
+    }
+
+    // 创建DraweeController用来加载网络图片
+    @Nullable
+    public static DraweeController createController(String url, int width, int height) {
+        if (TextUtils.isEmpty(url)) {
+            return null;
+        }
+        ImageRequest request = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url))
+                .setProgressiveRenderingEnabled(true)
+                .setResizeOptions(new ResizeOptions(width, height))
                 .build();
         DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                 .setImageRequest(request)

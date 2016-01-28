@@ -1,5 +1,7 @@
 package com.sun.study.ui.activity;
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -8,6 +10,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
@@ -104,9 +107,46 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
     public SettingsSharedPreferences getSettingsSharedPreferences() {
         return getSharedPreferences(SettingsSharedPreferences.class);
     }
-
     public LocationSharedPreferences getLocationSharedPreferences() {
         return getSharedPreferences(LocationSharedPreferences.class);
+    }
+
+    // 回收ImageView资源
+    protected static void recycleImageViews(ImageView... imageViews) {
+        if (imageViews != null && imageViews.length > 0) {
+            for (ImageView iv:imageViews) {
+                recycleImageViewBackground(iv);
+                recycleImageViewDrawable(iv);
+            }
+        }
+    }
+    protected static void recycleImageViewBackground(ImageView imageView) {
+        if (imageView != null) {
+            BitmapDrawable bd = (BitmapDrawable) imageView.getBackground();
+            recycleBitmapDrawable(bd);
+        }
+    }
+    protected static void recycleImageViewDrawable(ImageView imageView) {
+        if (imageView != null) {
+            BitmapDrawable bd = (BitmapDrawable) imageView.getDrawable();
+            recycleBitmapDrawable(bd);
+        }
+    }
+
+    // 回收BitmapDrawable资源
+    protected static void recycleBitmapDrawable(BitmapDrawable bitmapDrawable) {
+        if (bitmapDrawable != null) {
+            Bitmap bitmap = bitmapDrawable.getBitmap();
+            recycleBitmap(bitmap);
+            bitmapDrawable = null;
+        }
+    }
+
+    // 回收Bitmap资源
+    protected static void recycleBitmap(Bitmap bitmap) {
+        if (bitmap != null) {
+            bitmap = null;
+        }
     }
 
 }
