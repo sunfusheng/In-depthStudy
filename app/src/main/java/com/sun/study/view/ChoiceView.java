@@ -61,7 +61,6 @@ public class ChoiceView extends RelativeLayout {
     }
 
     private void initAttrs(Context context, AttributeSet attrs) {
-
     }
 
     private void initView() {
