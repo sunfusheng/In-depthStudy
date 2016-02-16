@@ -21,3 +21,11 @@ allprojects {
     }
 }
 
+allprojects.each { p ->
+    p.buildDir "bin"
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
+

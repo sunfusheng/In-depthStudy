@@ -1,1 +1,5 @@
-include ':app', ':GitHub-GankDaily', ':Framework-MVP1', ':Framework-MVP2'
+include ':app',
+        ':GitHub-GankDaily',
+        ':Framework-MVP1',
+        ':Framework-MVP2',
+        ':extras-libs:DroidPlugin'

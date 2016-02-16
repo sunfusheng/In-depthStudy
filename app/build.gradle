@@ -86,6 +86,9 @@ dependencies {
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
 
+    // Local libs
+    compile project(':extras-libs:DroidPlugin')
+
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1'
 

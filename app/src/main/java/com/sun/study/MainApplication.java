@@ -1,7 +1,9 @@
 package com.sun.study;
 
 import android.app.Application;
+import android.content.Context;
 
+import com.morgoo.droidplugin.PluginHelper;
 import com.sun.study.framework.exception.CrashHandler;
 import com.sun.study.framework.proxy.ControlFactory;
 import com.sun.study.framework.sharedpreferences.FastJsonSerial;
@@ -19,12 +21,14 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 
         instance = this;
         Esperandro.setSerializer(new FastJsonSerial());
         ControlFactory.init(this);
         FrescoUtil.init(this);
         CrashHandler.getInstance().init(this);
+
     }
 
     public static MainApplication getInstance() {
@@ -41,6 +45,12 @@ public class MainApplication extends Application {
     public void onTerminate() {
         super.onTerminate();
         FrescoUtil.clearCaches();
+    }
+
+    @Override
+    protected void attachBaseContext(Context base) {
+        PluginHelper.getInstance().applicationAttachBaseContext(base);
+        super.attachBaseContext(base);
     }
 
 }
