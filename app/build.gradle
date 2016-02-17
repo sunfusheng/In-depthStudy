@@ -98,7 +98,7 @@ dependencies {
     // OkHttp
     compile 'com.squareup.okhttp:okhttp:2.6.0'
 
-    // Multidex
+    // MultiDex
     compile 'com.android.support:multidex:1.0.0'
 
     // SharedPreferences
