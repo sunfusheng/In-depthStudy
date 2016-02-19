@@ -1,4 +1,4 @@
-include ':app',
+include ':app', ':droidplugintest1', ':DroidPlugin1',
         ':GitHub-GankDaily',
         ':Framework-MVP1',
         ':Framework-MVP2',

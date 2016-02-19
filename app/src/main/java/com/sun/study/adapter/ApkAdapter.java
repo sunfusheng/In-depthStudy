@@ -2,6 +2,7 @@ package com.sun.study.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -11,21 +12,27 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
 import com.sun.study.R;
-import com.sun.study.framework.dialog.ToastTip;
+import com.sun.study.constant.PluginParams;
+import com.sun.study.framework.dialog.SweetDialog;
+import com.sun.study.framework.dialog.TipDialog;
 import com.sun.study.model.AppInfoEntity;
-import com.sun.study.util.PluginHelper;
+import com.sun.study.module.plugin.InstallApkAsyncTask;
+import com.sun.study.module.plugin.PluginHelper;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.pedant.SweetAlert.SweetAlertDialog;
 
 /**
  * Created by sunfusheng on 16/2/18.
  */
 public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.OnClickListener {
 
+    private Activity mActivity;
     private PluginHelper pluginHelper;
 
     public ApkAdapter(Context context) {
@@ -34,6 +41,7 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
 
     public ApkAdapter(Activity activity, List<AppInfoEntity> list) {
         this(activity);
+        this.mActivity = activity;
         addALL(list);
         if (pluginHelper == null) {
             pluginHelper = new PluginHelper(activity);
@@ -66,13 +74,20 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
 
     @Override
     public void onClick(View v) {
-        AppInfoEntity entity = (AppInfoEntity) v.getTag();
+        final AppInfoEntity entity = (AppInfoEntity) v.getTag();
         switch (v.getId()){
             case R.id.rl_layout:
                 if (pluginHelper.isApkInstall(entity)) {
-                    pluginHelper.startApk(entity);
+//                    pluginHelper.startApk(entity);
+                    gotoPlugin();
                 } else {
-                    ToastTip.show("该APK未安装");
+                    new TipDialog(mContext).show("未安装", "确定要安装" + entity.getAppName() + "么？", new MaterialDialog.ButtonCallback() {
+                        @Override
+                        public void onPositive(MaterialDialog dialog) {
+                            super.onPositive(dialog);
+                            new InstallApkAsyncTask(mActivity, entity).execute();
+                        }
+                    });
                 }
                 break;
             case R.id.iv_over_flow:
@@ -83,7 +98,7 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
 
     private void showPopupMenu(final AppInfoEntity entity, View ancho) {
         if (!com.morgoo.droidplugin.pm.PluginManager.getInstance().isConnected()) {
-            ToastTip.show("服务未连接");
+            SweetDialog.show(mContext, "插件服务未连接", SweetAlertDialog.NORMAL_TYPE);
             return ;
         }
 
@@ -95,10 +110,9 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
                 popupMenu.dismiss();
                 switch (item.getItemId()) {
                     case R.id.menu_install:
-                        pluginHelper.installApk(entity);
+                        new InstallApkAsyncTask(mActivity, entity).execute();
                         break;
                     case R.id.menu_update:
-
                         break;
                     case R.id.menu_start:
                         pluginHelper.startApk(entity);
@@ -129,6 +143,23 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
         }
 
         popupMenu.show();
+    }
+
+    // 跳转控件
+    private void gotoPlugin() {
+        if (isActionAvailable(mContext, PluginParams.PLUGIN_ACTION_MAIN)) {
+            Intent intent = new Intent(PluginParams.PLUGIN_ACTION_MAIN);
+            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "Hello, My Plugin!");
+            mContext.startActivity(intent);
+        } else {
+            SweetDialog.show(mContext, "跳转失败", SweetAlertDialog.NORMAL_TYPE);
+        }
+    }
+
+    // Action是否允许
+    public static boolean isActionAvailable(Context context, String action) {
+        Intent intent = new Intent(action);
+        return context.getPackageManager().resolveActivity(intent, 0) != null;
     }
 
     static class ViewHolder {
