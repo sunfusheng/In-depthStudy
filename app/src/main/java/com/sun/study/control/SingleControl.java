@@ -1,5 +1,7 @@
 package com.sun.study.control;
 
+import android.content.Context;
+
 import com.alibaba.fastjson.JSON;
 import com.squareup.okhttp.OkHttpClient;
 import com.squareup.okhttp.Request;
@@ -8,6 +10,7 @@ import com.sun.study.constant.ConstantParams;
 import com.sun.study.framework.annotation.AsyncAtomMethod;
 import com.sun.study.framework.base.BaseControl;
 import com.sun.study.framework.proxy.MessageProxy;
+import com.sun.study.model.AppInfoEntity;
 import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
@@ -15,8 +18,10 @@ import com.sun.study.model.PhoneEntity;
 import com.sun.study.module.okhttp.HttpApi;
 import com.sun.study.module.okhttp.UrlManager;
 import com.sun.study.module.retrofit.RetrofitFactory;
+import com.sun.study.util.AppUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit.Call;
 
@@ -113,6 +118,17 @@ public class SingleControl extends BaseControl {
             PhoneEntity phoneEntity = mApi.getMyApps();
             mModel.put(1, phoneEntity);
             sendMessage("getMyAppsCallBack");
+        } catch (Exception e) {
+            dealWithException(e);
+        }
+    }
+
+    @AsyncAtomMethod(withCancelableDialog = true)
+    public void getApkListFromDownload(Context context) {
+        try {
+            List<AppInfoEntity> apkList = AppUtil.getApkListFromDownload(context);
+            mModel.put(1, apkList);
+            sendMessage("getApkListFromDownloadCallBack");
         } catch (Exception e) {
             dealWithException(e);
         }

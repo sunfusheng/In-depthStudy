@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/iv_over_flow"
         android:layout_toRightOf="@+id/iv_apk_icon"
         android:layout_marginLeft="15dp"
         android:text="应用名称"/>

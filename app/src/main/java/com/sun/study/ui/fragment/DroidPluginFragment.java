@@ -1,9 +1,6 @@
 package com.sun.study.ui.fragment;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
@@ -14,11 +11,10 @@ import android.widget.ListView;
 import com.sun.study.R;
 import com.sun.study.adapter.ApkAdapter;
 import com.sun.study.control.SingleControl;
-import com.sun.study.model.ApkInfoEntity;
+import com.sun.study.model.AppInfoEntity;
 import com.sun.study.view.RefreshLayout;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,28 +44,13 @@ public class DroidPluginFragment extends BaseFragment<SingleControl> implements 
         refreshLayout.setHaveLoadingView(false);
         refreshLayout.setOnRefreshListener(this);
 
-        ApkAdapter adapter = new ApkAdapter(getActivity(), getApkFromDownload());
-        lvApks.setAdapter(adapter);
+        mControl.getApkListFromDownload(getContext());
     }
 
-    private void handleApkList() {
-        ApkAdapter adapter = new ApkAdapter(getActivity(), getApkFromDownload());
+    public void getApkListFromDownloadCallBack() {
+        List<AppInfoEntity> apkList = mModel.getList(1);
+        ApkAdapter adapter = new ApkAdapter(getActivity(), apkList);
         lvApks.setAdapter(adapter);
-    }
-
-    // 从下载文件夹获取Apk列表
-    private ArrayList<ApkInfoEntity> getApkFromDownload() {
-        File files = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS);
-        PackageManager pm = getActivity().getPackageManager();
-        ArrayList<ApkInfoEntity> apkList = new ArrayList<>();
-
-        for (File file : files.listFiles()) {
-            if (file.exists() && file.getPath().toLowerCase().endsWith(".apk")) {
-                final PackageInfo info = pm.getPackageArchiveInfo(file.getPath(), 0);
-                apkList.add(new ApkInfoEntity(pm, info, file.getPath()));
-            }
-        }
-        return apkList;
     }
 
     @Override
@@ -78,7 +59,7 @@ public class DroidPluginFragment extends BaseFragment<SingleControl> implements 
             @Override
             public void run() {
                 refreshLayout.setRefreshing(false);
-                handleApkList();
+                mControl.getApkListFromDownload(getContext());
             }
         }, 500);
     }

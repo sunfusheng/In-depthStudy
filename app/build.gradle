@@ -15,6 +15,7 @@ android {
         targetSdkVersion 23
         versionCode 2
         versionName "1.1"
+        multiDexEnabled true
     }
 
     compileOptions {
@@ -109,7 +110,7 @@ dependencies {
     compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
 
     // Material Dialog
-    compile('com.github.afollestad.material-dialogs:core:0.8.5.2@aar') {
+    compile('com.github.afollestad.material-dialogs:core:0.8.5.4@aar') {
         transitive = true
     }
 
@@ -127,5 +128,11 @@ dependencies {
 
     //Floating Search View
     compile 'com.github.arimorty:floatingsearchview:1.1.2'
+
+    // MultiDex
+    compile 'com.android.support:multidex:1.0.0'
+
+    // Sweet Alert Dialog
+    compile 'cn.pedant.sweetalert:library:1.3'
 
 }

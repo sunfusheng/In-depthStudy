@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 import com.sun.study.R;
 import com.sun.study.framework.dialog.ToastTip;
-import com.sun.study.model.ApkInfoEntity;
+import com.sun.study.model.AppInfoEntity;
 import com.sun.study.util.PluginHelper;
 
 import java.util.List;
@@ -24,7 +24,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/2/18.
  */
-public class ApkAdapter extends BaseListAdapter<ApkInfoEntity> implements View.OnClickListener {
+public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.OnClickListener {
 
     private PluginHelper pluginHelper;
 
@@ -32,7 +32,7 @@ public class ApkAdapter extends BaseListAdapter<ApkInfoEntity> implements View.O
         super(context);
     }
 
-    public ApkAdapter(Activity activity, List<ApkInfoEntity> list) {
+    public ApkAdapter(Activity activity, List<AppInfoEntity> list) {
         this(activity);
         addALL(list);
         if (pluginHelper == null) {
@@ -51,10 +51,10 @@ public class ApkAdapter extends BaseListAdapter<ApkInfoEntity> implements View.O
             holder = (ViewHolder) convertView.getTag();
         }
 
-        ApkInfoEntity entity = getItem(position);
+        AppInfoEntity entity = getItem(position);
 
-        holder.ivApkIcon.setImageDrawable(entity.icon);
-        holder.tvApkName.setText(entity.title.toString());
+        holder.ivApkIcon.setImageDrawable(entity.getAppIcon());
+        holder.tvApkName.setText(entity.getAppName());
 
         holder.rlLayout.setOnClickListener(this);
         holder.ivOverFlow.setOnClickListener(this);
@@ -66,7 +66,7 @@ public class ApkAdapter extends BaseListAdapter<ApkInfoEntity> implements View.O
 
     @Override
     public void onClick(View v) {
-        ApkInfoEntity entity = (ApkInfoEntity) v.getTag();
+        AppInfoEntity entity = (AppInfoEntity) v.getTag();
         switch (v.getId()){
             case R.id.rl_layout:
                 if (pluginHelper.isApkInstall(entity)) {
@@ -81,17 +81,18 @@ public class ApkAdapter extends BaseListAdapter<ApkInfoEntity> implements View.O
         }
     }
 
-    private void showPopupMenu(final ApkInfoEntity entity,View ancho) {
+    private void showPopupMenu(final AppInfoEntity entity, View ancho) {
         if (!com.morgoo.droidplugin.pm.PluginManager.getInstance().isConnected()) {
             ToastTip.show("服务未连接");
             return ;
         }
 
-        PopupMenu popupMenu = new PopupMenu(mContext,ancho);
+        final PopupMenu popupMenu = new PopupMenu(mContext,ancho);
         popupMenu.getMenuInflater().inflate(R.menu.item_pop_menu,popupMenu.getMenu());
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
+                popupMenu.dismiss();
                 switch (item.getItemId()) {
                     case R.id.menu_install:
                         pluginHelper.installApk(entity);

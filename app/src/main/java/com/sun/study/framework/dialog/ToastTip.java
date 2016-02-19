@@ -19,4 +19,5 @@ public class ToastTip {
         mToast = Toast.makeText(MainApplication.getInstance(), message, duration);
         mToast.show();
     }
+
 }
