@@ -23,6 +23,7 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
+    <color name="bg_common">#f8f8f6</color>
 
     <!-- material design black font color -->
     <color name="font_black_0">#212121</color>
@@ -34,6 +35,7 @@
     <color name="font_black_6">#e0e0e0</color>
 
     <!-- divider -->
+    <color name="divider_0">#bdbdbd</color>
     <color name="divider_1">#e2e2e2</color>
     <color name="divider_2">#e6e6e6</color>
 

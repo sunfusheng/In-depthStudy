@@ -22,6 +22,10 @@
             android:id="@+id/right_menu_binder"
             android:checked="false"
             android:title="@string/right_menu_binder"/>
+        <item
+            android:id="@+id/right_menu_droidplugin"
+            android:checked="false"
+            android:title="@string/right_menu_droidplugin"/>
     </group>
 
 </menu>

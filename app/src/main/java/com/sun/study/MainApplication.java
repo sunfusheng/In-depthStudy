@@ -21,13 +21,13 @@ public class MainApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 
         instance = this;
         Esperandro.setSerializer(new FastJsonSerial());
         ControlFactory.init(this);
         FrescoUtil.init(this);
         CrashHandler.getInstance().init(this);
+        PluginHelper.getInstance().applicationOnCreate(getBaseContext());
 
     }
 

@@ -15,6 +15,7 @@ import android.widget.FrameLayout;
 import com.sun.study.R;
 import com.sun.study.framework.dialog.ToastTip;
 import com.sun.study.ui.fragment.CustomViewFragment;
+import com.sun.study.ui.fragment.DroidPluginFragment;
 import com.sun.study.ui.fragment.HomeFragment;
 import com.sun.study.ui.fragment.ImageFragment;
 import com.sun.study.ui.fragment.MapFragment;
@@ -143,6 +144,10 @@ public class MainActivity extends BaseActivity {
                         controlShowFragment(25);
                         toolbar.setTitle(R.string.right_menu_binder);
                         break;
+                    case R.id.right_menu_droidplugin:
+                        controlShowFragment(26);
+                        toolbar.setTitle(R.string.right_menu_droidplugin);
+                        break;
                     default:
                         controlShowFragment(0);
                         toolbar.setTitle(R.string.app_name);
@@ -212,6 +217,9 @@ public class MainActivity extends BaseActivity {
         switch (position) {
             case 24:
                 fragment = new RxJavaFragment();
+                break;
+            case 26:
+                fragment = new DroidPluginFragment();
                 break;
             case 0:
             default:
