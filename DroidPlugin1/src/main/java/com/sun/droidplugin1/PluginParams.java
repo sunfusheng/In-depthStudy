@@ -1,4 +1,4 @@
-package com.sun.study.constant;
+package com.sun.droidplugin1;
 
 /**
  * Created by sunfusheng on 16/2/18.

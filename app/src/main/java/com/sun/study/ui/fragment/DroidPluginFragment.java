@@ -22,7 +22,7 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/2/18.
  */
-public class DroidPluginFragment extends BaseFragment<SingleControl> implements SwipeRefreshLayout.OnRefreshListener{
+public class DroidPluginFragment extends BaseFragment<SingleControl> implements SwipeRefreshLayout.OnRefreshListener {
 
     @Bind(R.id.lv_apks)
     ListView lvApks;
@@ -35,8 +35,13 @@ public class DroidPluginFragment extends BaseFragment<SingleControl> implements 
         View rootView = inflater.inflate(R.layout.fragment_droidplugin, container, false);
         ButterKnife.bind(this, rootView);
 
+        initData();
         initView();
         return rootView;
+    }
+
+    private void initData() {
+
     }
 
     private void initView() {

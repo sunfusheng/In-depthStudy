@@ -27,7 +27,7 @@ import android.content.Intent;
 import android.content.pm.ResolveInfo;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.RemoteException;
+import android.util.Log;
 
 import com.morgoo.droidplugin.core.Env;
 import com.morgoo.droidplugin.pm.PluginManager;
@@ -55,11 +55,13 @@ public class ShortcutProxyActivity extends Activity {
                         forwordIntent.setSelector(null);
                     }
                     if (PluginManager.getInstance().isConnected()) {
+                        Log.d("--->", "PluginManager is Connected");
                         if (isPlugin(forwordIntent)) {
                             startActivity(forwordIntent);
                         }
                         finish();
                     } else {
+                        Log.d("--->", "PluginManager is not Connected");
                         waitAndStart(forwordIntent);
                     }
                 } else {
@@ -69,6 +71,7 @@ public class ShortcutProxyActivity extends Activity {
                 finish();
             }
         } catch (Exception e) {
+            Log.w("--->", "Exception 1");
             e.printStackTrace();
             finish();
         }
@@ -85,6 +88,8 @@ public class ShortcutProxyActivity extends Activity {
             }
             return pkg != null && PluginManager.getInstance().isPluginPackage(pkg);
         } catch (Exception e) {
+            Log.w("--->", "Exception 2");
+            e.printStackTrace();
             return false;
         }
     }
@@ -99,6 +104,7 @@ public class ShortcutProxyActivity extends Activity {
                         startActivity(forwordIntent);
                     }
                 } catch (Exception e) {
+                    Log.w("--->", "Exception 3");
                     e.printStackTrace();
                 } finally {
                     finish();
@@ -119,12 +125,16 @@ public class ShortcutProxyActivity extends Activity {
                         Intent res = Intent.parseUri(intentUri, 0);
                         return res;
                     } catch (URISyntaxException e) {
+                        Log.w("--->", "Exception 4");
+                        e.printStackTrace();
                     }
                 } else if (forwordIntent != null) {
                     return forwordIntent;
                 }
             }
         } catch (Exception e) {
+            Log.w("--->", "Exception 5");
+            e.printStackTrace();
         }
         return null;
     }

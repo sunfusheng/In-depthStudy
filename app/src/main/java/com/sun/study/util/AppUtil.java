@@ -5,6 +5,7 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.os.Environment;
+import android.text.TextUtils;
 
 import com.sun.study.model.AppInfoEntity;
 
@@ -27,7 +28,10 @@ public class AppUtil {
 
         for (File file : files.listFiles()) {
             if (file.exists() && file.getPath().toLowerCase().endsWith(".apk")) {
-                apkList.add(getAppInfoEntity(context, file.getPath()));
+                AppInfoEntity entity = getAppInfoEntity(context, file.getPath());
+                if (!TextUtils.isEmpty(entity.getAppName()) && entity.getAppIcon() != null) {
+                    apkList.add(entity);
+                }
             }
         }
         return apkList;

@@ -191,7 +191,7 @@
             android:name="com.morgoo.droidplugin.stub.ShortcutProxyActivity"
             android:exported="true"
             android:launchMode="singleTask"
-            android:theme="@android:style/Theme.Light.NoTitleBar" >
+            android:theme="@android:style/Theme.Light" >
             <intent-filter >
                 <action android:name="com.morgoo.droidplugin.ACTION_SHORTCUT_PROXY"/>
                 <category android:name="android.intent.category.DEFAULT" />

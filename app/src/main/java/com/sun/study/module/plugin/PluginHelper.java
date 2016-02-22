@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.morgoo.droidplugin.pm.PluginManager;
+import com.sun.study.constant.PluginParams;
 import com.sun.study.framework.dialog.SweetDialog;
 import com.sun.study.framework.dialog.TipDialog;
 import com.sun.study.model.AppInfoEntity;
@@ -68,13 +69,13 @@ public class PluginHelper {
 
     // 卸载Apk
     public void uninstallApk(final AppInfoEntity entity) {
-        new TipDialog(mActivity).show("卸载", "确定要卸载" + entity.getAppName() + "么？", new MaterialDialog.ButtonCallback() {
+        new TipDialog(mActivity).show("卸载", "确定要卸载〖" + entity.getAppName() + "〗么？", new MaterialDialog.ButtonCallback() {
             @Override
             public void onPositive(MaterialDialog dialog) {
                 super.onPositive(dialog);
                 try {
                     PluginManager.getInstance().deletePackage(entity.getPackageName(), 0);
-                    SweetDialog.show(mActivity, "卸载完成", SweetAlertDialog.NORMAL_TYPE);
+                    SweetDialog.show(mActivity, "卸载完成", SweetAlertDialog.SUCCESS_TYPE);
                 } catch (RemoteException e) {
                     e.printStackTrace();
                 }
@@ -88,6 +89,7 @@ public class PluginHelper {
         Intent intent = pm.getLaunchIntentForPackage(entity.getPackageName());
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "你好！这是宿主包传过来的字符串！");
             mActivity.startActivity(intent);
         } else {
             Toast.makeText(mActivity, ""+entity.getPackageName(), Toast.LENGTH_LONG).show();

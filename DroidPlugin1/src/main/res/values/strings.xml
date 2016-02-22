@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">DroidPlugin1</string>
+
+    <string name="app_name">DroidPlugin测试传递数据</string>
+
 </resources>

@@ -78,10 +78,9 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
         switch (v.getId()){
             case R.id.rl_layout:
                 if (pluginHelper.isApkInstall(entity)) {
-//                    pluginHelper.startApk(entity);
                     gotoPlugin();
                 } else {
-                    new TipDialog(mContext).show("未安装", "确定要安装" + entity.getAppName() + "么？", new MaterialDialog.ButtonCallback() {
+                    new TipDialog(mContext).show("未安装", "确定要安装〖" + entity.getAppName() + "〗么？", new MaterialDialog.ButtonCallback() {
                         @Override
                         public void onPositive(MaterialDialog dialog) {
                             super.onPositive(dialog);
@@ -149,7 +148,8 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
     private void gotoPlugin() {
         if (isActionAvailable(mContext, PluginParams.PLUGIN_ACTION_MAIN)) {
             Intent intent = new Intent(PluginParams.PLUGIN_ACTION_MAIN);
-            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "Hello, My Plugin!");
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "嗨！这是宿主包传过来的字符串！");
             mContext.startActivity(intent);
         } else {
             SweetDialog.show(mContext, "跳转失败", SweetAlertDialog.NORMAL_TYPE);
