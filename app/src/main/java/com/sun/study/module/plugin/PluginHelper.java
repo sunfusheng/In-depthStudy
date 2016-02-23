@@ -34,7 +34,7 @@ public class PluginHelper {
         mActivity = activity;
     }
 
-    // Apk是否安装
+    // 判断插件Apk是否安装
     public boolean isApkInstall(AppInfoEntity entity) {
         PackageInfo info;
         try {
@@ -46,7 +46,7 @@ public class PluginHelper {
         return info != null;
     }
 
-    // 安装Apk, 耗时较长, 需要使用异步线程
+    // 安装插件Apk, 耗时较长, 需使用异步线程。
     public int installApk(final AppInfoEntity entity) {
         if (!com.morgoo.droidplugin.pm.PluginManager.getInstance().isConnected()) {
             return DROID_CONNECT_FAIL;
@@ -68,7 +68,7 @@ public class PluginHelper {
         return DROID_INSTALL_SUCCESS;
     }
 
-    // 卸载Apk
+    // 卸载插件Apk
     public void uninstallApk(final AppInfoEntity entity) {
         new TipDialog(mActivity).show("卸载", "确定要卸载〖" + entity.getAppName() + "〗么？", new MaterialDialog.ButtonCallback() {
             @Override
@@ -84,7 +84,7 @@ public class PluginHelper {
         });
     }
 
-    // 更新Apk, 耗时较长, 需要使用异步线程
+    // 更新插件Apk, 耗时较长, 需使用异步线程。
     public int updateApk(final AppInfoEntity entity) {
         if (!com.morgoo.droidplugin.pm.PluginManager.getInstance().isConnected()) {
             return DROID_CONNECT_FAIL;
@@ -102,7 +102,7 @@ public class PluginHelper {
         return DROID_INSTALL_SUCCESS;
     }
 
-    // 打开Apk
+    // 启动插件Apk
     public void startApk(final AppInfoEntity entity) {
         PackageManager pm = mActivity.getPackageManager();
         Intent intent = pm.getLaunchIntentForPackage(entity.getPackageName());
