@@ -2,7 +2,8 @@ package com.sun.study.adapter;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
+import android.content.pm.PackageInfo;
+import android.os.RemoteException;
 import android.support.v7.widget.PopupMenu;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -13,13 +14,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
+import com.morgoo.droidplugin.pm.PluginManager;
 import com.sun.study.R;
-import com.sun.study.constant.PluginParams;
 import com.sun.study.framework.dialog.SweetDialog;
 import com.sun.study.framework.dialog.TipDialog;
 import com.sun.study.model.AppInfoEntity;
 import com.sun.study.module.plugin.InstallApkAsyncTask;
 import com.sun.study.module.plugin.PluginHelper;
+import com.sun.study.module.plugin.UpdateApkAsyncTask;
 
 import java.util.List;
 
@@ -69,7 +71,6 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
             public void onClick(View v) {
                 if (pluginHelper.isApkInstall(entity)) {
                     pluginHelper.startApk(entity);
-                    gotoPlugin();
                 } else {
                     new TipDialog(mContext).show("未安装", "确定要安装〖" + entity.getAppName() + "〗么？", new MaterialDialog.ButtonCallback() {
                         @Override
@@ -108,6 +109,7 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
                         new InstallApkAsyncTask(mActivity, entity).execute();
                         break;
                     case R.id.menu_update:
+                        new UpdateApkAsyncTask(mActivity, entity).execute();
                         break;
                     case R.id.menu_start:
                         pluginHelper.startApk(entity);
@@ -125,7 +127,20 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
         MenuItem start = popupMenu.getMenu().findItem(R.id.menu_start);
         MenuItem uninstall = popupMenu.getMenu().findItem(R.id.menu_uninstall);
 
-        update.setVisible(false);
+        if (pluginHelper.isApkInstall(entity)) {
+            try {
+                PackageInfo pkgInfo = PluginManager.getInstance().getPackageInfo(entity.getPackageName(), 0);
+                if (entity.getVersionCode() > pkgInfo.versionCode) {
+                    update.setVisible(true);
+                } else {
+                    update.setVisible(false);
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+        } else {
+            update.setVisible(false);
+        }
 
         if (pluginHelper.isApkInstall(entity)) {
             install.setVisible(false);
@@ -138,24 +153,6 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
         }
 
         popupMenu.show();
-    }
-
-    // 跳转控件
-    private void gotoPlugin() {
-        if (isActionAvailable(mContext, PluginParams.PLUGIN_ACTION_MAIN)) {
-            Intent intent = new Intent(PluginParams.PLUGIN_ACTION_MAIN);
-            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "嗨！这是宿主包传过来的字符串！");
-            mContext.startActivity(intent);
-        } else {
-            SweetDialog.show(mContext, "跳转失败", SweetAlertDialog.NORMAL_TYPE);
-        }
-    }
-
-    // Action是否允许
-    public static boolean isActionAvailable(Context context, String action) {
-        Intent intent = new Intent(action);
-        return context.getPackageManager().resolveActivity(intent, 0) != null;
     }
 
     static class ViewHolder {

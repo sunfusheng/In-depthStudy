@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.morgoo.droidplugin.pm.PluginManager;
+import com.morgoo.helper.compat.PackageManagerCompat;
 import com.sun.study.constant.PluginParams;
 import com.sun.study.framework.dialog.SweetDialog;
 import com.sun.study.framework.dialog.TipDialog;
@@ -83,13 +84,36 @@ public class PluginHelper {
         });
     }
 
+    // 更新Apk, 耗时较长, 需要使用异步线程
+    public int updateApk(final AppInfoEntity entity) {
+        if (!com.morgoo.droidplugin.pm.PluginManager.getInstance().isConnected()) {
+            return DROID_CONNECT_FAIL;
+        }
+
+        try {
+            int result = PluginManager.getInstance().installPackage(entity.getApkPath(), PackageManagerCompat.INSTALL_REPLACE_EXISTING);
+            if (result == PluginManager.INSTALL_FAILED_NO_REQUESTEDPERMISSION) {
+                return DROID_REQUEST_PERMISSION;
+            }
+        } catch (RemoteException e) {
+            return DROID_INSTALL_FAIL;
+        }
+
+        return DROID_INSTALL_SUCCESS;
+    }
+
     // 打开Apk
     public void startApk(final AppInfoEntity entity) {
         PackageManager pm = mActivity.getPackageManager();
         Intent intent = pm.getLaunchIntentForPackage(entity.getPackageName());
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, "你好！这是宿主包传过来的字符串！");
+            StringBuilder sb = new StringBuilder();
+            sb.append("插件你好！下面是宿主包传过来的数据：\n");
+            sb.append("应用名称：" + entity.getAppName() + "\n");
+            sb.append("应用包名：" + entity.getPackageName() + "\n");
+            sb.append("当前版本：V" + entity.getVersionName() + "\n");
+            intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, sb.toString());
             mActivity.startActivity(intent);
         } else {
             Toast.makeText(mActivity, ""+entity.getPackageName(), Toast.LENGTH_LONG).show();

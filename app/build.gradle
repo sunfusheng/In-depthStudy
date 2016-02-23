@@ -78,7 +78,7 @@ android {
 def generateAppName(variant) {
     variant.outputs.each {
         output -> output.outputFile = new File (output.outputFile.parent,
-                "In-depthStudy_${variant.buildType.name}_${variant.versionName}.apk".toLowerCase())
+                "In-depthStudy_${variant.buildType.name}_V${variant.versionName}.apk".toLowerCase())
     }
 }
 
