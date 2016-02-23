@@ -82,17 +82,13 @@ public class RefreshLayout extends SwipeRefreshLayout implements AbsListView.OnS
         final int action = event.getAction();
 
         switch (action) {
-            case MotionEvent.ACTION_DOWN:
-                // 按下
+            case MotionEvent.ACTION_DOWN: // 按下
                 mYDown = (int) event.getRawY();
                 break;
-
-            case MotionEvent.ACTION_MOVE:
-                // 移动
+            case MotionEvent.ACTION_MOVE: // 移动
                 mLastY = (int) event.getRawY();
                 break;
-            case MotionEvent.ACTION_UP:
-                // 抬起
+            case MotionEvent.ACTION_UP: // 抬起
                 if (canLoad()) {
                     loadData();
                 }

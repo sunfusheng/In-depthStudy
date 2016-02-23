@@ -30,7 +30,7 @@ import cn.pedant.SweetAlert.SweetAlertDialog;
 /**
  * Created by sunfusheng on 16/2/18.
  */
-public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.OnClickListener {
+public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
 
     private Activity mActivity;
     private PluginHelper pluginHelper;
@@ -59,25 +59,16 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
             holder = (ViewHolder) convertView.getTag();
         }
 
-        AppInfoEntity entity = getItem(position);
+        final AppInfoEntity entity = getItem(position);
 
         holder.ivApkIcon.setImageDrawable(entity.getAppIcon());
         holder.tvApkName.setText(entity.getAppName());
 
-        holder.rlLayout.setOnClickListener(this);
-        holder.ivOverFlow.setOnClickListener(this);
-        holder.rlLayout.setTag(entity);
-        holder.ivOverFlow.setTag(entity);
-
-        return convertView;
-    }
-
-    @Override
-    public void onClick(View v) {
-        final AppInfoEntity entity = (AppInfoEntity) v.getTag();
-        switch (v.getId()){
-            case R.id.rl_layout:
+        holder.rlLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 if (pluginHelper.isApkInstall(entity)) {
+                    pluginHelper.startApk(entity);
                     gotoPlugin();
                 } else {
                     new TipDialog(mContext).show("未安装", "确定要安装〖" + entity.getAppName() + "〗么？", new MaterialDialog.ButtonCallback() {
@@ -88,11 +79,16 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> implements View.O
                         }
                     });
                 }
-                break;
-            case R.id.iv_over_flow:
+            }
+        });
+        holder.ivOverFlow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 showPopupMenu(entity, v);
-                break;
-        }
+            }
+        });
+
+        return convertView;
     }
 
     private void showPopupMenu(final AppInfoEntity entity, View ancho) {
