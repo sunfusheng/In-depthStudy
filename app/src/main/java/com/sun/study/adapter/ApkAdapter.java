@@ -129,6 +129,7 @@ public class ApkAdapter extends BaseListAdapter<AppInfoEntity> {
 
         if (pluginHelper.isApkInstall(entity)) {
             try {
+                // 已安装的包信息
                 PackageInfo pkgInfo = PluginManager.getInstance().getPackageInfo(entity.getPackageName(), 0);
                 if (entity.getVersionCode() > pkgInfo.versionCode) {
                     update.setVisible(true);

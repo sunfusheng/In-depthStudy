@@ -109,10 +109,10 @@ public class PluginHelper {
         if (intent != null) {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             StringBuilder sb = new StringBuilder();
-            sb.append("插件你好！下面是宿主包传过来的数据：\n");
-            sb.append("应用名称：" + entity.getAppName() + "\n");
-            sb.append("应用包名：" + entity.getPackageName() + "\n");
-            sb.append("当前版本：V" + entity.getVersionName() + "\n");
+            sb.append("你好！下面是宿主包传过来读取已安装的插件信息：\n");
+            sb.append("插件名称：" + entity.getAppName() + "\n");
+            sb.append("插件包名：" + entity.getPackageName() + "\n");
+            sb.append("插件版本：V" + entity.getVersionName() + "\n");
             intent.putExtra(PluginParams.PLUGIN_EXTRA_STRING, sb.toString());
             mActivity.startActivity(intent);
         } else {
