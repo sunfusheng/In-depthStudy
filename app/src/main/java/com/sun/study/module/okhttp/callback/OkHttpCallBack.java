@@ -1,6 +1,8 @@
 package com.sun.study.module.okhttp.callback;
 
-import com.squareup.okhttp.Request;
+import okhttp3.Call;
+import okhttp3.Request;
+import okhttp3.Response;
 
 /**
  * Created by sunfusheng on 15/12/8.
@@ -11,15 +13,19 @@ public abstract class OkHttpCallBack<T> {
 
     public void inProgress(float progress) {}
 
-    public abstract void onSuccess(String response);
+    public abstract T parseResponse(Response response) throws Exception;
 
-    public abstract void onFailure(Request request, Exception e);
+    public abstract void onSuccess(T response);
 
-    public static final OkHttpCallBack<String> DEFAULT_CALLBACK = new OkHttpCallBack<String>() {
+    public abstract void onFailure(Call request, Exception e);
+
+
+    public static final OkHttpCallBack DEFAULT_CALLBACK = new StringCallback() {
+
         @Override
         public void onSuccess(String response) {}
 
         @Override
-        public void onFailure(Request request, Exception e) {}
+        public void onFailure(Call request, Exception e) {}
     };
 }

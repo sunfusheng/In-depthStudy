@@ -1,27 +1,23 @@
-package com.sun.study.module.okhttp.core;
-
-import com.squareup.okhttp.MediaType;
-import com.squareup.okhttp.RequestBody;
+package com.sun.study.module.okhttp.request;
 
 import java.io.IOException;
 
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import okio.Buffer;
 import okio.BufferedSink;
 import okio.ForwardingSink;
 import okio.Okio;
 import okio.Sink;
 
-/**
- * Created by sunfusheng on 15/12/8.
- */
-public class ComputeRequestBody extends RequestBody {
+public class CountingRequestBody extends RequestBody {
 
-    public RequestBody delegate;
-    public Listener listener;
+    protected RequestBody delegate;
+    protected Listener listener;
 
-    public CountingSink countingSink;
+    protected CountingSink countingSink;
 
-    public ComputeRequestBody(RequestBody delegate, Listener listener) {
+    public CountingRequestBody(RequestBody delegate, Listener listener) {
         this.delegate = delegate;
         this.listener = listener;
     }
@@ -43,17 +39,13 @@ public class ComputeRequestBody extends RequestBody {
 
     @Override
     public void writeTo(BufferedSink sink) throws IOException {
-        BufferedSink bufferedSink;
-
         countingSink = new CountingSink(sink);
-        bufferedSink = Okio.buffer(countingSink);
-
+        BufferedSink bufferedSink = Okio.buffer(countingSink);
         delegate.writeTo(bufferedSink);
-
         bufferedSink.flush();
     }
 
-    public final class CountingSink extends ForwardingSink {
+    protected final class CountingSink extends ForwardingSink {
 
         private long bytesWritten = 0;
 
@@ -68,7 +60,6 @@ public class ComputeRequestBody extends RequestBody {
             bytesWritten += byteCount;
             listener.onRequestProgress(bytesWritten, contentLength());
         }
-
     }
 
     public interface Listener {

@@ -1,11 +1,11 @@
-package com.sun.study.module.okhttp;
+package com.sun.study.control;
 
 import com.sun.study.constant.ConstantParams;
 import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
 import com.sun.study.model.PhoneEntity;
-import com.sun.study.module.okhttp.core.OkHttpProxy;
+import com.sun.study.module.okhttp.OkHttpProxy;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -35,7 +35,8 @@ public class HttpApi implements UrlManager {
         return OkHttpProxy.get().url(URL_CITY_WEATHER)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
                 .addParams("cityname", cityname)
-                .get(CityWeatherEntity.class);
+                .build()
+                .execute(CityWeatherEntity.class);
     }
 
     // 天气查询－根据城市名称
@@ -43,7 +44,8 @@ public class HttpApi implements UrlManager {
         return OkHttpProxy.get().url(URL_CITY_WEATHER)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
                 .addParams("cityname", cityname)
-                .get("retData", CityWeatherDataEntity.class);
+                .build()
+                .execute("retData", CityWeatherDataEntity.class);
     }
 
     // 天气查询－查询该城市下可用区域列表
@@ -51,22 +53,24 @@ public class HttpApi implements UrlManager {
         return OkHttpProxy.get().url(URL_WEATHER_CITY_LIST)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
                 .addParams("cityname", cityname)
-                .getList("retData", CityDistrictEntity.class);
+                .build()
+                .executeForList("retData", CityDistrictEntity.class);
     }
 
     // 手机号码归属地
     public PhoneEntity getPhoneNumPlace3(String tel) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         return OkHttpProxy.get().url(URL_PHONE_NUM_PLACE)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
-                .addParams("tel", tel)
-                .get(PhoneEntity.class);
+                .addParams("tel", tel).build()
+                .execute(PhoneEntity.class);
     }
 
     public PhoneEntity getMyApps() throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         return OkHttpProxy.get().url("http://www.pgyer.com/apiv1/app/builds")
                 .addParams("aKey", "1a2c7ad534c07fa34c088fc4e8f00b83")
                 .addParams("_api_key", "216dc1b595a05072ba3642a7843bad92")
-                .post(PhoneEntity.class);
+                .build()
+                .execute(PhoneEntity.class);
     }
 
 }

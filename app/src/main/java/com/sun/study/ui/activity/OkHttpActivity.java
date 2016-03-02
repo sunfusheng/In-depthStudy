@@ -5,26 +5,22 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.afollestad.materialdialogs.MaterialDialog;
-import com.alibaba.fastjson.JSON;
-import com.squareup.okhttp.Request;
 import com.sun.study.R;
 import com.sun.study.constant.ConstantParams;
 import com.sun.study.control.SingleControl;
-import com.sun.study.framework.dialog.ToastTip;
+import com.sun.study.control.UrlManager;
 import com.sun.study.model.CityDistrictEntity;
 import com.sun.study.model.CityWeatherDataEntity;
 import com.sun.study.model.CityWeatherEntity;
-import com.sun.study.module.okhttp.UrlManager;
-import com.sun.study.module.okhttp.callback.OkHttpCallBack;
-import com.sun.study.module.okhttp.core.OkHttpProxy;
-
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.sun.study.module.okhttp.OkHttpProxy;
+import com.sun.study.module.okhttp.callback.JsonCallBack;
+import com.sun.study.module.okhttp.request.RequestCall;
 
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.Call;
 
 /**
  * Created by sunfusheng on 15/11/19.
@@ -113,33 +109,20 @@ public class OkHttpActivity extends BaseActivity<SingleControl> {
     }
 
     public void getCityWeatherDataEnqueue(View v) {
-        OkHttpProxy.get().url(UrlManager.URL_CITY_WEATHER + "?cityname=" +city)
-                .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
-                .get(new OkHttpCallBack() {
-                    @Override
-                    public void onSuccess(String response) {
-                        try {
-                            JSONObject jsonObject = new JSONObject(response);
-                            int errNum = jsonObject.getInt("errNum");
-                            String errMsg = jsonObject.getString("errMsg");
-                            if (errNum == 0) {
-                                CityWeatherEntity entity = JSON.parseObject(response, CityWeatherEntity.class);
-                                if (entity != null) {
-                                    showInfoDialog(entity.getRetData());
-                                }
-                            } else {
-                                ToastTip.show(errMsg);
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
+        RequestCall requestCall = OkHttpProxy.get().url(UrlManager.URL_CITY_WEATHER + "?cityname=" + city)
+                .addHeader("apikey", ConstantParams.APISTORE_API_KEY).build();
 
-                    @Override
-                    public void onFailure(Request request, Exception e) {
+        requestCall.execute(new JsonCallBack<CityWeatherEntity>() {
+            @Override
+            public void onSuccess(CityWeatherEntity entity) {
+                showInfoDialog(entity.getRetData());
+            }
 
-                    }
-                });
+            @Override
+            public void onFailure(Call request, Exception e) {
+
+            }
+        });
     }
 
 }

@@ -178,10 +178,24 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ll_okhttp"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:orientation="vertical"
+                android:gravity="center"
                 android:background="@color/green">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_hardware_computer"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="OkHttp3"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -203,6 +217,14 @@
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
                         android:background="@color/green">
+
+                        <TextView
+                            android:id="@+id/tv_retrofit"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Retrofit"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
 
                     <LinearLayout
