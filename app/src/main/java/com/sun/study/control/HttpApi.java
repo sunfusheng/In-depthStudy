@@ -61,7 +61,8 @@ public class HttpApi implements UrlManager {
     public PhoneEntity getPhoneNumPlace3(String tel) throws IOException, com.alibaba.fastjson.JSONException, org.json.JSONException {
         return OkHttpProxy.get().url(URL_PHONE_NUM_PLACE)
                 .addHeader("apikey", ConstantParams.APISTORE_API_KEY)
-                .addParams("tel", tel).build()
+                .addParams("tel", tel)
+                .build()
                 .execute(PhoneEntity.class);
     }
 
