@@ -29,6 +29,7 @@ public class MainApplication extends Application {
         FrescoUtil.init(this);
         CrashHandler.getInstance().init(this);
         PluginHelper.getInstance().applicationOnCreate(getBaseContext());
+
     }
 
     public static MainApplication getInstance() {
