@@ -52,6 +52,11 @@ public class NavigateManager {
         context.startActivity(intent);
     }
 
+    public static void gotoSpecifiedActivity(Context context, Class cls) {
+        Intent intent = new Intent(context, cls);
+        context.startActivity(intent);
+    }
+
     public static void gotoOkHttpActivity(Context context) {
         Intent intent = new Intent(context, OkHttpActivity.class);
         context.startActivity(intent);

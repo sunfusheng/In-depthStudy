@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,8 +24,8 @@
             <LinearLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@color/red">
+                android:background="@color/red"
+                android:orientation="horizontal">
             </LinearLayout>
 
             <LinearLayout
@@ -36,26 +36,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red">
+                        android:background="@color/red"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red">
+                        android:background="@color/red"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
 
@@ -63,25 +63,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red">
+                        android:background="@color/red"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red">
+                        android:background="@color/red"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -102,8 +102,8 @@
             <LinearLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@color/blue">
+                android:background="@color/blue"
+                android:orientation="horizontal">
             </LinearLayout>
 
             <LinearLayout
@@ -114,26 +114,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue">
+                        android:background="@color/blue"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue">
+                        android:background="@color/blue"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
 
@@ -141,25 +141,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue">
+                        android:background="@color/blue"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue">
+                        android:background="@color/blue"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -181,9 +181,9 @@
                 android:id="@+id/ll_okhttp"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="vertical"
+                android:background="@color/green"
                 android:gravity="center"
-                android:background="@color/green">
+                android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="wrap_content"
@@ -206,17 +206,17 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green">
+                        android:background="@color/green"
+                        android:orientation="horizontal">
 
                         <TextView
                             android:id="@+id/tv_retrofit"
@@ -230,10 +230,10 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green">
+                        android:background="@color/green"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
 
@@ -241,25 +241,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green">
+                        android:background="@color/green"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green">
+                        android:background="@color/green"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -280,8 +280,8 @@
             <LinearLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@color/orange">
+                android:background="@color/orange"
+                android:orientation="horizontal">
             </LinearLayout>
 
             <LinearLayout
@@ -292,26 +292,26 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/orange">
+                        android:background="@color/orange"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/orange">
+                        android:background="@color/orange"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
 
@@ -319,25 +319,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/orange">
+                        android:background="@color/orange"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/orange">
+                        android:background="@color/orange"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -356,10 +356,24 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ll_multi_thread"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
-                android:background="@color/purple">
+                android:background="@color/purple"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_multi_thread"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="多线程"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -370,26 +384,34 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="horizontal"
                     android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/purple">
+                        android:background="@color/purple"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_thread_pool"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="线程池"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/purple">
+                        android:background="@color/purple"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
 
@@ -397,25 +419,25 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:orientation="horizontal"
-                    android:layout_weight="1">
+                    android:layout_weight="1"
+                    android:orientation="horizontal">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/purple">
+                        android:background="@color/purple"
+                        android:orientation="horizontal">
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/purple">
+                        android:background="@color/purple"
+                        android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

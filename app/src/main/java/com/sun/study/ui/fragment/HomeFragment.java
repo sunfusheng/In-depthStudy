@@ -10,6 +10,9 @@ import android.widget.TextView;
 
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
+import com.sun.study.ui.activity.MultiThreadActivity;
+import com.sun.study.ui.activity.OkHttpActivity;
+import com.sun.study.ui.activity.RetrofitActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,6 +26,10 @@ public class HomeFragment extends BaseFragment {
     TextView tvRetrofit;
     @Bind(R.id.ll_okhttp)
     LinearLayout llOkhttp;
+    @Bind(R.id.ll_multi_thread)
+    LinearLayout llMultiThread;
+    @Bind(R.id.tv_thread_pool)
+    TextView tvThreadPool;
 
     @Nullable
     @Override
@@ -42,6 +49,8 @@ public class HomeFragment extends BaseFragment {
     private void initListener() {
         llOkhttp.setOnClickListener(this);
         tvRetrofit.setOnClickListener(this);
+        llMultiThread.setOnClickListener(this);
+        tvThreadPool.setOnClickListener(this);
     }
 
     @Override
@@ -49,10 +58,13 @@ public class HomeFragment extends BaseFragment {
         super.onClick(v);
         switch (v.getId()) {
             case R.id.ll_okhttp:
-                NavigateManager.gotoOkHttpActivity(getContext());
+                NavigateManager.gotoSpecifiedActivity(getContext(), OkHttpActivity.class);
                 break;
             case R.id.tv_retrofit:
-                NavigateManager.gotoRetrofitActivity(getContext());
+                NavigateManager.gotoSpecifiedActivity(getContext(), RetrofitActivity.class);
+                break;
+            case R.id.ll_multi_thread:
+                NavigateManager.gotoSpecifiedActivity(getContext(), MultiThreadActivity.class);
                 break;
         }
     }
