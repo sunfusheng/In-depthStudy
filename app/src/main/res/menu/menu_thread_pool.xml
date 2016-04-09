@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_more">
+        <item
+            android:id="@+id/item_newCachedThreadPool"
+            android:title="newCachedThreadPool()"/>
+
+        <item
+            android:id="@+id/item_newSingleThreadExecutor"
+            android:title="newSingleThreadExecutor()"/>
+
+        <item
+            android:id="@+id/item_newFixedThreadPool"
+            android:title="newFixedThreadPool(2)"/>
+
+        <item
+            android:id="@+id/item_newScheduledThreadPool"
+            android:title="newScheduledThreadPool(2)"/>
+    </group>
+
+</menu>

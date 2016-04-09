@@ -104,8 +104,12 @@
         <activity android:name=".ui.activity.MultiThreadActivity"
                   android:screenOrientation="portrait"/>
 
-        <!-- 多线 -->
+        <!-- 线程 -->
         <activity android:name=".ui.activity.ThreadActivity"
+                  android:screenOrientation="portrait"/>
+
+        <!-- 线程池 -->
+        <activity android:name=".ui.activity.ThreadPoolActivity"
                   android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>

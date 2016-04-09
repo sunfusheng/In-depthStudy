@@ -8,13 +8,20 @@
 
     <include layout="@layout/app_toolbar"/>
 
+    <TextView
+        android:id="@+id/tv_info1"
+        style="@style/TvTextViewStyle"
+        android:text="线程计数: 0"/>
+
     <ProgressBar
         android:id="@+id/progressBar"
         style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="match_parent"
         android:layout_height="3dp"
-        android:layout_margin="15dp"
-        android:progressDrawable="@drawable/progressbar_bg_progress_style"/>
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
+        android:progressDrawable="@drawable/progressbar_selector"/>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -35,22 +42,18 @@
 
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/tv_info1"
-        style="@style/TvTextViewStyle"
-        android:text=""/>
+    <CheckBox
+        android:id="@+id/cb_cancel"
+        style="@style/StyleCheckBoxRightIcon"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:layout_gravity="right"
+        android:checked="true"
+        android:text="cancel(boolean mayInterruptIfRunning)"/>
 
     <TextView
         android:id="@+id/tv_info2"
         style="@style/TvTextViewStyle"
-        android:text=""/>
-
-    <CheckBox
-        android:id="@+id/cb_cancel"
-        style="@style/StyleCheckBoxLeftIcon"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:checked="true"
-        android:text="cancel(boolean mayInterruptIfRunning)"/>
+        android:text="状态:"/>
 
 </LinearLayout>

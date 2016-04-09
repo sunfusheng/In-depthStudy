@@ -7,6 +7,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.TypedValue;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -21,7 +22,7 @@ import com.sun.study.framework.dialog.TipDialog;
 import com.sun.study.framework.sharedpreferences.LocationSharedPreferences;
 import com.sun.study.framework.sharedpreferences.SettingsSharedPreferences;
 
-public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
+public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> implements View.OnClickListener {
 
     private Toast mToast;
     protected TipDialog mTipDialog;
@@ -133,4 +134,8 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
         }
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

@@ -40,6 +40,7 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
     private Callable<String> callable;
     private FutureTask<String> task;
     private Thread thread;
+
     private final int TYPE_MSG_RUN = 1001;
     private final int TYPE_MSG_DONE = 1002;
 
@@ -50,10 +51,10 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
             switch (msg.what) {
                 case TYPE_MSG_RUN:
                     progressBar.setProgress(msg.arg1);
-                    tvInfo1.setText(String.valueOf(msg.arg1));
+                    tvInfo1.setText("线程计数: " + msg.arg1);
                     break;
                 case TYPE_MSG_DONE:
-                    tvInfo1.setText((String) msg.obj);
+                    tvInfo1.setText("计数完成");
                     showStatus();
                     break;
             }
@@ -110,17 +111,10 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
             public String call() throws Exception {
                 while (num < 100) {
                     num++;
-                    Message msg = Message.obtain();
-                    msg.arg1 = num;
-                    msg.what = TYPE_MSG_RUN;
-                    mHandler.sendMessage(msg);
-
+                    sendMsg(num, TYPE_MSG_RUN);
                     Thread.sleep(100);
                 }
-                Message msg = Message.obtain();
-                msg.obj = "Done!";
-                msg.what = TYPE_MSG_DONE;
-                mHandler.sendMessage(msg);
+                sendMsg(num, TYPE_MSG_DONE);
                 return "Done!";
             }
         };
@@ -136,11 +130,26 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
             return;
         }
         StringBuilder sb = new StringBuilder();
-        sb.append("状态：");
+        sb.append("状态: ");
         sb.append("\nFutureTask isCancelled(): " + task.isCancelled());
         sb.append("\nFutureTask isDone(): " + task.isDone());
         sb.append("\n\nThread isAlive(): " + thread.isAlive());
         sb.append("\nThread isInterrupted(): " + thread.isInterrupted());
         tvInfo2.setText(sb.toString());
+    }
+
+    private void sendMsg(int arg1, int what) {
+        Message msg = Message.obtain();
+        msg.arg1 = arg1;
+        msg.what = what;
+        mHandler.sendMessage(msg);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        if (task != null && !task.isDone()) {
+            task.cancel(true);
+        }
     }
 }

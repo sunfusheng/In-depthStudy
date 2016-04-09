@@ -14,6 +14,7 @@ import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ThreadActivity;
+import com.sun.study.ui.activity.ThreadPoolActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -74,7 +75,7 @@ public class HomeFragment extends BaseFragment {
                 NavigateManager.gotoSpecifiedActivity(getContext(), ThreadActivity.class);
                 break;
             case R.id.tv_thread_pool:
-                NavigateManager.gotoSpecifiedActivity(getContext(), MultiThreadActivity.class);
+                NavigateManager.gotoSpecifiedActivity(getContext(), ThreadPoolActivity.class);
                 break;
         }
     }
