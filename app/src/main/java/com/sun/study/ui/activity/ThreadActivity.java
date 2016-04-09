@@ -80,6 +80,7 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
     private void initListener() {
         tvStart.setOnClickListener(this);
         tvCancel.setOnClickListener(this);
+
     }
 
     @Override
@@ -92,7 +93,7 @@ public class ThreadActivity extends BaseActivity implements View.OnClickListener
                 }
                 break;
             case R.id.tv_cancel:
-                if (task != null && thread != null) {
+                if (task != null) {
                     task.cancel(cbCancel.isChecked());
                     showStatus();
                 }

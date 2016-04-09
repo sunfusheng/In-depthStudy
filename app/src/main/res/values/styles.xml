@@ -62,4 +62,28 @@
         <item name="android:textSize">12sp</item>
     </style>
 
+    <style name="StyleCheckBoxLeftIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:drawableLeft">@drawable/checkbox_selector</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/font_black_2</item>
+    </style>
+
+    <style name="StyleCheckBoxRightIcon">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:drawablePadding">3dp</item>
+        <item name="android:button">@null</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:background">@color/transparent</item>
+        <item name="android:drawableRight">@drawable/checkbox_selector</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:textColor">@color/font_black_2</item>
+    </style>
+
 </resources>

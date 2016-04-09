@@ -1,5 +1,6 @@
 package com.sun.study.ui.activity;
 
+import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -106,6 +107,30 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> {
     }
     public LocationSharedPreferences getLocationSharedPreferences() {
         return getSharedPreferences(LocationSharedPreferences.class);
+    }
+
+    @Override
+    public void startActivity(Intent intent) {
+        super.startActivity(intent);
+        if (intent != null && intent.getComponent() != null && !intent.getComponent().getClassName().equals(MainActivity.class.getName())) {
+            overridePendingTransition(R.anim.move_right_in_activity, R.anim.hold_long);
+        }
+    }
+
+    @Override
+    public void startActivityForResult(Intent intent, int requestCode) {
+        super.startActivityForResult(intent, requestCode);
+        if (intent != null && intent.getComponent() != null && !intent.getComponent().getClassName().equals(MainActivity.class.getName())) {
+            overridePendingTransition(R.anim.move_right_in_activity, R.anim.hold_long);
+        }
+    }
+
+    @Override
+    public void finish() {
+        super.finish();
+        if (!((Object) this).getClass().equals(MainActivity.class)) {
+            overridePendingTransition(R.anim.hold_long, R.anim.move_right_out_activity);
+        }
     }
 
 }

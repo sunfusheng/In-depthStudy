@@ -1,6 +1,5 @@
 package com.sun.study.framework.base;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -66,21 +65,6 @@ public class BaseAsyncActivity<T extends BaseControl> extends AppCompatActivity 
     protected void onDestroy() {
         mHelper.onDestroy();
         super.onDestroy();
-    }
-
-    @Override
-    public void startActivity(Intent intent) {
-        super.startActivity(intent);
-    }
-
-    @Override
-    public void startActivityForResult(Intent intent, int requestCode) {
-        super.startActivityForResult(intent, requestCode);
-    }
-
-    @Override
-    public void finish() {
-        super.finish();
     }
 
     protected boolean isPaused() {
