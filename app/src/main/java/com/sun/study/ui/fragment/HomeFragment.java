@@ -13,6 +13,7 @@ import com.sun.study.control.NavigateManager;
 import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
+import com.sun.study.ui.activity.ThreadActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -30,6 +31,8 @@ public class HomeFragment extends BaseFragment {
     LinearLayout llMultiThread;
     @Bind(R.id.tv_thread_pool)
     TextView tvThreadPool;
+    @Bind(R.id.tv_thread)
+    TextView tvThread;
 
     @Nullable
     @Override
@@ -50,6 +53,7 @@ public class HomeFragment extends BaseFragment {
         llOkhttp.setOnClickListener(this);
         tvRetrofit.setOnClickListener(this);
         llMultiThread.setOnClickListener(this);
+        tvThread.setOnClickListener(this);
         tvThreadPool.setOnClickListener(this);
     }
 
@@ -64,6 +68,12 @@ public class HomeFragment extends BaseFragment {
                 NavigateManager.gotoSpecifiedActivity(getContext(), RetrofitActivity.class);
                 break;
             case R.id.ll_multi_thread:
+                NavigateManager.gotoSpecifiedActivity(getContext(), MultiThreadActivity.class);
+                break;
+            case R.id.tv_thread:
+                NavigateManager.gotoSpecifiedActivity(getContext(), ThreadActivity.class);
+                break;
+            case R.id.tv_thread_pool:
                 NavigateManager.gotoSpecifiedActivity(getContext(), MultiThreadActivity.class);
                 break;
         }

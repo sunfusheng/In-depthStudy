@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:fresco="http://schemas.android.com/apk/res-auto"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fitsSystemWindows="true"
-            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <include layout="@layout/app_toolbar"/>
 
@@ -24,34 +25,34 @@
                 android:id="@+id/sdv11"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:fadeDuration="500"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"
+                fresco:fadeDuration="500"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv12"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv13"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:fadeDuration="800"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"
+                fresco:fadeDuration="800"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv14"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="focusCrop"/>
         </LinearLayout>
 
@@ -65,46 +66,46 @@
                 android:id="@+id/sdv21"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:fadeDuration="500"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="focusCrop"
+                fresco:fadeDuration="500"
                 fresco:roundAsCircle="true"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv22"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="fitCenter"
                 fresco:roundAsCircle="false"
-                fresco:roundedCornerRadius="15dp"
+                fresco:roundBottomLeft="false"
+                fresco:roundBottomRight="true"
                 fresco:roundTopLeft="true"
                 fresco:roundTopRight="false"
-                fresco:roundBottomLeft="false"
-                fresco:roundBottomRight="true"/>
+                fresco:roundedCornerRadius="15dp"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv23"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:fadeDuration="800"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="focusCrop"
+                fresco:fadeDuration="800"
                 fresco:roundedCornerRadius="15dp"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv24"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="focusCrop"
                 fresco:roundAsCircle="true"
-                fresco:roundingBorderWidth="2dp"
-                fresco:roundingBorderColor="@color/orange"/>
+                fresco:roundingBorderColor="@color/orange"
+                fresco:roundingBorderWidth="2dp"/>
         </LinearLayout>
 
         <LinearLayout
@@ -117,32 +118,32 @@
                 android:id="@+id/sdv31"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv32"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv33"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
-                fresco:actualImageScaleType="fitCenter" />
+                android:layout_weight="1"
+                fresco:actualImageScaleType="fitCenter"/>
 
             <com.facebook.drawee.view.SimpleDraweeView
                 android:id="@+id/sdv34"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
-                android:layout_weight="1"
                 android:layout_margin="3dp"
+                android:layout_weight="1"
                 fresco:actualImageScaleType="focusCrop"/>
         </LinearLayout>
     </LinearLayout>

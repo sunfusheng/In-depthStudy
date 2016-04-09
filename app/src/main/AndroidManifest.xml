@@ -104,6 +104,10 @@
         <activity android:name=".ui.activity.MultiThreadActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 多线 -->
+        <activity android:name=".ui.activity.ThreadActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>
