@@ -3,6 +3,8 @@ Android 深入学习工程
 
 ### ScreenShots
 
+### 主页
+
 ![](/screenshots/left_menu.png)
 ![](/screenshots/http_page.png)
 ![](/screenshots/right_menu.png)
@@ -10,8 +12,6 @@ Android 深入学习工程
 ### 线程池
 
 ![](/screenshots/线程池.gif)
-
-<img src="/screenshots/线程池.gif" style="width: 50%;">
 
 ### 关于我
 
