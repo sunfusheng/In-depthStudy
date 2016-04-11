@@ -9,9 +9,9 @@ Android 深入学习工程
 
 ### 线程池
 
-![](/screenshots/gif_thread_pool.gif)
+![](/screenshots/线程池.gif)
 
-<img src="screenshots/gif_thread_pool.gif" style="width: 50%;">
+<img src="/screenshots/线程池.gif" style="width: 50%;">
 
 ### 关于我
 
