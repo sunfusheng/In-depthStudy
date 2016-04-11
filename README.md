@@ -6,7 +6,13 @@ Android 深入学习工程
 ![](/screenshots/left_menu.png)
 ![](/screenshots/http_page.png)
 ![](/screenshots/right_menu.png)
- 
+
+### 线程池
+
+![](/screenshots/gif_thread_pool.gif)
+
+<img src="screenshots/gif_thread_pool.gif" style="width: 50%;">
+
 ### 关于我
 
 邮箱：sfsheng0322@126.com
