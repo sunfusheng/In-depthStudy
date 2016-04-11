@@ -15,7 +15,7 @@ Android 深入学习工程
 
 ### 关于我
 
-邮箱：sfsheng0322@126.com
+个人邮箱：sfsheng0322@126.com
 
 [GitHub主页](https://github.com/sfsheng0322)
 
@@ -23,5 +23,5 @@ Android 深入学习工程
 
 [个人博客](http://sunfusheng.com/)
 
-[新浪微博](http://weibo.com/3852192525/profile?rightmod=1&wvr=6&mod=personinfo)
+[新浪微博](http://weibo.com/u/3852192525)
 
