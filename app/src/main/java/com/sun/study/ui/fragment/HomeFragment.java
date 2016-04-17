@@ -12,6 +12,7 @@ import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
 import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
+import com.sun.study.ui.activity.ReflectionActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
@@ -34,6 +35,10 @@ public class HomeFragment extends BaseFragment {
     TextView tvThreadPool;
     @Bind(R.id.tv_thread)
     TextView tvThread;
+    @Bind(R.id.tv_reflection)
+    TextView tvReflection;
+    @Bind(R.id.tv_annotation)
+    TextView tvAnnotation;
 
     @Nullable
     @Override
@@ -56,6 +61,8 @@ public class HomeFragment extends BaseFragment {
         llMultiThread.setOnClickListener(this);
         tvThread.setOnClickListener(this);
         tvThreadPool.setOnClickListener(this);
+        tvReflection.setOnClickListener(this);
+        tvAnnotation.setOnClickListener(this);
     }
 
     @Override
@@ -76,6 +83,12 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.tv_thread_pool:
                 NavigateManager.gotoSpecifiedActivity(getContext(), ThreadPoolActivity.class);
+                break;
+            case R.id.tv_reflection:
+                NavigateManager.gotoSpecifiedActivity(getContext(), ReflectionActivity.class);
+                break;
+            case R.id.tv_annotation:
+
                 break;
         }
     }

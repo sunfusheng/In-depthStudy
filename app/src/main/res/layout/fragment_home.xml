@@ -345,7 +345,7 @@
 
         <TextView
             style="@style/StyleUIMainTitleTV"
-            android:text="多线程"
+            android:text="线程、注解、反射"
             android:textColor="@color/purple"/>
 
         <LinearLayout
@@ -412,6 +412,14 @@
                         android:layout_weight="1"
                         android:background="@color/purple"
                         android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_reflection"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="反射"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </LinearLayout>
 
@@ -446,6 +454,14 @@
                         android:layout_weight="1"
                         android:background="@color/purple"
                         android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/tv_annotation"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="注解"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>

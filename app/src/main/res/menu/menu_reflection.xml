@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:id="@+id/group_more">
+        <item
+            android:id="@+id/item_getClassObj"
+            android:title="三种方式获得类对象"/>
+
+        <item
+            android:id="@+id/item_getFieldsInfo"
+            android:title="获得类的所有属性信息"/>
+
+        <item
+            android:id="@+id/item_getMethodsInfo"
+            android:title="获得类的所有方法信息"/>
+
+        <item
+            android:id="@+id/item_modifyFieldValue"
+            android:title="修改类型Int属性i的值"/>
+
+    </group>
+
+</menu>

@@ -112,6 +112,10 @@
         <activity android:name=".ui.activity.ThreadPoolActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 反射 -->
+        <activity android:name=".ui.activity.ReflectionActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>
