@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
+import com.sun.study.ui.activity.AnnotationActivity;
 import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.ReflectionActivity;
@@ -88,7 +89,7 @@ public class HomeFragment extends BaseFragment {
                 NavigateManager.gotoSpecifiedActivity(getContext(), ReflectionActivity.class);
                 break;
             case R.id.tv_annotation:
-
+                NavigateManager.gotoSpecifiedActivity(getContext(), AnnotationActivity.class);
                 break;
         }
     }

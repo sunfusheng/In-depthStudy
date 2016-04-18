@@ -21,9 +21,13 @@ public class LoadingDialog {
     }
 
     public void show() {
+        show("正在加载，请稍后...");
+    }
+
+    public void show(String msg) {
         if (dialog == null) {
             dialog = new MaterialDialog.Builder(mContext)
-                    .content("正在加载，请稍后...")
+                    .content(msg)
                     .progress(true, 0)
                     .progressIndeterminateStyle(false)
                     .build();
@@ -56,7 +60,10 @@ public class LoadingDialog {
     }
 
     public boolean isShowing() {
-        return dialog.isShowing();
+        if (dialog != null) {
+            return dialog.isShowing();
+        }
+        return false;
     }
 
 }

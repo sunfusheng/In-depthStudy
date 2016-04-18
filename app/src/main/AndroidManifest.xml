@@ -116,6 +116,10 @@
         <activity android:name=".ui.activity.ReflectionActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 注解 -->
+        <activity android:name=".ui.activity.AnnotationActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>
