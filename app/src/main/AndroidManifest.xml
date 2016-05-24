@@ -120,6 +120,10 @@
         <activity android:name=".ui.activity.AnnotationActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- ShapeView -->
+        <activity android:name=".ui.activity.ShapeViewActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>

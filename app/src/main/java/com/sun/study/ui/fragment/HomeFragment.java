@@ -15,6 +15,7 @@ import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.ReflectionActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
+import com.sun.study.ui.activity.ShapeViewActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
 
@@ -40,6 +41,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvReflection;
     @Bind(R.id.tv_annotation)
     TextView tvAnnotation;
+    @Bind(R.id.ll_shape_view)
+    LinearLayout llShapeView;
 
     @Nullable
     @Override
@@ -64,6 +67,7 @@ public class HomeFragment extends BaseFragment {
         tvThreadPool.setOnClickListener(this);
         tvReflection.setOnClickListener(this);
         tvAnnotation.setOnClickListener(this);
+        llShapeView.setOnClickListener(this);
     }
 
     @Override
@@ -90,6 +94,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.tv_annotation:
                 NavigateManager.gotoSpecifiedActivity(getContext(), AnnotationActivity.class);
+                break;
+            case R.id.ll_shape_view:
+                NavigateManager.gotoSpecifiedActivity(getContext(), ShapeViewActivity.class);
                 break;
         }
     }

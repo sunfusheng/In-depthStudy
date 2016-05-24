@@ -25,7 +25,20 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:background="@color/red"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_content_send"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="属性动画"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -100,10 +113,24 @@
             android:orientation="horizontal">
 
             <LinearLayout
+                android:id="@+id/ll_shape_view"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:background="@color/blue"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_my_android"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="ShapeView"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout
@@ -281,7 +308,20 @@
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
                 android:background="@color/orange"
-                android:orientation="horizontal">
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_image_photo"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Glide"
+                    android:textColor="@color/white"/>
             </LinearLayout>
 
             <LinearLayout

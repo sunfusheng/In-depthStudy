@@ -33,11 +33,11 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
         super.onCreate(savedInstanceState);
         Logger.i(GlobalParams.LOG_TAG_ACTIVITY, "(" + getClass().getSimpleName() + ".java:1)");
 
-        initData();
+        init();
         initSystemBarTint();
     }
 
-    private void initData() {
+    private void init() {
         mTipDialog = new TipDialog(this);
     }
 
