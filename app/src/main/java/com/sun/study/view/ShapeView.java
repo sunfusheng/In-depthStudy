@@ -17,14 +17,15 @@ public class ShapeView extends ImageView {
 
     private Context mContext;
 
-    private enum Shape {
-        rect, oval, line, ring
-    }
+    private enum Shape {rect, oval, line, ring}
 
     private int viewWidth = 50;
     private int viewHeight = 50;
     private int viewColor = 0x9e9e9e;
-    private int viewShape = Shape.rect.ordinal();
+    private Shape viewShape = Shape.rect;
+    private int lineWidth = 1;
+    private int lineDashWidth = 6;
+    private int lineDashGap = 3;
 
     public ShapeView(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -41,38 +42,46 @@ public class ShapeView extends ImageView {
 
         TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.ShapeViewStyle, defStyleAttr, 0);
 
-        String width = "";
-        String height = "";
-        for (int i=0; i<attrs.getAttributeCount(); i++) {
-            if ("layout_width".equals(attrs.getAttributeName(i))) {
-                width = attrs.getAttributeValue(i);
-            } else if ("layout_height".equals(attrs.getAttributeName(i))) {
-                height = attrs.getAttributeValue(i);
-            }
-        }
+        viewWidth = (int) typedArray.getDimension(R.styleable.ShapeViewStyle_viewWidth, viewWidth);
+        viewHeight = (int) typedArray.getDimension(R.styleable.ShapeViewStyle_viewHeight, viewHeight);
         viewColor = typedArray.getColor(R.styleable.ShapeViewStyle_viewColor, viewColor);
+
+        lineWidth = (int) typedArray.getDimension(R.styleable.ShapeViewStyle_lineWidth, lineWidth);
+        lineDashWidth = (int) typedArray.getDimension(R.styleable.ShapeViewStyle_lineDashWidth, lineDashWidth);
+        lineDashGap = (int) typedArray.getDimension(R.styleable.ShapeViewStyle_lineDashGap, lineDashGap);
+
         int shape = typedArray.getInt(R.styleable.ShapeViewStyle_viewShape, Shape.rect.ordinal());
         for (Shape shapeValue:Shape.values()) {
             if (shapeValue.ordinal() == shape) {
-                viewShape = shape;
+                viewShape = shapeValue;
                 break;
             }
         }
-
-//        switch (viewShape) {
-//            case rect:
-//
-//                break;
-//        }
 
         setImageDrawable(createShapeView());
     }
 
     private LayerDrawable createShapeView() {
         GradientDrawable gradientDrawable = new GradientDrawable();
-        gradientDrawable.setShape(viewShape);
-        gradientDrawable.setColor(getResources().getColor(R.color.orange));
-        gradientDrawable.setSize(50, 50);
+        gradientDrawable.setColor(viewColor);
+        gradientDrawable.setSize(viewWidth, viewHeight);
+
+        switch (viewShape) {
+            case rect:
+                gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+                break;
+            case oval:
+                gradientDrawable.setShape(GradientDrawable.OVAL);
+                break;
+            case line:
+                gradientDrawable.setShape(GradientDrawable.LINE);
+                gradientDrawable.setStroke(lineWidth, viewColor, lineDashWidth, lineDashGap);
+                break;
+            case ring:
+                gradientDrawable.setShape(GradientDrawable.RING);
+                gradientDrawable.setStroke(viewWidth, viewColor);
+                break;
+        }
         return new LayerDrawable(new Drawable[]{gradientDrawable});
     }
 }

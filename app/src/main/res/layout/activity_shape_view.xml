@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
@@ -17,28 +17,101 @@
         android:orientation="horizontal">
 
         <com.sun.study.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:viewShape="oval"/>
+            app:viewWidth="50dp"
+            app:viewHeight="50dp"
+            app:viewShape="oval"
+            app:viewColor="@color/red"/>
 
         <com.sun.study.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:viewShape="rect"/>
+            android:layout_gravity="center"
+            app:viewWidth="50dp"
+            app:viewHeight="30dp"
+            app:viewShape="oval"
+            app:viewColor="@color/orange"/>
 
         <com.sun.study.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:viewShape="line"/>
+            app:viewWidth="50dp"
+            app:viewHeight="50dp"
+            app:viewShape="rect"
+            app:viewColor="@color/green"/>
 
         <com.sun.study.view.ShapeView
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:viewShape="ring"/>
+            android:layout_gravity="center"
+            app:viewWidth="50dp"
+            app:viewHeight="30dp"
+            app:viewShape="rect"
+            app:viewColor="@color/purple"/>
     </LinearLayout>
+
+    <com.sun.study.view.ShapeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        app:viewWidth="200dp"
+        app:viewHeight="10dp"
+        app:viewShape="line"
+        app:viewColor="@color/orange"
+        app:lineWidth="1dp"
+        app:lineDashWidth="6dp"
+        app:lineDashGap="3dp"/>
+
+    <com.sun.study.view.ShapeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        app:viewWidth="200dp"
+        app:viewHeight="10dp"
+        app:viewShape="line"
+        app:viewColor="@color/orange"
+        app:lineWidth="3dp"
+        app:lineDashWidth="3dp"
+        app:lineDashGap="3dp"/>
+
+    <com.sun.study.view.ShapeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        app:viewWidth="200dp"
+        app:viewHeight="10dp"
+        app:viewShape="line"
+        app:viewColor="@color/orange"
+        app:lineWidth="1dp"
+        app:lineDashWidth="10dp"
+        app:lineDashGap="3dp"/>
+
+    <com.sun.study.view.ShapeView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        app:viewWidth="200dp"
+        app:viewHeight="10dp"
+        app:viewShape="line"
+        app:viewColor="@color/orange"
+        app:lineWidth="1dp"
+        app:lineDashWidth="6dp"
+        app:lineDashGap="6dp"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        android:background="@drawable/xml_dash_line"/>
 
 </LinearLayout>
