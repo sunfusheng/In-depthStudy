@@ -10,7 +10,6 @@
             <enum name="rect" value="0" />
             <enum name="oval" value="1" />
             <enum name="line" value="2" />
-            <enum name="ring" value="3" />
         </attr>
 
         <attr name="lineWidth" format="dimension|reference" />

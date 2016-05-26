@@ -17,7 +17,7 @@ public class ShapeView extends ImageView {
 
     private Context mContext;
 
-    private enum Shape {rect, oval, line, ring}
+    private enum Shape {rect, oval, line}
 
     private int viewWidth = 50;
     private int viewHeight = 50;
@@ -76,10 +76,6 @@ public class ShapeView extends ImageView {
             case line:
                 gradientDrawable.setShape(GradientDrawable.LINE);
                 gradientDrawable.setStroke(lineWidth, viewColor, lineDashWidth, lineDashGap);
-                break;
-            case ring:
-                gradientDrawable.setShape(GradientDrawable.RING);
-                gradientDrawable.setStroke(viewWidth, viewColor);
                 break;
         }
         return new LayerDrawable(new Drawable[]{gradientDrawable});

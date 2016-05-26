@@ -10,7 +10,6 @@
     <include layout="@layout/app_toolbar"/>
 
     <LinearLayout
-        android:id="@+id/ll_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="15dp"
@@ -54,6 +53,13 @@
             app:viewShape="rect"
             app:viewColor="@color/purple"/>
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="3dp"
+        android:layout_margin="15dp"
+        android:layerType="software"
+        android:background="@drawable/xml_dash_line"/>
 
     <com.sun.study.view.ShapeView
         android:layout_width="match_parent"
@@ -107,11 +113,17 @@
         app:lineDashWidth="6dp"
         app:lineDashGap="6dp"/>
 
-    <View
+    <com.sun.study.view.ShapeView
         android:layout_width="match_parent"
-        android:layout_height="3dp"
+        android:layout_height="wrap_content"
         android:layout_margin="15dp"
         android:layerType="software"
-        android:background="@drawable/xml_dash_line"/>
+        app:viewWidth="200dp"
+        app:viewHeight="10dp"
+        app:viewShape="line"
+        app:viewColor="@color/orange"
+        app:lineWidth="1dp"
+        app:lineDashWidth="6dp"
+        app:lineDashGap="0dp"/>
 
 </LinearLayout>
