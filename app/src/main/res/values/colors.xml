@@ -44,4 +44,12 @@
     <color name="c_kitchen_detail_send_font">#d5d5d5</color>
     <color name="c_kitchen_detail_line">#e4e4e4</color>
 
+    <color name="c_translate_82">#4f2e2222</color>
+    <color name="c_translate_white_80">#ccffffff</color>
+    <color name="c_translate_white_70">#b3ffffff</color>
+    <color name="c_translate_white_50">#80ffffff</color>
+    <color name="c_translate_orange_20">#14f27242</color>
+    <color name="half_transparent">#4f000000</color>
+    <color name="c_translate_black_35">#59000000</color>
+
 </resources>

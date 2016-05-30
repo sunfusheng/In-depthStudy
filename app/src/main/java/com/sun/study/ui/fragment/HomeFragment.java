@@ -18,6 +18,7 @@ import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShapeViewActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
+import com.sun.study.ui.activity.VSTextViewActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -43,6 +44,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvAnnotation;
     @Bind(R.id.ll_shape_view)
     LinearLayout llShapeView;
+    @Bind(R.id.tv_VSTextView)
+    TextView tvVSTextView;
 
     @Nullable
     @Override
@@ -68,6 +71,7 @@ public class HomeFragment extends BaseFragment {
         tvReflection.setOnClickListener(this);
         tvAnnotation.setOnClickListener(this);
         llShapeView.setOnClickListener(this);
+        tvVSTextView.setOnClickListener(this);
     }
 
     @Override
@@ -97,6 +101,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.ll_shape_view:
                 NavigateManager.gotoSpecifiedActivity(getContext(), ShapeViewActivity.class);
+                break;
+            case R.id.tv_VSTextView:
+                NavigateManager.gotoSpecifiedActivity(getContext(), VSTextViewActivity.class);
                 break;
         }
     }

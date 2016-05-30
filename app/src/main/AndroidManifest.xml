@@ -124,6 +124,10 @@
         <activity android:name=".ui.activity.ShapeViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- VSTextView -->
+        <activity android:name=".ui.activity.VSTextViewActivity"
+                  android:screenOrientation="portrait"/>
+
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>

@@ -151,7 +151,15 @@
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
                         android:background="@color/blue"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_VSTextView"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="VSTextView"
+                            android:textColor="@color/white"/>
                     </LinearLayout>
 
                     <LinearLayout
