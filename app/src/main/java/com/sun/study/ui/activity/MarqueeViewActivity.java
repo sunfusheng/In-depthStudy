@@ -10,7 +10,7 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
- * Created by sunfusheng on 16/5/30.
+ * Created by sunfusheng on 16/5/31.
  */
 public class MarqueeViewActivity extends BaseActivity {
 
