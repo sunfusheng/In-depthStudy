@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include layout="@layout/app_toolbar"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_margin="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/xml_oval_half_transparent_bg">
+
+        <ImageView
+            android:id="@+id/iv_loudspeaker1"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_loudspeaker"/>
+
+        <com.sun.study.view.VerticalMarqueeView
+            android:id="@+id/marqueeView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/iv_loudspeaker1"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginLeft="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/xml_oval_half_transparent_bg">
+
+        <ImageView
+            android:id="@+id/iv_loudspeaker2"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_loudspeaker"/>
+
+        <com.sun.study.view.VerticalMarqueeView
+            android:id="@+id/marqueeView2"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/iv_loudspeaker2"
+            app:mvTextColor="@color/white"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="30dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@drawable/xml_oval_half_transparent_bg">
+
+        <ImageView
+            android:id="@+id/iv_loudspeaker3"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_red_loudspeaker"/>
+
+        <com.sun.study.view.VerticalMarqueeView
+            android:id="@+id/marqueeView3"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@+id/iv_loudspeaker3"
+            app:mvTextColor="@color/red"
+            app:mvInterval="3000"
+            app:mvAnimDuration="1000"/>
+    </RelativeLayout>
+
+</LinearLayout>

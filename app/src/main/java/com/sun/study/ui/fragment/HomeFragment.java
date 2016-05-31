@@ -18,7 +18,7 @@ import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShapeViewActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
-import com.sun.study.ui.activity.VSTextViewActivity;
+import com.sun.study.ui.activity.VerticalMarqueeViewActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -44,8 +44,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvAnnotation;
     @Bind(R.id.ll_shape_view)
     LinearLayout llShapeView;
-    @Bind(R.id.tv_VSTextView)
-    TextView tvVSTextView;
+    @Bind(R.id.tv_MarqueeView)
+    TextView tvMarqueeView;
 
     @Nullable
     @Override
@@ -71,7 +71,7 @@ public class HomeFragment extends BaseFragment {
         tvReflection.setOnClickListener(this);
         tvAnnotation.setOnClickListener(this);
         llShapeView.setOnClickListener(this);
-        tvVSTextView.setOnClickListener(this);
+        tvMarqueeView.setOnClickListener(this);
     }
 
     @Override
@@ -102,8 +102,8 @@ public class HomeFragment extends BaseFragment {
             case R.id.ll_shape_view:
                 NavigateManager.gotoSpecifiedActivity(getContext(), ShapeViewActivity.class);
                 break;
-            case R.id.tv_VSTextView:
-                NavigateManager.gotoSpecifiedActivity(getContext(), VSTextViewActivity.class);
+            case R.id.tv_MarqueeView:
+                NavigateManager.gotoSpecifiedActivity(getContext(), VerticalMarqueeViewActivity.class);
                 break;
         }
     }

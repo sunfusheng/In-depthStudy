@@ -15,7 +15,13 @@
         <attr name="lineWidth" format="dimension|reference" />
         <attr name="lineDashWidth" format="dimension|reference" />
         <attr name="lineDashGap" format="dimension|reference" />
+    </declare-styleable>
 
+    <declare-styleable name="MarqueeViewStyle">
+        <attr name="mvInterval" format="integer|reference" />
+        <attr name="mvAnimDuration" format="integer|reference" />
+        <attr name="mvTextSize" format="dimension|reference" />
+        <attr name="mvTextColor" format="color|reference" />
     </declare-styleable>
 
 </resources>
