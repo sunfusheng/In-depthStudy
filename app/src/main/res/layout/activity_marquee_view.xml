@@ -13,9 +13,9 @@
         android:layout_width="match_parent"
         android:layout_height="30dp"
         android:layout_margin="30dp"
+        android:background="@drawable/xml_oval_half_transparent_bg"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/xml_oval_half_transparent_bg">
+        android:paddingRight="10dp">
 
         <ImageView
             android:id="@+id/iv_loudspeaker1"
@@ -37,9 +37,9 @@
         android:layout_width="wrap_content"
         android:layout_height="30dp"
         android:layout_marginLeft="30dp"
+        android:background="@drawable/xml_oval_half_transparent_bg"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/xml_oval_half_transparent_bg">
+        android:paddingRight="10dp">
 
         <ImageView
             android:id="@+id/iv_loudspeaker2"
@@ -55,20 +55,20 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker2"
-            app:mvTextColor="@color/white"
-            app:mvTextSize="14dp"
+            app:mvAnimDuration="1000"
             app:mvInterval="3000"
-            app:mvAnimDuration="1000"/>
+            app:mvTextColor="@color/white"
+            app:mvTextSize="14sp"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/xml_oval_half_transparent_bg"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/xml_oval_half_transparent_bg">
+        android:paddingRight="10dp">
 
         <ImageView
             android:id="@+id/iv_loudspeaker3"
@@ -84,19 +84,19 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker3"
-            app:mvTextColor="@color/red"
+            app:mvAnimDuration="500"
             app:mvInterval="2000"
-            app:mvAnimDuration="500"/>
+            app:mvTextColor="@color/red"/>
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="30dp"
-        android:layout_marginTop="30dp"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/xml_oval_half_transparent_bg"
         android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@drawable/xml_oval_half_transparent_bg">
+        android:paddingRight="10dp">
 
         <ImageView
             android:id="@+id/iv_loudspeaker4"
@@ -112,9 +112,9 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker4"
-            app:mvTextColor="@color/red"
+            app:mvAnimDuration="500"
             app:mvInterval="2000"
-            app:mvAnimDuration="500"/>
+            app:mvTextColor="@color/red"/>
     </RelativeLayout>
 
 </LinearLayout>
