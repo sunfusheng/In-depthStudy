@@ -24,7 +24,7 @@ import java.util.List;
 /**
  * Created by sunfusheng on 16/5/31.
  */
-public class VerticalMarqueeView extends ViewFlipper {
+public class MarqueeView extends ViewFlipper {
 
     private Context mContext;
     private List<String> notices;
@@ -34,7 +34,7 @@ public class VerticalMarqueeView extends ViewFlipper {
     private int textSize = 14;
     private int textColor = 0xffffffff;
 
-    public VerticalMarqueeView(Context context, AttributeSet attrs) {
+    public MarqueeView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init(context, attrs, 0);
     }
@@ -85,7 +85,9 @@ public class VerticalMarqueeView extends ViewFlipper {
         for (String notice:notices) {
             addView(createTextView(notice));
         }
-        startFlipping();
+        if (notices.size() > 1) {
+            startFlipping();
+        }
         return true;
     }
 
@@ -93,6 +95,9 @@ public class VerticalMarqueeView extends ViewFlipper {
         int noticeLength = notice.length();
         int dpW = DisplayUtil.px2dip(mContext, width);
         int limit = dpW/textSize;
+        if (dpW == 0) {
+            throw new RuntimeException("Please set MarqueeView width");
+        }
 
         Log.d("--->", "width: "+width+" dpW: "+dpW+" limit: "+limit);
 

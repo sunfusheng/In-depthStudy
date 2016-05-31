@@ -18,7 +18,7 @@ import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShapeViewActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
-import com.sun.study.ui.activity.VerticalMarqueeViewActivity;
+import com.sun.study.ui.activity.MarqueeViewActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -103,7 +103,7 @@ public class HomeFragment extends BaseFragment {
                 NavigateManager.gotoSpecifiedActivity(getContext(), ShapeViewActivity.class);
                 break;
             case R.id.tv_MarqueeView:
-                NavigateManager.gotoSpecifiedActivity(getContext(), VerticalMarqueeViewActivity.class);
+                NavigateManager.gotoSpecifiedActivity(getContext(), MarqueeViewActivity.class);
                 break;
         }
     }

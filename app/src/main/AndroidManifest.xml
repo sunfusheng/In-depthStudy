@@ -125,7 +125,7 @@
                   android:screenOrientation="portrait"/>
 
         <!-- VSTextView -->
-        <activity android:name=".ui.activity.VerticalMarqueeViewActivity"
+        <activity android:name=".ui.activity.MarqueeViewActivity"
                   android:screenOrientation="portrait"/>
 
         <service android:name="com.amap.api.location.APSService"/>

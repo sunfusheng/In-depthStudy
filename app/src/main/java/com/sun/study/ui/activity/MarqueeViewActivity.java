@@ -5,7 +5,7 @@ import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;
 
 import com.sun.study.R;
-import com.sun.study.view.VerticalMarqueeView;
+import com.sun.study.view.MarqueeView;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -13,34 +13,39 @@ import butterknife.ButterKnife;
 /**
  * Created by sunfusheng on 16/5/30.
  */
-public class VerticalMarqueeViewActivity extends BaseActivity {
+public class MarqueeViewActivity extends BaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar toolbar;
     @Bind(R.id.iv_loudspeaker1)
     ImageView ivLoudspeaker1;
     @Bind(R.id.marqueeView1)
-    VerticalMarqueeView marqueeView1;
+    MarqueeView marqueeView1;
     @Bind(R.id.iv_loudspeaker2)
     ImageView ivLoudspeaker2;
     @Bind(R.id.marqueeView2)
-    VerticalMarqueeView marqueeView2;
+    MarqueeView marqueeView2;
     @Bind(R.id.iv_loudspeaker3)
     ImageView ivLoudspeaker3;
     @Bind(R.id.marqueeView3)
-    VerticalMarqueeView marqueeView3;
+    MarqueeView marqueeView3;
+    @Bind(R.id.iv_loudspeaker4)
+    ImageView ivLoudspeaker4;
+    @Bind(R.id.marqueeView4)
+    MarqueeView marqueeView4;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vertical_marquee_view);
+        setContentView(R.layout.activity_marquee_view);
         ButterKnife.bind(this);
 
-        initToolBar(toolbar, true, "VerticalMarqueeView");
+        initToolBar(toolbar, true, "MarqueeView");
 
         marqueeView1.startWithText(getString(R.string.vs_res));
         marqueeView2.startWithText(getString(R.string.vs_res));
         marqueeView3.startWithText(getString(R.string.vs_res));
+        marqueeView4.startWithText("心中有阳光，脚底有力量！");
     }
 
 }
