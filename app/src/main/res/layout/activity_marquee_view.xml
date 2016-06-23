@@ -12,6 +12,20 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="30dp"
+        android:background="@color/indigo">
+
+        <com.sun.study.view.MarqueeView
+            android:id="@+id/marqueeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="30dp"
+            android:layout_marginRight="30dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
         android:layout_margin="30dp"
         android:background="@drawable/xml_oval_half_transparent_bg"
         android:paddingLeft="10dp"
@@ -27,7 +41,7 @@
         <com.sun.study.view.MarqueeView
             android:id="@+id/marqueeView1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker1"/>
@@ -51,7 +65,7 @@
         <com.sun.study.view.MarqueeView
             android:id="@+id/marqueeView2"
             android:layout_width="100dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker2"
@@ -80,7 +94,7 @@
         <com.sun.study.view.MarqueeView
             android:id="@+id/marqueeView3"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker3"
@@ -108,7 +122,7 @@
         <com.sun.study.view.MarqueeView
             android:id="@+id/marqueeView4"
             android:layout_width="200dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:layout_marginLeft="8dp"
             android:layout_toRightOf="@+id/iv_loudspeaker4"
