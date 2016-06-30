@@ -15,7 +15,11 @@ Android 深入学习工程
 
 ### 线程池
 
-![](/screenshots/线程池.gif)
+<img src="/screenshots/线程池.gif" style="width: 50%;">
+
+### 我的公众号
+
+<img src="/screenshots/微信公众号15.jpg" style="width: 30%;">
 
 ### 关于我
 
