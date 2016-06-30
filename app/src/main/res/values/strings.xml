@@ -11,6 +11,7 @@
     <string name="about_app">关于软件</string>
 
     <!-- 左侧菜单 -->
+    <string name="left_menu_home">首页</string>
     <string name="left_menu_animator">动画篇</string>
     <string name="left_menu_custom_view">自定义View</string>
     <string name="left_menu_refresh">下拉刷新</string>
@@ -20,6 +21,7 @@
     <string name="left_menu_thread">多线程</string>
 
     <!-- 右侧菜单 -->
+    <string name="right_menu_home">首页</string>
     <string name="right_menu_RxJava">RxJava</string>
     <string name="right_menu_IntentService">IntentService</string>
     <string name="right_menu_aidl">AIDL</string>

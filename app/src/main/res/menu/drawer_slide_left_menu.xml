@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <group android:checkableBehavior="single">
+
+        <item
+            android:id="@+id/left_menu_home"
+            android:checked="false"
+            android:title="@string/left_menu_home"/>
+
         <item
             android:id="@+id/left_menu_animator"
             android:checked="false"

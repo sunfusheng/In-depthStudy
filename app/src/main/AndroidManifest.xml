@@ -124,10 +124,14 @@
         <activity android:name=".ui.activity.ShapeViewActivity"
                   android:screenOrientation="portrait"/>
 
-        <!-- VSTextView -->
+        <!-- MarqueeView -->
         <activity android:name=".ui.activity.MarqueeViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- IntentService -->
+        <service android:name=".service.MyIntentService"/>
+
+        <!-- 高德定位服务 -->
         <service android:name="com.amap.api.location.APSService"/>
 
     </application>

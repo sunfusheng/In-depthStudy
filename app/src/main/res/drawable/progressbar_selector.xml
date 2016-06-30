@@ -4,8 +4,8 @@
     <item android:id="@android:id/background">
         <shape>
             <gradient
-                android:endColor="#EEEEEE"
-                android:startColor="#EEEEEE"/>
+                android:endColor="#bdbdbd"
+                android:startColor="#bdbdbd"/>
         </shape>
     </item>
     <item android:id="@android:id/progress">

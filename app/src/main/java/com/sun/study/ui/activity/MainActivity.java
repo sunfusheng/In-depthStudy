@@ -18,6 +18,7 @@ import com.sun.study.ui.fragment.CustomViewFragment;
 import com.sun.study.ui.fragment.DroidPluginFragment;
 import com.sun.study.ui.fragment.HomeFragment;
 import com.sun.study.ui.fragment.ImageFragment;
+import com.sun.study.ui.fragment.IntentServiceFragment;
 import com.sun.study.ui.fragment.MapFragment;
 import com.sun.study.ui.fragment.NetworkFragment;
 import com.sun.study.ui.fragment.RxJavaFragment;
@@ -102,6 +103,7 @@ public class MainActivity extends BaseActivity {
                         controlShowFragment(7);
                         toolbar.setTitle(R.string.left_menu_thread);
                         break;
+                    case R.id.left_menu_home:
                     default:
                         controlShowFragment(0);
                         toolbar.setTitle(R.string.app_name);
@@ -143,6 +145,7 @@ public class MainActivity extends BaseActivity {
                         controlShowFragment(26);
                         toolbar.setTitle(R.string.right_menu_DroidPlugin);
                         break;
+                    case R.id.right_menu_home:
                     default:
                         controlShowFragment(0);
                         toolbar.setTitle(R.string.app_name);
@@ -210,6 +213,9 @@ public class MainActivity extends BaseActivity {
     private Fragment getRightFragment(int position) {
         Fragment fragment;
         switch (position) {
+            case 21:
+                fragment = new IntentServiceFragment();
+                break;
             case 24:
                 fragment = new RxJavaFragment();
                 break;
