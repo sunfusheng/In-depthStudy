@@ -123,21 +123,17 @@ public class MainActivity extends BaseActivity {
                 }
                 rightCheckedItem = item;
                 switch (item.getItemId()) {
-                    case R.id.right_menu_share:
-                        controlShowFragment(21);
-                        toolbar.setTitle(R.string.right_menu_share);
-                        break;
-                    case R.id.right_menu_pay:
-                        controlShowFragment(22);
-                        toolbar.setTitle(R.string.right_menu_pay);
-                        break;
-                    case R.id.right_menu_push:
-                        controlShowFragment(23);
-                        toolbar.setTitle(R.string.right_menu_push);
-                        break;
                     case R.id.right_menu_RxJava:
                         controlShowFragment(24);
                         toolbar.setTitle(R.string.right_menu_RxJava);
+                        break;
+                    case R.id.right_menu_IntentService:
+                        controlShowFragment(21);
+                        toolbar.setTitle(R.string.right_menu_IntentService);
+                        break;
+                    case R.id.right_menu_aidl:
+                        controlShowFragment(22);
+                        toolbar.setTitle(R.string.right_menu_aidl);
                         break;
                     case R.id.right_menu_binder:
                         controlShowFragment(25);
@@ -145,7 +141,7 @@ public class MainActivity extends BaseActivity {
                         break;
                     case R.id.right_menu_droidplugin:
                         controlShowFragment(26);
-                        toolbar.setTitle(R.string.right_menu_droidplugin);
+                        toolbar.setTitle(R.string.right_menu_DroidPlugin);
                         break;
                     default:
                         controlShowFragment(0);

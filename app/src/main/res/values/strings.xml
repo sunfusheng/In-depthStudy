@@ -20,12 +20,11 @@
     <string name="left_menu_thread">多线程</string>
 
     <!-- 右侧菜单 -->
-    <string name="right_menu_share">分享</string>
-    <string name="right_menu_pay">支付</string>
-    <string name="right_menu_push">推送</string>
     <string name="right_menu_RxJava">RxJava</string>
+    <string name="right_menu_IntentService">IntentService</string>
+    <string name="right_menu_aidl">AIDL</string>
     <string name="right_menu_binder">Binder</string>
-    <string name="right_menu_droidplugin">DroidPlugin</string>
+    <string name="right_menu_DroidPlugin">DroidPlugin</string>
 
     <string name="toast_exit_app">再按一次退出应用</string>
 

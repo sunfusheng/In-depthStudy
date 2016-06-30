@@ -5,9 +5,13 @@ Android 深入学习工程
 
 ### 主页
 
-![](/screenshots/left_menu.png)
-![](/screenshots/http_page.png)
-![](/screenshots/right_menu.png)
+<table>
+    <tr>
+        <td><img src="/screenshots/icon_study_left.png" style="width: 50%;"></td>
+        <td><img src="/screenshots/icon_study_main.png" style="width: 50%;"></td>
+        <td><img src="/screenshots/icon_study_right.png" style="width: 50%;"></td>
+    </tr>
+</table>
 
 ### 线程池
 

@@ -3,21 +3,17 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/right_menu_share"
-            android:checked="false"
-            android:title="@string/right_menu_share"/>
-        <item
-            android:id="@+id/right_menu_pay"
-            android:checked="false"
-            android:title="@string/right_menu_pay"/>
-        <item
-            android:id="@+id/right_menu_push"
-            android:checked="false"
-            android:title="@string/right_menu_push"/>
-        <item
             android:id="@+id/right_menu_RxJava"
             android:checked="false"
             android:title="@string/right_menu_RxJava"/>
+        <item
+            android:id="@+id/right_menu_IntentService"
+            android:checked="false"
+            android:title="@string/right_menu_IntentService"/>
+        <item
+            android:id="@+id/right_menu_aidl"
+            android:checked="false"
+            android:title="@string/right_menu_aidl"/>
         <item
             android:id="@+id/right_menu_binder"
             android:checked="false"
@@ -25,7 +21,7 @@
         <item
             android:id="@+id/right_menu_droidplugin"
             android:checked="false"
-            android:title="@string/right_menu_droidplugin"/>
+            android:title="@string/right_menu_DroidPlugin"/>
     </group>
 
 </menu>
