@@ -7,7 +7,6 @@ import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.content.LocalBroadcastManager;
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -101,13 +100,10 @@ public class IntentServiceFragment extends BaseFragment {
         mLocalBroadcastManager.unregisterReceiver(mBroadcastReceiver);
     }
 
-    class MyBroadcastReceiver extends BroadcastReceiver {
+    public class MyBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
-            String action = intent.getAction();
-            if (TextUtils.isEmpty(action)) return;
-
-            switch (action) {
+            switch (intent.getAction()) {
                 case ACTION_TYPE_SERVICE:
                     tvServiceStatus.setText("服务状态：" + intent.getStringExtra("status"));
                     break;

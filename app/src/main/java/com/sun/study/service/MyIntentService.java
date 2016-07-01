@@ -3,7 +3,6 @@ package com.sun.study.service;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.v4.content.LocalBroadcastManager;
-import android.util.Log;
 
 import com.sun.study.ui.fragment.IntentServiceFragment;
 
@@ -18,32 +17,17 @@ public class MyIntentService extends IntentService {
 
     public MyIntentService() {
         super("MyIntentService");
-        Log.d("--->", "MyIntentService()");
     }
 
     @Override
     public void onCreate() {
         super.onCreate();
-        Log.d("--->", "onCreate()");
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
         sendServiceStatus("服务启动");
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("--->", "onStartCommand()");
-        return super.onStartCommand(intent, flags, startId);
-    }
-
-    @Override
-    public void onStart(Intent intent, int startId) {
-        super.onStart(intent, startId);
-        Log.d("--->", "onStart()");
-    }
-
-    @Override
     protected void onHandleIntent(Intent intent) {
-        Log.d("--->", "onHandleIntent()");
         try {
             sendThreadStatus("线程启动", count);
             Thread.sleep(1_000);
@@ -53,11 +37,11 @@ public class MyIntentService extends IntentService {
             count = 0;
             while (isRunning) {
                 count++;
-                Thread.sleep(50);
-                sendThreadStatus("线程运行中...", count);
                 if (count >= 100) {
                     isRunning = false;
                 }
+                Thread.sleep(50);
+                sendThreadStatus("线程运行中...", count);
             }
             sendThreadStatus("线程结束", count);
         } catch (InterruptedException e) {
@@ -68,7 +52,6 @@ public class MyIntentService extends IntentService {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("--->", "onDestroy()");
         sendServiceStatus("服务结束");
     }
 
