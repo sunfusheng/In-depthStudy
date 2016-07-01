@@ -13,6 +13,7 @@ import com.sun.study.ui.fragment.IntentServiceFragment;
 public class MyIntentService extends IntentService {
 
     private boolean isRunning = true;
+    private int count = 0;
     private LocalBroadcastManager mLocalBroadcastManager;
 
     public MyIntentService() {
@@ -25,6 +26,7 @@ public class MyIntentService extends IntentService {
         super.onCreate();
         Log.d("--->", "onCreate()");
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(this);
+        sendServiceStatus("服务启动");
     }
 
     @Override
@@ -42,23 +44,22 @@ public class MyIntentService extends IntentService {
     @Override
     protected void onHandleIntent(Intent intent) {
         Log.d("--->", "onHandleIntent()");
-
         try {
+            sendThreadStatus("线程启动", count);
+            Thread.sleep(1_000);
+            sendServiceStatus("服务运行中...");
+
             isRunning = true;
-            int count = 0;
-            sendLocalBroadcast("准备运行", count);
-            Thread.sleep(2_000);
-
-
+            count = 0;
             while (isRunning) {
                 count++;
-                Thread.sleep(200);
-                sendLocalBroadcast("运行中...", count);
+                Thread.sleep(50);
+                sendThreadStatus("线程运行中...", count);
                 if (count >= 100) {
                     isRunning = false;
                 }
             }
-            sendLocalBroadcast("运行结束", 100);
+            sendThreadStatus("线程结束", count);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -68,10 +69,19 @@ public class MyIntentService extends IntentService {
     public void onDestroy() {
         super.onDestroy();
         Log.d("--->", "onDestroy()");
+        sendServiceStatus("服务结束");
     }
 
-    private void sendLocalBroadcast(String status, int progress) {
-        Intent intent = new Intent(IntentServiceFragment.ACTION_INTENTSERVICE);
+    // 发送服务状态信息
+    private void sendServiceStatus(String status) {
+        Intent intent = new Intent(IntentServiceFragment.ACTION_TYPE_SERVICE);
+        intent.putExtra("status", status);
+        mLocalBroadcastManager.sendBroadcast(intent);
+    }
+
+    // 发送线程状态信息
+    private void sendThreadStatus(String status, int progress) {
+        Intent intent = new Intent(IntentServiceFragment.ACTION_TYPE_THREAD);
         intent.putExtra("status", status);
         intent.putExtra("progress", progress);
         mLocalBroadcastManager.sendBroadcast(intent);

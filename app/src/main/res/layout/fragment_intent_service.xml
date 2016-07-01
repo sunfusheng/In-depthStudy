@@ -7,9 +7,14 @@
     android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
     <TextView
-        android:id="@+id/tv_info"
+        android:id="@+id/tv_service_status"
         style="@style/TvTextViewStyle"
-        android:text="提示："/>
+        android:text="服务状态：未运行"/>
+
+    <TextView
+        android:id="@+id/tv_thread_status"
+        style="@style/TvTextViewStyle"
+        android:text="线程状态：未运行"/>
 
     <RelativeLayout
         android:layout_width="match_parent"

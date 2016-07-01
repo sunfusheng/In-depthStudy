@@ -25,8 +25,6 @@ import butterknife.ButterKnife;
  */
 public class IntentServiceFragment extends BaseFragment {
 
-    @Bind(R.id.tv_info)
-    TextView tvInfo;
     @Bind(R.id.progressBar)
     ProgressBar progressBar;
     @Bind(R.id.tv_progress)
@@ -35,8 +33,13 @@ public class IntentServiceFragment extends BaseFragment {
     TextView tvStart;
     @Bind(R.id.tv_cancel)
     TextView tvCancel;
+    @Bind(R.id.tv_service_status)
+    TextView tvServiceStatus;
+    @Bind(R.id.tv_thread_status)
+    TextView tvThreadStatus;
 
-    public final static String ACTION_INTENTSERVICE = "action.my.intentservice";
+    public final static String ACTION_TYPE_SERVICE = "action.type.service";
+    public final static String ACTION_TYPE_THREAD = "action.type.thread";
 
     private LocalBroadcastManager mLocalBroadcastManager;
     private MyBroadcastReceiver mBroadcastReceiver;
@@ -47,7 +50,9 @@ public class IntentServiceFragment extends BaseFragment {
         super.onCreate(savedInstanceState);
         mLocalBroadcastManager = LocalBroadcastManager.getInstance(getContext());
         mBroadcastReceiver = new MyBroadcastReceiver();
-        IntentFilter intentFilter = new IntentFilter(ACTION_INTENTSERVICE);
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction(ACTION_TYPE_SERVICE);
+        intentFilter.addAction(ACTION_TYPE_THREAD);
         mLocalBroadcastManager.registerReceiver(mBroadcastReceiver, intentFilter);
     }
 
@@ -63,7 +68,8 @@ public class IntentServiceFragment extends BaseFragment {
     }
 
     private void initView() {
-        tvInfo.setText("状态：未运行");
+        tvServiceStatus.setText("服务状态：未运行");
+        tvThreadStatus.setText("线程状态：未运行");
         progressBar.setMax(100);
         progressBar.setProgress(0);
         tvProgress.setText(0 + "%");
@@ -102,10 +108,12 @@ public class IntentServiceFragment extends BaseFragment {
             if (TextUtils.isEmpty(action)) return;
 
             switch (action) {
-                case ACTION_INTENTSERVICE:
-                    String status = intent.getStringExtra("status");
+                case ACTION_TYPE_SERVICE:
+                    tvServiceStatus.setText("服务状态：" + intent.getStringExtra("status"));
+                    break;
+                case ACTION_TYPE_THREAD:
                     int progress = intent.getIntExtra("progress", 0);
-                    tvInfo.setText("状态："+status);
+                    tvThreadStatus.setText("线程状态：" + intent.getStringExtra("status"));
                     progressBar.setProgress(progress);
                     tvProgress.setText(progress + "%");
                     break;
