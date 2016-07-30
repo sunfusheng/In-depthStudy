@@ -128,6 +128,10 @@
         <activity android:name=".ui.activity.MarqueeViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- ShareView -->
+        <activity android:name=".ui.activity.ShareViewActivity"
+                  android:screenOrientation="portrait"/>
+
         <!-- IntentService -->
         <service android:name=".service.MyIntentService"/>
 

@@ -43,6 +43,8 @@
     <color name="c_kitchen_detail_line_top">#fcfcfc</color>
     <color name="c_kitchen_detail_send_font">#d5d5d5</color>
     <color name="c_kitchen_detail_line">#e4e4e4</color>
+    <color name="c_kitchen_detail_little_table_line">#eeeeee</color>
+    <color name="c_home_city_font">#f27242</color>
 
     <color name="c_translate_82">#4f2e2222</color>
     <color name="c_translate_white_80">#ccffffff</color>

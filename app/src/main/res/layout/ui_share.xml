@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="145dp"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/c_kitchen_detail_little_table_line"/>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:orientation="horizontal">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_share_friend"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xml_share_friend_selector"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_share_wx"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xml_share_wx_selector"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_share_weibo"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xml_share_weibo_selector"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_share_qq"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xml_share_qq_selector"/>
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="1">
+
+            <ImageView
+                android:id="@+id/iv_share_qqzone"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/xml_share_qqzone_selector"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/c_kitchen_detail_little_table_line"/>
+
+    <TextView
+        android:id="@+id/tv_share_cancel"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/c_home_city_font"
+        android:textSize="16sp"/>
+
+</LinearLayout>

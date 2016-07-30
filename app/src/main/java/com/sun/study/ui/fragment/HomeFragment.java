@@ -11,14 +11,15 @@ import android.widget.TextView;
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
 import com.sun.study.ui.activity.AnnotationActivity;
+import com.sun.study.ui.activity.MarqueeViewActivity;
 import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
 import com.sun.study.ui.activity.ReflectionActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShapeViewActivity;
+import com.sun.study.ui.activity.ShareViewActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
-import com.sun.study.ui.activity.MarqueeViewActivity;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -46,6 +47,8 @@ public class HomeFragment extends BaseFragment {
     LinearLayout llShapeView;
     @Bind(R.id.tv_MarqueeView)
     TextView tvMarqueeView;
+    @Bind(R.id.tv_ShareView)
+    TextView tvShareView;
 
     @Nullable
     @Override
@@ -72,6 +75,7 @@ public class HomeFragment extends BaseFragment {
         tvAnnotation.setOnClickListener(this);
         llShapeView.setOnClickListener(this);
         tvMarqueeView.setOnClickListener(this);
+        tvShareView.setOnClickListener(this);
     }
 
     @Override
@@ -104,6 +108,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.tv_MarqueeView:
                 NavigateManager.gotoSpecifiedActivity(getContext(), MarqueeViewActivity.class);
+                break;
+            case R.id.tv_ShareView:
+                NavigateManager.gotoSpecifiedActivity(getContext(), ShareViewActivity.class);
                 break;
         }
     }
