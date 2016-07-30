@@ -56,7 +56,7 @@ public class ShareView {
         initListener();
     }
 
-    // 将该View添加到根布局，该方法只能被调用一次！多次调用会出问题！
+    // 将该View添加到根布局
     private void attachView() {
         ((ViewGroup) mActivity.getWindow().getDecorView()).addView(fullMaskView);
         FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
@@ -80,7 +80,7 @@ public class ShareView {
                 contentLayout.getViewTreeObserver().removeGlobalOnLayoutListener(this);
                 ViewGroup parent = (ViewGroup) contentLayout.getParent();
                 panelHeight = parent.getHeight() - contentLayout.getTop();
-                ObjectAnimator.ofFloat(contentLayout, "translationY", panelHeight, 0).setDuration(200).start();
+                ObjectAnimator.ofFloat(contentLayout, "translationY", panelHeight, -navigationBarHeight).setDuration(200).start();
             }
         });
     }
@@ -88,7 +88,7 @@ public class ShareView {
     // 动画隐藏布局
     public void hide() {
         fullMaskView.setVisibility(View.GONE);
-        ObjectAnimator.ofFloat(contentLayout, "translationY", 0, panelHeight).setDuration(200).start();
+        ObjectAnimator.ofFloat(contentLayout, "translationY", -navigationBarHeight, panelHeight).setDuration(200).start();
     }
 
     private void initListener() {
