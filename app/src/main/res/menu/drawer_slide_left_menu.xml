@@ -24,6 +24,11 @@
             android:title="@string/left_menu_refresh"/>
 
         <item
+            android:id="@+id/left_status_bar"
+            android:checked="false"
+            android:title="@string/left_status_bar"/>
+
+        <item
             android:id="@+id/left_menu_network"
             android:checked="false"
             android:title="@string/left_menu_network"/>

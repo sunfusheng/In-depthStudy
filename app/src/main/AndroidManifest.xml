@@ -132,6 +132,10 @@
         <activity android:name=".ui.activity.ShareViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 沉浸式状态栏 -->
+        <activity android:name=".ui.activity.StatusBarActivity"
+                  android:screenOrientation="portrait"/>
+
         <!-- IntentService -->
         <service android:name=".service.MyIntentService"/>
 

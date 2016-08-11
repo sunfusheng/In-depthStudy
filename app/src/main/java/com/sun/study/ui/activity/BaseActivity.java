@@ -1,5 +1,7 @@
 package com.sun.study.ui.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -10,7 +12,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.orhanobut.logger.Logger;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -24,7 +25,9 @@ import com.sun.study.framework.sharedpreferences.SettingsSharedPreferences;
 
 public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> implements View.OnClickListener {
 
-    private Toast mToast;
+    protected Activity mActivity;
+    protected Context mContext;
+
     protected TipDialog mTipDialog;
     protected long lastTime = 0;
 
@@ -38,6 +41,8 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
     }
 
     private void init() {
+        mActivity = this;
+        mContext = this;
         mTipDialog = new TipDialog(this);
     }
 
@@ -99,7 +104,6 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mToast = null;
         mTipDialog = null;
     }
 

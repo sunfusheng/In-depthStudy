@@ -22,6 +22,7 @@ import com.sun.study.ui.fragment.IntentServiceFragment;
 import com.sun.study.ui.fragment.MapFragment;
 import com.sun.study.ui.fragment.NetworkFragment;
 import com.sun.study.ui.fragment.RxJavaFragment;
+import com.sun.study.ui.fragment.StatusBarFragment;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -102,6 +103,10 @@ public class MainActivity extends BaseActivity {
                     case R.id.left_menu_thread:
                         controlShowFragment(7);
                         toolbar.setTitle(R.string.left_menu_thread);
+                        break;
+                    case R.id.left_status_bar:
+                        controlShowFragment(8);
+                        toolbar.setTitle(R.string.left_status_bar);
                         break;
                     case R.id.left_menu_home:
                     default:
@@ -201,6 +206,9 @@ public class MainActivity extends BaseActivity {
                 break;
             case 6:
                 fragment = new MapFragment();
+                break;
+            case 8:
+                fragment = new StatusBarFragment();
                 break;
             case 0:
             default:
