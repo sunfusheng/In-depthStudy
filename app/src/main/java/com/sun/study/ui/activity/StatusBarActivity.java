@@ -15,7 +15,6 @@ import com.sun.study.util.ColorUtil;
 import com.sun.study.util.DisplayUtil;
 import com.sun.study.util.statusbar.StatusBarUtil;
 import com.sun.study.view.ObservableScrollView;
-import com.sun.study.view.OnScrollViewListener;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -58,7 +57,7 @@ public class StatusBarActivity extends AppCompatActivity {
                 titleBarHeight = tvTitle.getHeight();
                 Log.d("--->", "titleBarHeight: " + titleBarHeight);
 
-                svRoot.setOnScrollViewListener(new OnScrollViewListener() {
+                svRoot.setOnScrollViewListener(new ObservableScrollView.OnScrollViewListener() {
                     @Override
                     public void onScrollChanged(ObservableScrollView scrollView, int x, int y, int oldx, int oldy) {
                         float fraction = (y  * 1.0f) / (DisplayUtil.dip2px(mContext, 220)-titleBarHeight);

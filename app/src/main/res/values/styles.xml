@@ -7,7 +7,7 @@
         <item name="windowActionBar">false</item>
         <item name="android:windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:fitsSystemWindows">false</item>
+        <item name="android:fitsSystemWindows">true</item>
     </style>
 
     <style name="AppTheme" parent="AppBaseTheme">
