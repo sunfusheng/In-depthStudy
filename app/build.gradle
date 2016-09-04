@@ -135,4 +135,7 @@ dependencies {
     // Sweet Alert Dialog
     compile 'cn.pedant.sweetalert:library:1.3'
 
+    // MarqueeView
+    compile 'com.sunfusheng:marqueeview:1.1.0'
+
 }

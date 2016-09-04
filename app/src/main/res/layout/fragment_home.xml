@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:scrollbars="none"
-    android:overScrollMode="never">
+    android:overScrollMode="never"
+    android:scrollbars="none">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+            android:background="@color/blue">
+
+            <com.sunfusheng.marqueeview.MarqueeView
+                android:id="@+id/marqueeView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                app:mvSingleLine="true"/>
+        </RelativeLayout>
+
         <TextView
             style="@style/StyleUIMainTitleTV"
             android:text="动画"
-            android:textColor="@color/red"/>
+            android:textColor="@color/grey"/>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">
@@ -27,7 +45,7 @@
             <LinearLayout
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:background="@color/red"
+                android:background="@color/grey"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -61,7 +79,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red"
+                        android:background="@color/grey"
                         android:orientation="horizontal">
                     </LinearLayout>
 
@@ -70,7 +88,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red"
+                        android:background="@color/grey"
                         android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
@@ -87,7 +105,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red"
+                        android:background="@color/grey"
                         android:orientation="horizontal">
                     </LinearLayout>
 
@@ -96,7 +114,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/red"
+                        android:background="@color/grey"
                         android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
@@ -111,6 +129,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">
@@ -119,7 +138,7 @@
                 android:id="@+id/ll_shape_view"
                 android:layout_width="120dp"
                 android:layout_height="match_parent"
-                android:background="@color/blue"
+                android:background="@color/cyan"
                 android:gravity="center"
                 android:orientation="vertical">
 
@@ -153,7 +172,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue"
+                        android:background="@color/cyan"
                         android:orientation="vertical">
 
                         <TextView
@@ -170,7 +189,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue"
+                        android:background="@color/cyan"
                         android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
@@ -187,7 +206,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue"
+                        android:background="@color/cyan"
                         android:orientation="vertical">
 
                         <TextView
@@ -204,7 +223,7 @@
                         android:layout_height="match_parent"
                         android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/blue"
+                        android:background="@color/cyan"
                         android:orientation="horizontal">
                     </LinearLayout>
                 </LinearLayout>
@@ -219,6 +238,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">
@@ -319,6 +339,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">
@@ -410,6 +431,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">
@@ -534,6 +556,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/dimen_ui_main_item_height"
+            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
             android:orientation="horizontal">

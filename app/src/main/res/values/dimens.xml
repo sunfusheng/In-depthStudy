@@ -7,6 +7,7 @@
     <dimen name="drawer_header_height">150dp</dimen>
 
     <dimen name="dimen_ui_main_item_height">80dp</dimen>
+    <dimen name="dimen_ui_main_item_margin_top">10dp</dimen>
     <dimen name="dimen_ui_main_item_margin">6dp</dimen>
     <dimen name="dimen_ui_main_item_child_margin">4dp</dimen>
     <dimen name="dimen_ui_main_item_half_child_margin">2dp</dimen>
