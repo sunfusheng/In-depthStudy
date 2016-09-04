@@ -17,7 +17,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:background="@color/blue">
+            android:background="@color/indigo">
 
             <com.sunfusheng.marqueeview.MarqueeView
                 android:id="@+id/marqueeView"
