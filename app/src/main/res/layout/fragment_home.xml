@@ -1,670 +1,690 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:overScrollMode="never"
-    android:scrollbars="none">
+    android:orientation="vertical">
 
-    <LinearLayout
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:background="@color/indigo">
+
+        <com.sunfusheng.marqueeview.MarqueeView
+            android:id="@+id/marqueeView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+            app:mvSingleLine="true"/>
+    </RelativeLayout>
+
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:background="@color/indigo">
-
-            <com.sunfusheng.marqueeview.MarqueeView
-                android:id="@+id/marqueeView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                app:mvSingleLine="true"/>
-        </RelativeLayout>
-
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="动画"
-            android:textColor="@color/grey"/>
+        android:overScrollMode="never"
+        android:scrollbars="none">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/grey"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_content_send"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="属性动画"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:layout_marginTop="@dimen/dimen_ui_main_item_margin_top"
+                android:text="动画"
+                android:textColor="@color/grey"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/grey"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/grey"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/grey"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/grey"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="自定义View"
-            android:textColor="@color/blue"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/ll_shape_view"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/cyan"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_my_android"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/grey"
                     android:gravity="center"
-                    android:text="ShapeView"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_content_send"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="属性动画"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/grey"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/grey"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/grey"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/grey"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="自定义View"
+                android:textColor="@color/blue"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_shape_view"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/cyan"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_MarqueeView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="MarqueeView"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/cyan"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/cyan"
-                        android:orientation="vertical">
-
-                        <TextView
-                            android:id="@+id/tv_ShareView"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="ShareView"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/cyan"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="网络操作"
-            android:textColor="@color/green"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/ll_okhttp"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/green"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_hardware_computer"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:background="@color/blue"
                     android:gravity="center"
-                    android:text="OkHttp3"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_my_android"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="ShapeView"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/blue"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_MarqueeView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="MarqueeView"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/blue"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/blue"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tv_ShareView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="ShareView"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/blue"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="网络操作"
+                android:textColor="@color/green"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_okhttp"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:background="@color/green"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_hardware_computer"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="OkHttp3"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green"
                         android:orientation="horizontal">
 
-                        <TextView
-                            android:id="@+id/tv_retrofit"
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="Retrofit"
-                            android:textColor="@color/white"/>
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_retrofit"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="Retrofit"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:orientation="horizontal">
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/green"
                         android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:orientation="horizontal">
+                        </LinearLayout>
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/green"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/green"
-                        android:orientation="horizontal">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/green"
+                            android:orientation="horizontal">
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="图片"
-            android:textColor="@color/orange"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/orange"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_image_photo"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="Glide"
-                    android:textColor="@color/white"/>
-            </LinearLayout>
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="图片"
+                android:textColor="@color/orange"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_weight="2"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/orange"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/orange"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/orange"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/orange"
-                        android:orientation="horizontal">
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="线程、注解、反射"
-            android:textColor="@color/purple"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:id="@+id/ll_multi_thread"
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/purple"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/ic_multi_thread"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="@color/orange"
                     android:gravity="center"
-                    android:text="多线程"
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_image_photo"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Glide"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/orange"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/orange"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/orange"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/orange"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="线程、注解、反射"
+                android:textColor="@color/purple"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_multi_thread"
                     android:layout_width="match_parent"
+                    android:layout_weight="2"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/purple"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_thread"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="线程"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/purple"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_reflection"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="反射"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/purple"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_thread_pool"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="线程池"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/purple"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/tv_annotation"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text="注解"
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-        <TextView
-            style="@style/StyleUIMainTitleTV"
-            android:text="RecyclerView"
-            android:textColor="@color/teal"/>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/dimen_ui_main_item_height"
-            android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
-            android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
-            android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            android:orientation="horizontal">
-
-            <LinearLayout
-                android:layout_width="120dp"
-                android:layout_height="match_parent"
-                android:background="@color/teal"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:background="@color/purple"
                     android:gravity="center"
-                    android:text=""
-                    android:textColor="@color/white"/>
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_multi_thread"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="多线程"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/purple"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_thread"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="线程"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/purple"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_reflection"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="反射"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/purple"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_thread_pool"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="线程池"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/purple"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_annotation"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="注解"
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="RecyclerView"
+                android:textColor="@color/teal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="match_parent"
+                    android:layout_weight="2"
                     android:layout_height="match_parent"
-                    android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
-                    android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:background="@color/teal"
+                    android:gravity="center"
+                    android:orientation="vertical">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/teal"
-                        android:orientation="horizontal">
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
-                        android:layout_weight="1"
-                        android:background="@color/teal"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/white"/>
-                    </LinearLayout>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text=""
+                        android:textColor="@color/white"/>
                 </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
                     android:layout_weight="1"
-                    android:orientation="horizontal">
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/teal"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/white"/>
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/teal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/teal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
                     </LinearLayout>
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
                         android:layout_weight="1"
-                        android:background="@color/teal"
                         android:orientation="horizontal">
 
-                        <TextView
+                        <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
-                            android:gravity="center"
-                            android:text=""
-                            android:textColor="@color/white"/>
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/teal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/teal"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text=""
+                                android:textColor="@color/white"/>
+                        </LinearLayout>
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
         </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+    </ScrollView>
+
+</LinearLayout>
