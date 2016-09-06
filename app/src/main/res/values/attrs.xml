@@ -17,4 +17,10 @@
         <attr name="lineDashGap" format="dimension|reference" />
     </declare-styleable>
 
+    <declare-styleable name="DashedView">
+        <attr name="dashColor" format="color" />
+        <attr name="dashWidth" format="dimension|reference" />
+        <attr name="dashGap" format="dimension|reference" />
+    </declare-styleable>
+
 </resources>
