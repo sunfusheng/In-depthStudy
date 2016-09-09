@@ -35,7 +35,7 @@ public class DashedView extends View {
         dashGap = (int) typedArray.getDimension(R.styleable.DashedView_dashGap, dashGap);
         typedArray.recycle();
 
-        mPaint = new Paint();
+        mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         mPaint.setStyle(Paint.Style.STROKE);
         mPaint.setColor(dashColor);
         mPaint.setStrokeWidth(dashWidth);
