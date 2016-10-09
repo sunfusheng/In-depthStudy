@@ -89,6 +89,7 @@ dependencies {
 
     // Local libs
     compile project(':DroidPlugin')
+    compile project(':Labrary:AnimatedSvgView')
 
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1'

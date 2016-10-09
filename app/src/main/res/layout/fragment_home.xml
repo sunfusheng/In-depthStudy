@@ -18,7 +18,8 @@
             android:layout_centerVertical="true"
             android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
             android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
-            app:mvSingleLine="true"/>
+            app:mvSingleLine="true"
+            app:mvInterval="5000"/>
     </RelativeLayout>
 
     <ScrollView

@@ -69,12 +69,12 @@ public class HomeFragment extends BaseFragment {
 
     private void initView() {
         List<String> info = new ArrayList<>();
-        info.add("1. 大家好，我是孙福生。");
-        info.add("2. 欢迎大家关注我哦！");
-        info.add("3. GitHub帐号：sfsheng0322");
-        info.add("4. 新浪微博：孙福生微博");
-        info.add("5. 个人博客：sunfusheng.com");
-        info.add("6. 微信公众号：孙福生");
+        info.add("大家好，我是孙福生。");
+        info.add("欢迎大家关注我哦！");
+        info.add("GitHub帐号：sfsheng0322");
+        info.add("新浪微博：孙福生微博");
+        info.add("个人博客：sunfusheng.com");
+        info.add("微信公众号：孙福生");
         marqueeView.startWithList(info);
     }
 

@@ -75,6 +75,11 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
         return typedValue.data;
     }
 
+    public void setFullScreen() {
+        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+    }
+
     public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);
