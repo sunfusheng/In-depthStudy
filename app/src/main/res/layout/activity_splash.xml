@@ -32,5 +32,4 @@
         android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:visibility="invisible"/>
-
 </RelativeLayout>

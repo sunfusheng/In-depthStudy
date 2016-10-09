@@ -37,14 +37,7 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                SVG svg = SVG.values()[1];
-                svgView.setGlyphStrings(svg.glyphs);
-                svgView.setFillColors(svg.colors);
-                svgView.setViewportSize(svg.width, svg.height);
-                svgView.setTraceResidueColor(0x32000000);
-                svgView.setTraceColors(svg.colors);
-                svgView.rebuildGlyphData();
-                svgView.start();
+                setSvg(SVG.values()[1]);
 
                 AnimUtil.animAlphaScaleShowView(tvTitle, 3000);
             }
@@ -61,6 +54,16 @@ public class SplashActivity extends BaseActivity {
                 }
             }
         });
+    }
+
+    private void setSvg(SVG svg) {
+        svgView.setGlyphStrings(svg.glyphs);
+        svgView.setFillColors(svg.colors);
+        svgView.setViewportSize(svg.width, svg.height);
+        svgView.setTraceResidueColor(0x32000000);
+        svgView.setTraceColors(svg.colors);
+        svgView.rebuildGlyphData();
+        svgView.start();
     }
 
 }
