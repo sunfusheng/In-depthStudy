@@ -55,12 +55,14 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
         }
     }
 
-    private void setTranslucentStatus() {
-        Window win = getWindow();
-        WindowManager.LayoutParams winParams = win.getAttributes();
-        int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
-        winParams.flags |= bits;
-        win.setAttributes(winParams);
+    public void setTranslucentStatus() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            Window win = getWindow();
+            WindowManager.LayoutParams winParams = win.getAttributes();
+            int bits = WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS;
+            winParams.flags |= bits;
+            win.setAttributes(winParams);
+        }
     }
 
     public int getColorPrimary() {
@@ -76,8 +78,8 @@ public class BaseActivity<T extends BaseControl> extends BaseAsyncActivity<T> im
     }
 
     public void setFullScreen() {
-        this.requestWindowFeature(Window.FEATURE_NO_TITLE);
-        this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     public void initToolBar(Toolbar toolbar, boolean homeAsUpEnabled, String title) {

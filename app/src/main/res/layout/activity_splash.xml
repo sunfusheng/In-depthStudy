@@ -29,8 +29,8 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="30dp"
         android:text="@string/app_name"
-        android:textColor="@color/font_black_4"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
-        android:visibility="gone"/>
+        android:visibility="invisible"/>
 
 </RelativeLayout>

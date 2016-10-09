@@ -25,7 +25,6 @@ public class SplashActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        setFullScreen();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
@@ -47,7 +46,7 @@ public class SplashActivity extends BaseActivity {
                 svgView.rebuildGlyphData();
                 svgView.start();
 
-                AnimUtil.animAlphaScaleShowView(tvTitle, 2000);
+                AnimUtil.animAlphaScaleShowView(tvTitle, 3000);
             }
         }, 500);
     }

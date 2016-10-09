@@ -81,13 +81,11 @@ public class AnimUtil {
             @Override
             public void onAnimationStart(Animation animation) {
                 animFlag = true;
-                view.setVisibility(View.VISIBLE);
             }
 
             @Override
             public void onAnimationEnd(Animation animation) {
                 animFlag = false;
-                view.setVisibility(View.VISIBLE);
             }
 
             @Override
