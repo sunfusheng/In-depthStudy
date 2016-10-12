@@ -577,6 +577,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ll_rv_list"
                     android:layout_width="match_parent"
                     android:layout_weight="2"
                     android:layout_height="match_parent"
@@ -586,13 +587,14 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"/>
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_image_recyclerview"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text=""
+                        android:text="RV List"
                         android:textColor="@color/white"/>
                 </LinearLayout>
 
@@ -683,6 +685,102 @@
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
+
+            <TextView
+                style="@style/StyleUIMainTitleTV"
+                android:text="工具类"
+                android:textColor="@color/brown"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dimen_ui_main_item_height"
+                android:layout_marginBottom="@dimen/dimen_ui_main_item_margin_top"
+                android:layout_marginLeft="@dimen/dimen_ui_main_item_margin"
+                android:layout_marginRight="@dimen/dimen_ui_main_item_margin"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/ll_status_bar"
+                    android:layout_width="match_parent"
+                    android:layout_weight="2"
+                    android:layout_height="match_parent"
+                    android:background="@color/brown"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/ic_image_util"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="StatusBarUtil"
+                        android:textColor="@color/white"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/brown"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/brown"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginTop="@dimen/dimen_ui_main_item_half_child_margin"
+                        android:layout_weight="1"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/brown"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="@dimen/dimen_ui_main_item_child_margin"
+                            android:layout_weight="1"
+                            android:background="@color/brown"
+                            android:orientation="horizontal">
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
 
         </LinearLayout>
 

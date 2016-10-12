@@ -18,6 +18,7 @@ import com.sun.study.ui.activity.ReflectionActivity;
 import com.sun.study.ui.activity.RetrofitActivity;
 import com.sun.study.ui.activity.ShapeViewActivity;
 import com.sun.study.ui.activity.ShareViewActivity;
+import com.sun.study.ui.activity.StatusBarActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
 import com.sunfusheng.marqueeview.MarqueeView;
@@ -55,6 +56,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvShareView;
     @Bind(R.id.marqueeView)
     MarqueeView marqueeView;
+    @Bind(R.id.ll_status_bar)
+    LinearLayout llStatusBar;
 
     @Nullable
     @Override
@@ -89,6 +92,7 @@ public class HomeFragment extends BaseFragment {
         llShapeView.setOnClickListener(this);
         tvMarqueeView.setOnClickListener(this);
         tvShareView.setOnClickListener(this);
+        llStatusBar.setOnClickListener(this);
     }
 
     @Override
@@ -124,6 +128,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.tv_ShareView:
                 NavigateManager.gotoSpecifiedActivity(getContext(), ShareViewActivity.class);
+                break;
+            case R.id.ll_status_bar:
+                NavigateManager.gotoSpecifiedActivity(getContext(), StatusBarActivity.class);
                 break;
         }
     }
