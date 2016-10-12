@@ -1,204 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.sun.study.view.ObservableScrollView
-        android:id="@+id/sv_root"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
+    <com.larswerkman.holocolorpicker.ColorPicker
+        android:id="@+id/colorPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="220dp"
-                android:background="@drawable/my_dog"
-                android:scaleType="centerCrop"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="1"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="2"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="3"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="4"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="5"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="6"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="7"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="8"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="9"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="10"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="11"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:padding="20dp"
-                android:text="12"
-                android:textSize="16sp"
-                android:textColor="@color/red"/>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1px"
-                android:background="@color/red"/>
-
-        </LinearLayout>
-    </com.sun.study.view.ObservableScrollView>
-
-    <TextView
-        android:id="@+id/tv_title"
+    <com.larswerkman.holocolorpicker.SVBar
+        android:id="@+id/svBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:text="带图片的沉浸式状态栏"
-        android:textSize="16sp"
-        android:textColor="@color/red"/>
+        android:layout_below="@+id/colorPicker"
+        android:layout_marginTop="30dp"/>
 
-</FrameLayout>
+    <TextView
+        android:id="@+id/tv_color"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/svBar"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text=""
+        android:textColor="@color/colorPrimary"/>
+</RelativeLayout>
