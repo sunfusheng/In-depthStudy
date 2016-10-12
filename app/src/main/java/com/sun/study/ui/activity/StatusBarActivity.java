@@ -36,7 +36,6 @@ public class StatusBarActivity extends BaseActivity implements ColorPicker.OnCol
 
     @Override
     public void onColorChanged(int color) {
-        tvColor.setText("" + color);
         StatusBarCompat.setStatusBarColor(this, color);
     }
 }

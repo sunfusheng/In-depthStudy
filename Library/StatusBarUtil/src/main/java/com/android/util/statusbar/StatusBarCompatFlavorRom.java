@@ -8,11 +8,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
- * 适配小米
- *
- * @author 黄浩杭 (huanghaohang@parkingwang.com)
- * @version 2016-06-22
- * @since 2016-06-22
+ * 适配小米、魅族
  */
 class StatusBarCompatFlavorRom {
 
@@ -40,8 +36,8 @@ class StatusBarCompatFlavorRom {
         IMPL.setLightStatusBar(window, lightStatusBar);
     }
 
-    static class MIUILightStatusBarImpl implements ILightStatusBar {
-        static boolean isMe() {
+    public static class MIUILightStatusBarImpl implements ILightStatusBar {
+        public static boolean isMe() {
             return "Xiaomi".equals(Build.MANUFACTURER);
         }
 
@@ -59,8 +55,8 @@ class StatusBarCompatFlavorRom {
         }
     }
 
-    static class MeizuLightStatusBarImpl implements ILightStatusBar {
-        static boolean isMe() {
+    public static class MeizuLightStatusBarImpl implements ILightStatusBar {
+        public static boolean isMe() {
             return Build.BRAND.contains("Meizu");
         }
 

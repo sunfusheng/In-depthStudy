@@ -8,10 +8,6 @@ import android.view.WindowManager;
 
 /**
  * 兼容M版本
- *
- * @author 黄浩杭 (huanghaohang@parkingwang.com)
- * @version 2016-06-20
- * @since 2016-06-20
  */
 class StatusBarMImpl implements IStatusBar {
 
@@ -39,6 +35,8 @@ class StatusBarMImpl implements IStatusBar {
         if (v != null) {
             v.setForeground(null);
         }
+        StatusBarCompat.setFitsSystemWindows(window, true);
+        StatusBarCompatFlavorRom.setLightStatusBar(window, lightStatusBar);
     }
 
 }

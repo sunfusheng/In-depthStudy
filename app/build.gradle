@@ -89,8 +89,8 @@ dependencies {
 
     // Local libs
     compile project(':DroidPlugin')
-    compile project(':Labrary:AnimatedSvgView')
-    compile project(':Labrary:StatusBarUtil')
+    compile project(':Library:AnimatedSvgView')
+    compile project(':Library:StatusBarUtil')
 
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1'
@@ -140,6 +140,7 @@ dependencies {
     // MarqueeView
     compile 'com.sunfusheng:marqueeview:1.1.0'
 
+    // HoloColorPicker
     compile 'com.larswerkman:HoloColorPicker:1.5'
 
 }

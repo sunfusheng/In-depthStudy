@@ -11,10 +11,6 @@ import android.view.WindowManager;
 
 /**
  * 设置系统状态栏颜色
- *
- * @author 黄浩杭 (huanghaohang@parkingwang.com)
- * @version 2016-06-20
- * @since 2016-06-20
  */
 public class StatusBarCompat {
 

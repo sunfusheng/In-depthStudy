@@ -2,13 +2,18 @@ package com.sun.study.ui.activity;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.Window;
 import android.widget.TextView;
 
+import com.android.util.statusbar.StatusBarCompat;
 import com.android.widget.svg.AnimatedSvgView;
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
 import com.sun.study.util.AnimUtil;
 import com.sun.study.view.SVG;
+
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -28,9 +33,23 @@ public class SplashActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
         ButterKnife.bind(this);
+        StatusBarCompat.setStatusBarColor(this, getResources().getColor(R.color.white), true);
 
         initView();
         initListener();
+    }
+
+    public void setLightStatusBar(Window window, boolean lightStatusBar) {
+        Class<? extends Window> clazz = window.getClass();
+        try {
+            Class<?> layoutParams = Class.forName("android.view.MiuiWindowManager$LayoutParams");
+            Field field = layoutParams.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE");
+            int darkModeFlag = field.getInt(layoutParams);
+            Method extraFlagField = clazz.getMethod("setExtraFlags", int.class, int.class);
+            extraFlagField.invoke(window, lightStatusBar ? darkModeFlag : 0, darkModeFlag);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void initView() {
