@@ -41,7 +41,7 @@
             android:gravity="center"
             android:layout_marginRight="15dp"
             android:layout_marginLeft="5dp"
-            android:background="@drawable/orange_bg_pressed"
+            android:background="@drawable/theme_color_bg_pressed"
             android:text="取消"
             android:textColor="@color/white"
             android:textSize="18sp"/>
