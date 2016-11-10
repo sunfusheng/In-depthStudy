@@ -83,6 +83,8 @@
                   android:screenOrientation="portrait"/>
         <activity android:name=".ui.activity.bezier.QuadraticBezierActivity"
                   android:screenOrientation="portrait"/>
+        <activity android:name=".ui.activity.bezier.CubicBezierActivity"
+                  android:screenOrientation="portrait"/>
 
         <!-- RxJava -->
         <activity android:name=".ui.activity.rxjava.RxJava1Activity"

@@ -36,6 +36,6 @@ public class BezierActivity extends BaseActivity {
 
     // 三阶贝赛尔曲线
     public void cubicBezierEvent(View v) {
-
+        NavigateManager.gotoSpecifiedActivity(this, CubicBezierActivity.class);
     }
 }
