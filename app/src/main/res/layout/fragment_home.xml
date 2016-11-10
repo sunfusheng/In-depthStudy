@@ -88,6 +88,14 @@
                             android:layout_weight="1"
                             android:background="@color/grey"
                             android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_Bezier"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:text="贝赛尔动画"
+                                android:textColor="@color/white"/>
                         </LinearLayout>
 
                         <LinearLayout

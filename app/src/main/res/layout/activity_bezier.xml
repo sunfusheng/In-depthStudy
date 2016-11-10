@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include layout="@layout/app_toolbar"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
+        android:layout_marginTop="16dp"
+        android:text="二阶贝赛尔曲线"
+        android:onClick="quadraticBezierEvent"/>
+
+    <TextView
+        style="@style/TvButtonStyle"
+        android:text="三阶贝赛尔曲线"
+        android:onClick="cubicBezierEvent"/>
+
+</LinearLayout>

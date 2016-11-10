@@ -21,6 +21,7 @@ import com.sun.study.ui.activity.ShareViewActivity;
 import com.sun.study.ui.activity.StatusBarActivity;
 import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
+import com.sun.study.ui.activity.bezier.BezierActivity;
 import com.sunfusheng.marqueeview.MarqueeView;
 
 import java.util.ArrayList;
@@ -58,6 +59,10 @@ public class HomeFragment extends BaseFragment {
     MarqueeView marqueeView;
     @Bind(R.id.ll_status_bar)
     LinearLayout llStatusBar;
+    @Bind(R.id.tv_Bezier)
+    TextView tvBezier;
+    @Bind(R.id.ll_rv_list)
+    LinearLayout llRvList;
 
     @Nullable
     @Override
@@ -93,6 +98,7 @@ public class HomeFragment extends BaseFragment {
         tvMarqueeView.setOnClickListener(this);
         tvShareView.setOnClickListener(this);
         llStatusBar.setOnClickListener(this);
+        tvBezier.setOnClickListener(this);
     }
 
     @Override
@@ -131,6 +137,9 @@ public class HomeFragment extends BaseFragment {
                 break;
             case R.id.ll_status_bar:
                 NavigateManager.gotoSpecifiedActivity(getContext(), StatusBarActivity.class);
+                break;
+            case R.id.tv_Bezier:
+                NavigateManager.gotoSpecifiedActivity(getContext(), BezierActivity.class);
                 break;
         }
     }

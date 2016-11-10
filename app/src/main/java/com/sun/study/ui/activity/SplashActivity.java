@@ -3,11 +3,13 @@ package com.sun.study.ui.activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.TextView;
 
 import com.android.util.statusbar.StatusBarCompat;
 import com.android.widget.svg.AnimatedSvgView;
 import com.sun.study.R;
+import com.sun.study.constant.GlobalParams;
 import com.sun.study.control.NavigateManager;
 import com.sun.study.util.AnimUtil;
 import com.sun.study.view.SVG;
@@ -53,6 +55,10 @@ public class SplashActivity extends BaseActivity {
     }
 
     private void initView() {
+        WindowManager wm = getWindowManager();
+        GlobalParams.SCREEN_WIDTH = wm.getDefaultDisplay().getWidth();
+        GlobalParams.SCREEN_HEIGHT = wm.getDefaultDisplay().getHeight();
+
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
