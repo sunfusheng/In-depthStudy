@@ -160,5 +160,4 @@ public class CubicBezier extends View {
         }
         return false;
     }
-
 }
