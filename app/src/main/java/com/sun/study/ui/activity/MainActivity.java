@@ -56,6 +56,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void initData() {
+
     }
 
     private void initView() {
