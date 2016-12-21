@@ -16,7 +16,6 @@ import butterknife.ButterKnife;
 import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Action1;
 import rx.schedulers.Schedulers;
 
 /**
@@ -87,35 +86,31 @@ public class RxJava1Activity extends BaseActivity {
     }
 
     public void deferClick(View v) {
-        Observable.defer(() -> Observable.just(System.currentTimeMillis())).subscribe(aLong -> {
-            sb.append("defer(): "+aLong+"\n");
-            tvContent.setText(sb.toString());
-        });
+        Observable.defer(() ->
+                Observable.just(System.currentTimeMillis()))
+                .subscribe(aLong -> {
+                    sb.append("defer(): "+aLong+"\n");
+                    tvContent.setText(sb.toString());
+                });
     }
 
     public void justClick(View v) {
         sb = new StringBuilder();
-        String[] strArr = {"this", "is", "just()"};
-        Observable.just(strArr).subscribe(new Action1<String[]>() {
-            @Override
-            public void call(String[] strs) {
-                for (String str:strs) {
-                    sb.append("just(): "+str+"\n");
-                }
-                tvContent.setText(sb.toString());
-            }
-        });
+        String[] strings = {"this", "is", "just", "operator"};
+        Observable.just(strings)
+                .flatMap(Observable::from)
+                .subscribe(s -> {
+                    sb.append("just(): "+s+"\n");
+                    tvContent.setText(sb);
+                },Throwable::printStackTrace);
     }
 
     public void fromClick(View v) {
         sb = new StringBuilder();
         String[] strArr = {"this", "is", "from()"};
-        Observable.from(strArr).subscribe(new Action1<String>() {
-            @Override
-            public void call(String str) {
-                sb.append("from(): "+str+"\n");
-                tvContent.setText(sb.toString());
-            }
+        Observable.from(strArr).subscribe(str -> {
+            sb.append("from(): "+str+"\n");
+            tvContent.setText(sb.toString());
         });
     }
 
