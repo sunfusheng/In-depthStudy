@@ -3,6 +3,7 @@ buildscript {
 
     repositories {
         jcenter()
+        mavenCentral()
         maven { url 'https://dl.bintray.com/drummer-aidan/maven' }
         maven { url 'https://jitpack.io' }
     }
@@ -10,12 +11,14 @@ buildscript {
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+        classpath 'me.tatarka:gradle-retrolambda:3.4.0'
     }
 }
 
 allprojects {
     repositories {
         jcenter()
+        mavenCentral()
         maven { url 'https://dl.bintray.com/drummer-aidan/maven' }
         maven { url 'https://jitpack.io' }
     }

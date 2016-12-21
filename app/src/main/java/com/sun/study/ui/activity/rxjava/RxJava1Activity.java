@@ -17,7 +17,6 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action1;
-import rx.functions.Func0;
 import rx.schedulers.Schedulers;
 
 /**
@@ -88,17 +87,9 @@ public class RxJava1Activity extends BaseActivity {
     }
 
     public void deferClick(View v) {
-        Observable.defer(new Func0<Observable<Long>>() {
-            @Override
-            public Observable<Long> call() {
-                return Observable.just(System.currentTimeMillis());
-            }
-        }).subscribe(new Action1<Long>() {
-            @Override
-            public void call(Long aLong) {
-                sb.append("defer(): "+aLong+"\n");
-                tvContent.setText(sb.toString());
-            }
+        Observable.defer(() -> Observable.just(System.currentTimeMillis())).subscribe(aLong -> {
+            sb.append("defer(): "+aLong+"\n");
+            tvContent.setText(sb.toString());
         });
     }
 

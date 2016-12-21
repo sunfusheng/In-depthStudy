@@ -1,5 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'me.tatarka.retrolambda'
 
 Properties prop = new Properties()
 prop.load(new FileInputStream(file("../signing.properties")))
@@ -19,8 +20,8 @@ android {
     }
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_7
-        targetCompatibility JavaVersion.VERSION_1_7
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
     }
 
     lintOptions {
@@ -98,9 +99,6 @@ dependencies {
     // Logger
     compile 'com.orhanobut:logger:1.4'
 
-    // OkHttp
-    compile 'com.squareup.okhttp3:okhttp:3.2.0'
-
     // MultiDex
     compile 'com.android.support:multidex:1.0.0'
 
@@ -119,11 +117,14 @@ dependencies {
     // Fresco
     compile 'com.facebook.fresco:fresco:0.9.0'
 
-    // RxJava RxAndroid
-    compile 'io.reactivex:rxjava:1.0.16'
-    compile 'io.reactivex:rxandroid:1.0.1'
+    // RxJava RxAndroid RxLifecycle
+    compile 'io.reactivex:rxjava:1.2.4'
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.trello:rxlifecycle:1.0'
+    compile 'com.trello:rxlifecycle-components:1.0'
 
-    // Retrofit Gson RxJava
+    // OkHttp Retrofit
+    compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.retrofit:retrofit:2.0.0-beta2'
     compile 'com.squareup.retrofit:converter-gson:2.0.0-beta2'
     compile 'com.squareup.retrofit:adapter-rxjava:2.0.0-beta2'
