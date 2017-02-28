@@ -6,7 +6,6 @@ Properties prop = new Properties()
 prop.load(new FileInputStream(file("../signing.properties")))
 
 android {
-
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
 
@@ -44,7 +43,6 @@ android {
     }
 
     buildTypes {
-
         release {
             //压缩资源
             shrinkResources true
@@ -60,13 +58,7 @@ android {
         }
 
         debug{
-            //压缩资源
-            shrinkResources false
-            //zip优化
-            zipAlignEnabled false
-            //apk签名
             signingConfig signingConfigs.release
-
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
             applicationVariants.all {
                 variant -> generateAppName(variant)
@@ -77,16 +69,15 @@ android {
 
 //生成自定义App名称
 def generateAppName(variant) {
-    variant.outputs.each {
-        output -> output.outputFile = new File (output.outputFile.parent,
-                "In-depthStudy_${variant.buildType.name}_V${variant.versionName}.apk".toLowerCase())
+    variant.outputs.each { output -> output.outputFile = new File (output.outputFile.parent,
+                "In-depthStudy_V${variant.versionName}.apk".toLowerCase())
     }
 }
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile 'com.android.support:appcompat-v7:23.2.1'
-    compile 'com.android.support:design:23.2.1'
+    compile 'com.android.support:appcompat-v7:25.2.0'
+    compile 'com.android.support:design:25.2.0'
 
     // Local libs
     compile project(':DroidPlugin')
@@ -100,7 +91,7 @@ dependencies {
     compile 'com.orhanobut:logger:1.4'
 
     // MultiDex
-    compile 'com.android.support:multidex:1.0.0'
+    compile 'com.android.support:multidex:1.0.1'
 
     // SharedPreferences
     apt 'de.devland.esperandro:esperandro:2.2.0'
@@ -132,9 +123,6 @@ dependencies {
     //Floating Search View
     compile 'com.github.arimorty:floatingsearchview:1.1.2'
 
-    // MultiDex
-    compile 'com.android.support:multidex:1.0.0'
-
     // Sweet Alert Dialog
     compile 'cn.pedant.sweetalert:library:1.3'
 
@@ -143,5 +131,4 @@ dependencies {
 
     // HoloColorPicker
     compile 'com.larswerkman:HoloColorPicker:1.5'
-
 }
