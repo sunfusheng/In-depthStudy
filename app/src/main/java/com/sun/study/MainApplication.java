@@ -9,6 +9,8 @@ import com.sun.study.framework.exception.CrashHandler;
 import com.sun.study.framework.proxy.ControlFactory;
 import com.sun.study.framework.sharedpreferences.FastJsonSerial;
 import com.sun.study.util.FrescoUtil;
+import com.sunfusheng.multitheme.SkinCompatManager;
+import com.sunfusheng.multitheme.design.SkinMaterialManager;
 
 import de.devland.esperandro.Esperandro;
 
@@ -29,6 +31,8 @@ public class MainApplication extends Application {
         FrescoUtil.init(this);
         CrashHandler.getInstance().init(this);
 //        PluginHelper.getInstance().applicationOnCreate(getBaseContext());
+        SkinMaterialManager.init(this);
+        SkinCompatManager.init(this).loadSkin();
     }
 
     public static MainApplication getInstance() {

@@ -12,7 +12,7 @@ public class MultiThreadActivity extends BaseActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_multi_thread);
+        setContentView(R.layout.activity_multithread);
 
     }
 

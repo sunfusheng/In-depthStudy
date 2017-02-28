@@ -1,17 +1,17 @@
 package com.sun.study.framework.base;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import com.sun.study.framework.proxy.MessageProxy;
 import com.sun.study.framework.proxy.ModelMap;
 import com.sun.study.framework.proxy.common.IRefreshBack;
 import com.sun.study.framework.proxy.helper.ActivityHelper;
+import com.sunfusheng.multitheme.app.SkinCompatActivity;
 
 import de.devland.esperandro.Esperandro;
 
-public class BaseAsyncActivity<T extends BaseControl> extends AppCompatActivity implements IRefreshBack {
+public class BaseAsyncActivity<T extends BaseControl> extends SkinCompatActivity implements IRefreshBack {
 
     protected T mControl;
     protected MessageProxy messageProxy;

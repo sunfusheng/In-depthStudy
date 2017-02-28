@@ -23,6 +23,8 @@ import com.sun.study.ui.activity.ThreadActivity;
 import com.sun.study.ui.activity.ThreadPoolActivity;
 import com.sun.study.ui.activity.bezier.BezierActivity;
 import com.sunfusheng.marqueeview.MarqueeView;
+import com.sunfusheng.multitheme.SkinCompatManager;
+import com.sunfusheng.multitheme.utils.SkinLog;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,6 +65,8 @@ public class HomeFragment extends BaseFragment {
     TextView tvBezier;
     @Bind(R.id.ll_rv_list)
     LinearLayout llRvList;
+    @Bind(R.id.tv_multi_theme)
+    TextView tvMultiTheme;
 
     @Nullable
     @Override
@@ -99,6 +103,7 @@ public class HomeFragment extends BaseFragment {
         tvShareView.setOnClickListener(this);
         llStatusBar.setOnClickListener(this);
         tvBezier.setOnClickListener(this);
+        tvMultiTheme.setOnClickListener(this);
     }
 
     @Override
@@ -141,8 +146,33 @@ public class HomeFragment extends BaseFragment {
             case R.id.tv_Bezier:
                 NavigateManager.gotoSpecifiedActivity(getContext(), BezierActivity.class);
                 break;
+            case R.id.tv_multi_theme:
+                if (!isNightMode) {
+                    SkinCompatManager.getInstance().loadSkin("night.skin", new SkinCompatManager.SkinLoaderListener() {
+                        @Override
+                        public void onStart() {
+                            SkinLog.d("onStart");
+                        }
+
+                        @Override
+                        public void onSuccess() {
+                            SkinLog.d("onSuccess");
+                        }
+
+                        @Override
+                        public void onFailed(String errMsg) {
+                            SkinLog.d("onFailed");
+                        }
+                    });
+                } else {
+                    SkinCompatManager.getInstance().restoreDefaultTheme();
+                }
+                isNightMode = !isNightMode;
+                break;
         }
     }
+
+    private boolean isNightMode = false;
 
     @Override
     public void onDestroyView() {

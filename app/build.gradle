@@ -83,6 +83,7 @@ dependencies {
     compile project(':DroidPlugin')
     compile project(':Library:AnimatedSvgView')
     compile project(':Library:StatusBarUtil')
+    compile project(':Library:MultiTheme')
 
     // ButterKnife
     compile 'com.jakewharton:butterknife:7.0.1'

@@ -1,6 +1,11 @@
 include ':app',
+        ':Library:AnimatedSvgView',
+        ':Library:StatusBarUtil',
+        ':Library:MultiTheme',
+
         ':DroidPlugin',
         ':DroidPluginDemo',
         ':MVPDemo',
-        ':Library:AnimatedSvgView',
-        ':Library:StatusBarUtil'
+        ':MultiTheme-Night'
+
+

@@ -148,6 +148,10 @@
         <activity android:name=".ui.activity.StatusBarActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- 多主题 -->
+        <activity android:name=".ui.activity.MultiThemeActivity"
+                  android:screenOrientation="portrait"/>
+
         <!-- IntentService -->
         <service android:name=".service.MyIntentService"/>
 
