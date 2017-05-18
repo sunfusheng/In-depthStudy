@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.sun.study.R;
 import com.sun.study.control.NavigateManager;
 import com.sun.study.ui.activity.AnnotationActivity;
+import com.sun.study.ui.activity.CircleTextViewActivity;
 import com.sun.study.ui.activity.MarqueeViewActivity;
 import com.sun.study.ui.activity.MultiThreadActivity;
 import com.sun.study.ui.activity.OkHttpActivity;
@@ -67,6 +68,8 @@ public class HomeFragment extends BaseFragment {
     LinearLayout llRvList;
     @Bind(R.id.tv_multi_theme)
     TextView tvMultiTheme;
+    @Bind(R.id.tv_CircleTextView)
+    TextView tvCircleTextView;
 
     @Nullable
     @Override
@@ -104,6 +107,7 @@ public class HomeFragment extends BaseFragment {
         llStatusBar.setOnClickListener(this);
         tvBezier.setOnClickListener(this);
         tvMultiTheme.setOnClickListener(this);
+        tvCircleTextView.setOnClickListener(this);
     }
 
     @Override
@@ -168,6 +172,9 @@ public class HomeFragment extends BaseFragment {
                     SkinCompatManager.getInstance().restoreDefaultTheme();
                 }
                 isNightMode = !isNightMode;
+                break;
+            case R.id.tv_CircleTextView:
+                NavigateManager.gotoSpecifiedActivity(getContext(), CircleTextViewActivity.class);
                 break;
         }
     }

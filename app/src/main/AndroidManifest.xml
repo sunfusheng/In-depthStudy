@@ -144,6 +144,10 @@
         <activity android:name=".ui.activity.ShareViewActivity"
                   android:screenOrientation="portrait"/>
 
+        <!-- CircleNumberView -->
+        <activity android:name=".ui.activity.CircleTextViewActivity"
+                  android:screenOrientation="portrait"/>
+
         <!-- 沉浸式状态栏 -->
         <activity android:name=".ui.activity.StatusBarActivity"
                   android:screenOrientation="portrait"/>

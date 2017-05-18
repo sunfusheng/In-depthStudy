@@ -2,25 +2,34 @@
 <resources>
 
     <declare-styleable name="ShapeViewStyle">
-        <attr name="viewWidth" format="dimension|reference" />
-        <attr name="viewHeight" format="dimension|reference" />
-        <attr name="viewColor" format="color|reference" />
+        <attr name="viewWidth" format="dimension|reference"/>
+        <attr name="viewHeight" format="dimension|reference"/>
+        <attr name="viewColor" format="color|reference"/>
 
         <attr name="viewShape" format="enum">
-            <enum name="rect" value="0" />
-            <enum name="oval" value="1" />
-            <enum name="line" value="2" />
+            <enum name="rect" value="0"/>
+            <enum name="oval" value="1"/>
+            <enum name="line" value="2"/>
         </attr>
 
-        <attr name="lineWidth" format="dimension|reference" />
-        <attr name="lineDashWidth" format="dimension|reference" />
-        <attr name="lineDashGap" format="dimension|reference" />
+        <attr name="lineWidth" format="dimension|reference"/>
+        <attr name="lineDashWidth" format="dimension|reference"/>
+        <attr name="lineDashGap" format="dimension|reference"/>
     </declare-styleable>
 
     <declare-styleable name="DashedView">
-        <attr name="dashColor" format="color" />
-        <attr name="dashWidth" format="dimension|reference" />
-        <attr name="dashGap" format="dimension|reference" />
+        <attr name="dashColor" format="color"/>
+        <attr name="dashWidth" format="dimension|reference"/>
+        <attr name="dashGap" format="dimension|reference"/>
+    </declare-styleable>
+
+    <declare-styleable name="CircleTextViewStyle">
+        <attr name="ctv_circle_width" format="dimension|reference"/>
+        <attr name="ctv_circle_radius" format="dimension|reference"/>
+        <attr name="ctv_circle_color" format="color|reference"/>
+        <attr name="ctv_text_size" format="dimension|reference"/>
+        <attr name="ctv_text_color" format="color|reference"/>
+        <attr name="ctv_text" format="string|reference"/>
     </declare-styleable>
 
 </resources>

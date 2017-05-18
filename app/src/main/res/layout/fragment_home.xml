@@ -209,6 +209,15 @@
                             android:layout_weight="1"
                             android:background="@color/blue"
                             android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/tv_CircleTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:gravity="center"
+                                android:singleLine="true"
+                                android:text="CircleTextView"
+                                android:textColor="@color/white"/>
                         </LinearLayout>
                     </LinearLayout>
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="colorPrimary">#DD3A38</color>
-    <color name="colorPrimaryDark">#DD3A38</color>
-    <color name="colorAccent">#DD3A38</color>
+    <color name="colorPrimary">#ff5555</color>
+    <color name="colorPrimaryDark">#ff5555</color>
+    <color name="colorAccent">#ff5555</color>
 
-    <color name="red">#DD3A38</color>
+    <color name="red">#ff5555</color>
     <color name="pink">#e91e63</color>
     <color name="purple">#ba68c8</color>
     <color name="indigo">#3f51b5</color>
@@ -21,10 +21,10 @@
     <color name="grey">#607d8b</color>
 
     <!-- common -->
-    <color name="white">#bdbdbd</color>
+    <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="transparent">#00000000</color>
-    <color name="bg">#f2f2f2</color>
+    <color name="bg">#f8f8f8</color>
 
     <!-- material design black font color -->
     <color name="font_black_0">#212121</color>
