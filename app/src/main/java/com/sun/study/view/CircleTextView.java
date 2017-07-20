@@ -92,17 +92,17 @@ public class CircleTextView extends View {
         invalidate();
     }
 
-    public void setColor(@ColorInt int circleColor) {
+    public void setCircleColor(@ColorInt int circleColor) {
         this.circleColor = circleColor;
         mCirclePaint.setColor(circleColor);
         invalidate();
     }
 
-    public void setCircleColor(@ColorInt int color) {
+    public void setColor(@ColorInt int color) {
         this.circleColor = color;
         this.textColor = color;
-        mCirclePaint.setColor(circleColor);
-        mTextPaint.setColor(textColor);
+        mCirclePaint.setColor(color);
+        mTextPaint.setColor(color);
         invalidate();
     }
 

@@ -23,7 +23,7 @@
                 android:layout_width="54dip"
                 android:layout_height="wrap_content"
                 app:ctv_circle_color="@color/red"
-                app:ctv_circle_radius="25dip"
+                app:ctv_circle_radius="24dip"
                 app:ctv_circle_width="2dip"
                 app:ctv_text_color="@color/red"
                 app:ctv_text_size="20sp"
